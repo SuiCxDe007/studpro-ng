@@ -30,7 +30,7 @@ export default function WhatIs() {
                         </MDBCard>
                     </MDBCol>
                     <MDBCol>
-                <MDBCard>
+                <MDBCard style={{backgroundColor:"#dfe5fd"}}>
                     <MDBCardHeader className="card-title-text">OVERVIEW</MDBCardHeader>
                     <MDBCardBody>
                         <MDBTypography blockquote className='mb-0 ov-desc'>
@@ -45,7 +45,7 @@ export default function WhatIs() {
                     </MDBCol>
                 </MDBRow>
                 <br/>
-                <MDBCard>
+                <MDBCard  style={{backgroundColor:"#dfe5fd"}}>
                     <MDBCardHeader className="card-title-text">What We Do</MDBCardHeader>
                     <MDBCardBody>
                         <MDBTypography blockquote className='mb-0 ov-desc'>
@@ -124,7 +124,7 @@ export default function WhatIs() {
                 </MDBCard>
 
                 <div style={{marginTop: "20px"}}>
-                    <MDBCard>
+                    <MDBCard  style={{backgroundColor:"#dfe5fd"}}>
                         <span style={{marginTop: "10px"}} className="card-title-text">For Whom?</span>
                         <p className={"font"} style={{fontSize: "20px"}}>IEEE StudPro Career Fairs' target audience are
                             undergraduates & fresh graduates who are seeking internships and/or jobs.</p>
