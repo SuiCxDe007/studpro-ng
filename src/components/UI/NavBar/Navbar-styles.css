@@ -1,0 +1,22 @@
+
+    #nav-logo{
+        width: 10%;
+        height: 10%;
+        margin-left: 150px;
+    }
+
+    @media (min-width: 1000px) {
+        #nav-content{
+            margin-right: 150px;
+        }
+    }
+
+
+@media (max-width:960px) {
+
+    #nav-logo{
+        width: 100px;
+        height: 30px;
+        margin-left: 10px;
+    }
+}

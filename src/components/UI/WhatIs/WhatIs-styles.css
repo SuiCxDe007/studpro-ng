@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Prompt:wght@200&display=swap');
+.card-title-text{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Prompt', sans-serif;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.font{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Prompt', sans-serif;
+}
+
+
+.WhatisComp{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.ov-desc{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Prompt', sans-serif;
+    font-size: 20px;
+}
