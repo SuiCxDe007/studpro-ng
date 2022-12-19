@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Prompt:wght@200&display=swap');
+
+.SponsorSettingsComp{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top:  20px
+}
+
+
+.font{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Prompt', sans-serif;
+}
+
+.form-font{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Prompt', sans-serif;
+    font-weight: bold;
+}
