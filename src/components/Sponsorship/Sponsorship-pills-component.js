@@ -58,19 +58,19 @@ const SponsorshipPills = (props) => {
 
                 props.partnerships && <div>
                     {props.partnerships.spfive.length > 0 && <MDBBadge pill className='mx-2' color={spFiveColor}>
-                        {props.partnerships.spfive}
+                        StudPro 5.0 {props.partnerships.spfive}
                     </MDBBadge>}
                     {props.partnerships.spfour.length > 0 && <MDBBadge pill className='mx-2' color={spFourColor}>
-                        {props.partnerships.spfour}
+                        StudPro 4.0 {props.partnerships.spfour}
                     </MDBBadge>}
                     {props.partnerships.spthree.length > 0 && <MDBBadge pill className='mx-2' color={spThreeColor}>
-                        {props.partnerships.spthree}
+                        StudPro 3.0 {props.partnerships.spthree}
                     </MDBBadge>}
                     {props.partnerships.sptwo.length > 0 && <MDBBadge pill className='mx-2' color={spTwoColor}>
-                        {props.partnerships.sptwo}
+                        StudPro 2.0 {props.partnerships.sptwo}
                     </MDBBadge>}
                     {props.partnerships.spone.length > 0 && <MDBBadge pill className='mx-2' color={spOneColor}>
-                        {props.partnerships.spone}
+                        StudPro 1.0 {props.partnerships.spone}
                     </MDBBadge>}
                 </div>}
         </>

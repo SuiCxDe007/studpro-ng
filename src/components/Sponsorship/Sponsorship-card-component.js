@@ -4,7 +4,6 @@ import {
     MDBCard,
     MDBCardBody,
     MDBCardImage,
-    MDBCardLink,
     MDBCardTitle,
     MDBCol,
     MDBListGroup,
@@ -21,7 +20,7 @@ const SponsorshipCardComponent = props => {
         <MDBCol>
             <MDBCard className={'h-100'}>
                 <MDBCardImage
-                    //   src={`${props.sponsor.logo}`}
+                    src={`${props.sponsor.logo}`}
                     alt='...'
                     position='top'
                 />
@@ -33,8 +32,9 @@ const SponsorshipCardComponent = props => {
                             Us</MDBListGroupItem>
                         <MDBListGroupItem> <SponsorshipPills partnerships={props.sponsor.partnerships}/>
                         </MDBListGroupItem>
-                    </MDBListGroup>
-                    <MDBCardLink href='#'>Website</MDBCardLink>
+
+                        <MDBListGroupItem>  <a href={props.sponsor.companyURL} target={"_blank"}> <button style={{position:"relative", bottom:"0"}} type="button" className="btn btn-primary btn-rounded">Website</button></a>
+                    </MDBListGroupItem>   </MDBListGroup>
                 </MDBCardBody>
             </MDBCard>
         </MDBCol>

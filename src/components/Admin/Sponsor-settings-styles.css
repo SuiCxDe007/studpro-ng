@@ -5,7 +5,14 @@
     margin-right: 50px;
     margin-top:  20px
 }
-
+.alert-fixed {
+    position:fixed;
+    bottom: 0px;
+    left: 50%;
+    width: 100%;
+    z-index:9999;
+    border-radius:10px
+}
 
 .font{
     font-family: 'Montserrat', sans-serif;
