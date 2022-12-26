@@ -1,6 +1,8 @@
 import React from "react";
 import "./WhatIs-styles.css";
 import {
+    MDBBadge,
+    MDBBtn,
     MDBCard,
     MDBCardBody,
     MDBCardHeader,
@@ -9,20 +11,20 @@ import {
     MDBCardText,
     MDBCardTitle,
     MDBCol,
+    MDBIcon,
     MDBRow,
     MDBTypography
 } from 'mdb-react-ui-kit';
+import studProProgramImg from '../../../media/img/studpro-programs.webp';
 
 export default function WhatIs() {
     return (
         <>
             <div className="WhatisComp">
-
-
                 <br/>
                 <MDBRow style={{marginTop: "0px"}} className='row-cols-1 row-cols-md-2 g-2'>
                     <MDBCol>
-                        <MDBCard  >
+                        <MDBCard>
                             <MDBCardImage height="330px" overlay src={require('../../../media/img/overview-img.png')}
                                           alt='...'/>
                             <MDBCardOverlay>
@@ -30,22 +32,25 @@ export default function WhatIs() {
                         </MDBCard>
                     </MDBCol>
                     <MDBCol>
-                <MDBCard style={{backgroundColor:"#dfe5fd"}}>
-                    <MDBCardHeader className="card-title-text">OVERVIEW</MDBCardHeader>
-                    <MDBCardBody>
-                        <MDBTypography blockquote className='mb-0 ov-desc'>
-                            <p>StudPro Career Fair was an initiative by Institute of Electrical and Electronics
-                                Engineers (IEEE) Young Professional Sri Lanka Section 2017 Executive Committee to
-                                provide a platform for IEEE student members to expose their talent to the industries as
-                                well as to encourage the student members to continue their IEEE membership as Young
-                                Professionals.</p>
-                        </MDBTypography>
-                    </MDBCardBody>
-                </MDBCard>
+                        <MDBCard style={{backgroundColor: "#dfe5fd"}}>
+                            <MDBCardHeader className="card-title-text">OVERVIEW</MDBCardHeader>
+                            <MDBCardBody>
+                                <MDBTypography blockquote className='mb-0 ov-desc'>
+                                    <p>StudPro Career Fair was an initiative by Institute of Electrical and Electronics
+                                        Engineers (IEEE) Young Professional Sri Lanka Section 2017 Executive Committee
+                                        to
+                                        provide a platform for IEEE student members to expose their talent to the
+                                        industries as
+                                        well as to encourage the student members to continue their IEEE membership as
+                                        Young
+                                        Professionals.</p>
+                                </MDBTypography>
+                            </MDBCardBody>
+                        </MDBCard>
                     </MDBCol>
                 </MDBRow>
                 <br/>
-                <MDBCard  style={{backgroundColor:"#dfe5fd"}}>
+                <MDBCard style={{backgroundColor: "#dfe5fd"}}>
                     <MDBCardHeader className="card-title-text">What We Do</MDBCardHeader>
                     <MDBCardBody>
                         <MDBTypography blockquote className='mb-0 ov-desc'>
@@ -67,7 +72,8 @@ export default function WhatIs() {
                                     <MDBCardBody>
                                         <MDBCardTitle className={"font"}> <strong>Webinars</strong></MDBCardTitle>
                                         <MDBCardText className={"font"}><br/>
-                                            <b> Webinars & Session series starting from CV writing, Grooming, Interview facing tips, Industry niches & much more!
+                                            <b> Webinars & Session series starting from CV writing, Grooming, Interview
+                                                facing tips, Industry niches & much more!
                                             </b> </MDBCardText>
                                     </MDBCardBody>
                                 </MDBCard>
@@ -82,7 +88,9 @@ export default function WhatIs() {
                                     <MDBCardBody>
                                         <MDBCardTitle className={"font"}> <strong>Workshops</strong></MDBCardTitle>
                                         <MDBCardText className={"font"}><br/>
-                                            <b> Workshops on how to maintain your LinkedIn Profile, writing Emails, Creating CVs and a whole lot more to ensure our candidates are better prepared
+                                            <b> Workshops on how to maintain your LinkedIn Profile, writing Emails,
+                                                Creating CVs and a whole lot more to ensure our candidates are better
+                                                prepared
                                             </b> </MDBCardText>
                                     </MDBCardBody>
                                 </MDBCard>
@@ -98,7 +106,8 @@ export default function WhatIs() {
                                         <MDBCardTitle className={"font"}> <strong>Ask Me Anything Series
                                             Graduates</strong></MDBCardTitle>
                                         <MDBCardText className={"font"}><br/>
-                                            <b> A Session series targeted to get answers for burning questions of undergraduates & fresh graduates directly from industry professionals.
+                                            <b> A Session series targeted to get answers for burning questions of
+                                                undergraduates & fresh graduates directly from industry professionals.
                                             </b> </MDBCardText>
                                     </MDBCardBody>
                                 </MDBCard>
@@ -114,7 +123,9 @@ export default function WhatIs() {
                                         <MDBCardTitle className={"font"}> <strong>
                                             Career Fair</strong></MDBCardTitle>
                                         <MDBCardText className={"font"}><br/>
-                                            <b> Flagship event of IEEE StudPro to make sure the candidates who are groomed to a higher level are ready to take their next step with a industry giant
+                                            <b> Flagship event of IEEE StudPro to make sure the candidates who are
+                                                groomed to a higher level are ready to take their next step with a
+                                                industry giant
                                             </b> </MDBCardText>
                                     </MDBCardBody>
                                 </MDBCard>
@@ -124,7 +135,7 @@ export default function WhatIs() {
                 </MDBCard>
 
                 <div style={{marginTop: "20px"}}>
-                    <MDBCard  style={{backgroundColor:"#dfe5fd"}}>
+                    <MDBCard style={{backgroundColor: "#dfe5fd", paddingBottom: "20px"}}>
                         <span style={{marginTop: "10px"}} className="card-title-text">For Whom?</span>
                         <p className={"font"} style={{fontSize: "20px"}}>IEEE StudPro Career Fairs' target audience are
                             undergraduates & fresh graduates who are seeking internships and/or jobs.</p>
@@ -189,10 +200,33 @@ export default function WhatIs() {
                     </MDBCard>
                 </div>
 
-
+                <div style={{marginTop: "20px"}}>
+                    <MDBCard style={{paddingLeft: "10px", backgroundColor: "#dfe5fd", paddingBottom: "20px"}}>
+                        <span style={{marginTop: "10px"}}> <span
+                            className="animate-stud" style={{fontSize: '50px'}}>Stud</span>
+                                    <span
+                                        className="animate-pro" style={{fontSize: '50px'}}>Pro 5.0</span>
+                                  </span>
+                        <p className={"font"} style={{fontSize: "20px"}}>Fifth Iteration of StudPro, <MDBBadge
+                            color='warning'>StudPro 5.0 </MDBBadge>&nbsp;was
+                            able to conduct
+                            <b> 20+ sessions </b>for <MDBIcon fas icon="laptop"/> Computing, <MDBIcon fas
+                                                                                                      icon="microchip"/> &nbsp;Electrical, <MDBIcon
+                                fas icon="plug"/> Electronic & <MDBIcon fas icon="broadcast-tower"/> Telecommunication
+                            Streams reaching
+                            <b> 2500+ Participants</b> covering&nbsp;
+                            <b> 21 Major Universities</b> with over
+                            <b> 20+
+                                Professional speakers!</b>
+                            <br/>
+                            <MDBBtn className={'bg-danger bg-gradient'} size='lg' style={{margin: "20px"}}><MDBIcon fas
+                                                                                                                    icon="video"/> &nbsp;
+                                <b>Watch Our Sessions</b></MDBBtn><br/>
+                        </p>
+                        <MDBCardImage position='top' src={studProProgramImg} alt='...'/>
+                    </MDBCard>
+                </div>
             </div>
-
-
         </>
     )
 }

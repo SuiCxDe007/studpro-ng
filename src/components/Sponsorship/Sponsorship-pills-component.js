@@ -42,15 +42,7 @@ const SponsorshipPills = (props) => {
         if (props.partnerships[studpro].includes("Participant")) {
             callback("info")
         }
-
-
     }
-
-    useEffect(() => {
-        console.log("UE EFFECT FIREd")
-        console.log(spFiveColor, spOneColor, spTwoColor, spThreeColor, spFourColor)
-    }, [spFiveColor]);
-
 
     return (
         <>

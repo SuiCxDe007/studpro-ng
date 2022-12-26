@@ -8,11 +8,9 @@ import {
     MDBNavbarItem,
     MDBNavbarLink,
     MDBCollapse,
-    MDBBtn,
     MDBIcon,
-    MDBNavbarNav,
-    MDBInputGroup
-} from 'mdb-react-ui-kit';
+    MDBNavbarNav
+    } from 'mdb-react-ui-kit';
 const Navbar = () => {
 
     const [showNavNoTogglerSecond, setShowNavNoTogglerSecond] = useState(false);

@@ -14,8 +14,6 @@ import SponsorshipPills from "./Sponsorship-pills-component";
 
 const SponsorshipCardComponent = props => {
 
-    console.log(props.sponsor.partnerships)
-
     return (
         <MDBCol>
             <MDBCard className={'h-100'}>
@@ -32,9 +30,12 @@ const SponsorshipCardComponent = props => {
                             Us</MDBListGroupItem>
                         <MDBListGroupItem> <SponsorshipPills partnerships={props.sponsor.partnerships}/>
                         </MDBListGroupItem>
-
-                        <MDBListGroupItem>  <a href={props.sponsor.companyURL} target={"_blank"}> <button style={{position:"relative", bottom:"0"}} type="button" className="btn btn-primary btn-rounded">Website</button></a>
-                    </MDBListGroupItem>   </MDBListGroup>
+                        <MDBListGroupItem> <a href={props.sponsor.companyURL} target={"_blank"}>
+                            <button style={{position: "relative", bottom: "0"}} type="button"
+                                    className="btn btn-primary btn-rounded">Website
+                            </button>
+                        </a>
+                        </MDBListGroupItem> </MDBListGroup>
                 </MDBCardBody>
             </MDBCard>
         </MDBCol>

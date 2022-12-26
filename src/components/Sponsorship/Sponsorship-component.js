@@ -33,9 +33,7 @@ const SponsorshipComponent = (props) => {
                         <p>We have partnered with Industry leading companies from all around Sri Lanka & with their
                             generous support we are able to make our events a success! <br/><br/></p>
                     </MDBTypography>
-
                     <MDBRow style={{marginTop: "0px"}} className='row-cols-1 row-cols-md-4 g-4'>
-
                         {sponsordataState && sponsordataState.sort((a, b) => a.oid > b.oid ? 1 : -1).map(sponsor => (
                             <SponsorshipCardComponent key={sponsor.id} sponsor={sponsor}/>
                         )).sort()}

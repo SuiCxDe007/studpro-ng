@@ -90,27 +90,27 @@ export default function FooterComponent() {
                         <MDBCol md='3' lg='2' xl='2' className='mx-auto mb-4'>
                             <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
                             <p>
-                                <a href='https://www.ieee.org/'  target="_blank" className='text-reset'>
+                                <a   rel="noreferrer"  href='https://www.ieee.org/'  target="_blank" className='text-reset'>
                                     IEEE
                                 </a>
                             </p>
                             <p>
-                                <a href='https://ieee.lk/'  target="_blank" className='text-reset'>
+                                <a  rel="noreferrer"  href='https://ieee.lk/'  target="_blank" className='text-reset'>
                                     IEEE SL
                                 </a>
                             </p>
                             <p>
-                                <a href='https://yp.ieee.org/' target="_blank" className='text-reset'>
+                                <a  rel="noreferrer" href='https://yp.ieee.org/' target="_blank" className='text-reset'>
                                     IEEE YP
                                 </a>
                             </p>
                             <p>
-                                <a href='https://ieeeyp.lk/' target="_blank" className='text-reset'>
+                                <a   rel="noreferrer" href='https://ieeeyp.lk/' target="_blank" className='text-reset'>
                                     IEEE YPSL
                                 </a>
                             </p>
                             <p>
-                                <a href='https://www.ieeer10.org/' target="_blank" className='text-reset'>
+                                <a  rel="noreferrer"  href='https://www.ieeer10.org/' target="_blank" className='text-reset'>
                                     IEEE R10
                                 </a>
                             </p>
