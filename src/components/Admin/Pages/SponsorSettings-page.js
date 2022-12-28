@@ -7,10 +7,8 @@ import SponsorshipComponent from "../../Sponsorship/Sponsorship-component";
 
 const SponsorSettingsPage = () => {
     return (<>
-        <Navbar/>
         <SponsorSettingsComponent/>
         {/*<SponsorshipComponent/>*/}
-        <FooterComponent/>
     </>)
 }
 

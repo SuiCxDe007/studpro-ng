@@ -16,8 +16,17 @@ import {
     MDBTypography
 } from 'mdb-react-ui-kit';
 import studProProgramImg from '../../../media/img/studpro-programs.webp';
+import YouTube from "react-youtube";
 
 export default function WhatIs() {
+
+    const opts = {
+        height: '190',
+        width: '340',
+
+    };
+
+
     return (
         <>
             <div className="WhatisComp">
@@ -226,6 +235,45 @@ export default function WhatIs() {
                         <MDBCardImage position='top' src={studProProgramImg} alt='...'/>
                     </MDBCard>
                 </div>
+
+
+                <MDBRow style={{marginTop: "0px"}} className='row-cols-1 row-cols-md-4 g-2'>
+                    <MDBCol>
+                        <YouTube
+                            opts={opts}
+                            title={'SutdPRO %>_)21412424'}
+                            loading={'loadddddddddddddddddddddddddd'}
+                            videoId={'B_IYFFbKkfY'}                  // defaults -> ''
+                            id={'B_IYFFbKkfY'}                       // defaults -> ''
+                            // defaults -> noop
+                        />
+                    </MDBCol>    <MDBCol>
+                        <YouTube
+                            opts={opts}
+                            videoId={'B_IYFFbKkfY'}                  // defaults -> ''
+                            id={'B_IYFFbKkfY'}                       // defaults -> ''
+                            // defaults -> noop
+                        />
+                    </MDBCol>    <MDBCol>
+                        <YouTube
+                            opts={opts}
+                            videoId={'B_IYFFbKkfY'}                  // defaults -> ''
+                            id={'B_IYFFbKkfY'}                       // defaults -> ''
+                            // defaults -> noop
+                        />
+                    </MDBCol>    <MDBCol>
+                        <YouTube
+                            opts={opts}
+                            videoId={'B_IYFFbKkfY'}                  // defaults -> ''
+                            id={'B_IYFFbKkfY'}                       // defaults -> ''
+                            // defaults -> noop
+                        />
+                    </MDBCol>
+
+                </MDBRow>
+
+
+
             </div>
         </>
     )
