@@ -4,8 +4,6 @@ import {MDBCol, MDBRow} from "mdb-react-ui-kit";
 
 const VideosComponent = (props) => {
 
-    console.log(props.video)
-
     var indents = [];
 
     const opts = {
@@ -14,15 +12,21 @@ const VideosComponent = (props) => {
 
     };
     for (const x in props.video){
-        console.log(x+props.video[x])
-        indents.push(                <MDBCol size='4'>
-            <YouTube
-            opts={opts}
-            videoId={props.video[x]}                  // defaults -> ''
-            id={props.video[x]}                       // defaults -> ''
-            // defaults -> noop
-        />
-        </MDBCol>)
+
+        if (x!=='null'){
+            console.log(x+props.video[x])
+            indents.push(                <MDBCol key={Math.random()} size='4'>
+                <b>{x}</b>
+                <YouTube
+                    opts={opts}
+                    videoId={props.video[x]}                  // defaults -> ''
+                    id={props.video[x]}                       // defaults -> ''
+                    // defaults -> noop
+                />
+            </MDBCol>)
+        }
+
+
     }
     return (
        <MDBRow>

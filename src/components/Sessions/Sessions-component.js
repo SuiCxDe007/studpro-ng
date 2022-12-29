@@ -9,13 +9,12 @@ import {
     MDBTypography
 } from "mdb-react-ui-kit";
 import image from '../../media/img/studpro-programs.webp'
-import {Accordion} from "@mui/material";
 import AccordionComponent from "./Accordion-components";
 const SessionsComponent  = () => {
 
 
     return (
-        <div style={{marginLeft:"50px", marginRight:"50px"}} className='Sessions'>
+        <div style={{marginLeft:"50px",marginTop:"20px", marginRight:"50px"}} className='Sessions'>
 
             <MDBCard style={{backgroundColor: "#dfe5fd"}}>
                 <img src={image}/>
@@ -27,9 +26,40 @@ const SessionsComponent  = () => {
                 </MDBCardBody>
             </MDBCard>
 
+            <MDBCard style={{backgroundColor: "#eedffd",marginTop:"20px"}}>
 
-            <AccordionComponent/>
+                <MDBCardHeader >
+                    <span style={{marginTop: "10px"}}> <span
+                        className="animate-stud" style={{fontSize: '50px'}}>Stud</span>
+                                    <span
+                                        className="animate-pro" style={{fontSize: '50px'}}>Pro 5.0</span>   <span
+                                        className="animate-rest" style={{fontSize: '50px'}}>Sessions</span>
+                                  </span>
+                </MDBCardHeader>
+                <MDBCardBody>
+                    <MDBTypography blockquote className='mb-0 ov-desc'>
+                        <AccordionComponent studPro={"studpro5"}/>
+                    </MDBTypography>
+                </MDBCardBody>
+            </MDBCard>
 
+
+            <MDBCard style={{backgroundColor: "#fddffc",marginTop:"20px"}}>
+
+                <MDBCardHeader >
+                    <span style={{marginTop: "10px"}}> <span
+                        className="animate-stud" style={{fontSize: '50px'}}>Stud</span>
+                                    <span
+                                        className="animate-pro" style={{fontSize: '50px'}}>Pro 4.0</span>   <span
+                            className="animate-rest" style={{fontSize: '50px'}}>Sessions</span>
+                                  </span>
+                </MDBCardHeader>
+                <MDBCardBody>
+                    <MDBTypography blockquote className='mb-0 ov-desc'>
+                        <AccordionComponent studPro={"studpro4"}/>
+                    </MDBTypography>
+                </MDBCardBody>
+            </MDBCard>
 
         </div>
     );
