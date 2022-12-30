@@ -25,6 +25,7 @@ const SessionSettingsComponent = () => {
 
             sessionSeriesName: ' ',
             sessionSeriesDescription: ' ',
+            iteration:'studpro5',
             sessionOneName: ' ',
             sessionOneYT: ' ',
             sessionTwoName: ' ',
@@ -41,20 +42,15 @@ const SessionSettingsComponent = () => {
 
         }, onSubmit: async (values, {resetForm}) => {
 
-           const map1 = new Map();
+            const obj = {
+                [values.sessionOneName.length > 2 ? values.sessionOneName : 'null']: values.sessionOneYT.length > 3 ? values.sessionOneYT : '',
+                [values.sessionTwoName.length > 2 ? values.sessionTwoName : 'null']: values.sessionTwoYT.length > 3 ? values.sessionTwoYT : '',
+                [values.sessionThreeName.length > 2 ? values.sessionThreeName : 'null']: values.sessionThreeYT.length > 3 ? values.sessionThreeYT : '',
+                [values.sessionFourName.length > 2 ? values.sessionThreeName : 'null']: values.sessionFourYT.length > 3 ? values.sessionFourYT : '',
+                [values.sessionFiveName.length > 2 ? values.sessionThreeName : 'null']: values.sessionFiveYT.length > 3 ? values.sessionFiveYT : '',
+                [values.sessionSixName.length > 2 ? values.sessionThreeName : 'null']: values.sessionSixYT.length > 3 ? values.sessionSixYT : ''
+            }
 
-           const obj = {
-               [values.sessionOneName.length>1 ?  values.sessionOneName : 'null'] : values.sessionOneYT.length>1 ? values.sessionOneYT : 's ',
-               [values.sessionTwoName.length>1 ?  values.sessionTwoName : 'null'] : values.sessionTwoYT.length>1 ? values.sessionTwoYT : ' s',
-               [values.sessionThreeName.length>1 ?  values.sessionThreeName : 'null'] : values.sessionThreeYT.length>1 ? values.sessionThreeYT : 's '
-           }
-
-
-           map1.set()
-           map1.set(values.sessionThreeName ?  values.sessionThreeName : ' ',values.sessionThreeYT ? values.sessionThreeYT : ' ')
-
-
-            console.log(values)
             const docRef = await addDoc(collection(db, `Videos/sessions/${values.iteration}`), {
 
                 session_series_name: values.sessionSeriesName,

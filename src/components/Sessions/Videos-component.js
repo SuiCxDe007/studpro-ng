@@ -15,18 +15,16 @@ const VideosComponent = (props) => {
 
         if (x!=='null'){
             console.log(x+props.video[x])
-            indents.push(                <MDBCol key={Math.random()} size='4'>
-                <b>{x}</b>
+            indents.push(                <MDBCol style={{overflowX:"auto"}} key={Math.random()} size='4'>
                 <YouTube
                     opts={opts}
                     videoId={props.video[x]}                  // defaults -> ''
                     id={props.video[x]}                       // defaults -> ''
                     // defaults -> noop
                 />
+                <span style={{fontSize:"0.9rem"}}>{x}</span>
             </MDBCol>)
         }
-
-
     }
     return (
        <MDBRow>
