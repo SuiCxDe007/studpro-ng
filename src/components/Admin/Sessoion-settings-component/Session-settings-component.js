@@ -3,7 +3,7 @@ import {Alert, AlertTitle, FormControl, InputLabel, MenuItem, Select} from "@mui
 import {MDBBtn, MDBCard, MDBCardBody, MDBCol, MDBInput, MDBRow} from "mdb-react-ui-kit";
 import {useFormik} from 'formik';
 import {addDoc, collection} from "firebase/firestore";
-import {db} from "../../firebase";
+import {db} from "../../../firebase";
 import './Session-settings-styles.css'
 
 const SessionSettingsComponent = () => {

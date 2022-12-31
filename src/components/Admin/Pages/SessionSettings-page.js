@@ -1,5 +1,5 @@
 import React from 'react';
-import SessionSettingsComponent from "../Session-settings-component";
+import SessionSettingsComponent from "../Sessoion-settings-component/Session-settings-component";
 
 const SessionSettingsPage = () => {
     return (

@@ -8,7 +8,7 @@ import {
     getDownloadURL, getStorage,
 } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
-import {db} from "../../firebase";
+import {db} from "../../../firebase";
 import {Alert, AlertTitle, FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 
 const SponsorSettingsComponent = () => {
