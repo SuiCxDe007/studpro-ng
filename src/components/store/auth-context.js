@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 import {toast} from "react-toastify";
+import { useNavigate } from 'react-router-dom';
 
 const AuthContext = React.createContext({
     isLoggedIn: false,
@@ -16,11 +17,13 @@ export const AuthContextProvider = (props) => {
     const auth = getAuth();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [user, setUser] = useState(null);
-
+    const [userUID, setUserUID] = useState('');
     useEffect(() => {
         const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
-
-        if (storedUserLoggedInInformation === '1' && user) {
+        const storedUID = localStorage.getItem('user');
+        setUserUID(storedUID)
+        console.log(user,storedUserLoggedInInformation)
+        if (storedUserLoggedInInformation === '1' && storedUID) {
             setIsLoggedIn(true);
         }
     }, []);
@@ -49,11 +52,12 @@ export const AuthContextProvider = (props) => {
 
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in
                 const user = userCredential.user;
                 setUser(user);
-                console.log(user)
-                // ...
+                window.location.href='/dashboard'
+                localStorage.setItem('isLoggedIn', '1');
+                localStorage.setItem('user', user.uid);
+                setIsLoggedIn(true);
             })
             .catch((error) => {
                 notify(error.code)
@@ -63,8 +67,6 @@ export const AuthContextProvider = (props) => {
             });
 
 
-        localStorage.setItem('isLoggedIn', '1');
-        setIsLoggedIn(true);
     };
 
     return (

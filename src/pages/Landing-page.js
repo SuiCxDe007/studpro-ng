@@ -7,8 +7,10 @@ import FooterComponent from "../components/UI/Footer/footer-component";
 
 export default function LandingPage() {
     return (<>
-        {/*<Header/>*/}
+        <Navbar/>
+        <Header/>
         <WhatIs/>
         {/*<SponsorshipComponent/>*/}
+        <FooterComponent/>
     </>)
 }

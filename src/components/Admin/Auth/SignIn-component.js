@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useContext} from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -9,22 +10,19 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {createTheme, ThemeProvider} from '@mui/material/styles';
 import styles from './SignIn-component.module.css'
 import AuthContext from "../../store/auth-context";
-import {useContext} from "react";
-import {toast, ToastContainer} from "react-toastify";
+import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 function Copyright(props) {
     return (
         <Typography variant="body2" color="white" align="center" {...props}>
             {'Copyright © '}
-
-                StudPro 5.0
+            StudPro 5.0
             {' '}
             {new Date().getFullYear()}
-            {'.'}
         </Typography>
     );
 }
@@ -32,7 +30,7 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-const SignIn = () => {
+const SignIn = (props) => {
 
 
     const authCtx = useContext(AuthContext);
@@ -58,8 +56,8 @@ const SignIn = () => {
                 pauseOnHover
                 theme="light"
             />
-            <Grid container component="main" sx={{ height: '100vh' }}>
-                <CssBaseline />
+            <Grid container component="main" sx={{height: '100vh'}}>
+                <CssBaseline/>
                 <Grid
                     item
                     xs={false}
@@ -74,7 +72,8 @@ const SignIn = () => {
                         backgroundPosition: 'center',
                     }}
                 />
-                <Grid style={{backgroundColor:"#262521"}} item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+                <Grid style={{backgroundColor: "#262521"}} item xs={12} sm={8} md={5} component={Paper} elevation={6}
+                      square>
                     <Box
                         sx={{
                             my: 8,
@@ -82,23 +81,23 @@ const SignIn = () => {
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
-                            backgroundColor:"#262521"
+                            backgroundColor: "#262521"
                         }}
                     >
-                        <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
-                            <LockOutlinedIcon />
+                        <Avatar sx={{m: 1, bgcolor: 'primary.main'}}>
+                            <LockOutlinedIcon/>
                         </Avatar>
                         <Typography component="h1" variant="h5">
                            <span> <span
-                                className="animate-stud" style={{fontSize: '50px'}}>Stud</span>
+                               className="animate-stud" style={{fontSize: '50px'}}>Stud</span>
                             <span
                                 className="animate-login" style={{fontSize: '50px'}}>Pro</span>
                         </span><br/>
-                          <span style={{color:"white"}} className={'font'}> System User Sign In</span>
+                            <span style={{color: "white"}} className={'font'}> System User Sign In</span>
                         </Typography>
-                        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+                        <Box component="form" onSubmit={handleSubmit} sx={{mt: 1}}>
                             <TextField
-                                sx={{ input: { color: 'white' } }}
+                                sx={{input: {color: 'white'}}}
                                 FormHelperTextProps={{
                                     classes: {
                                         root: styles['helper-text'],
@@ -142,7 +141,7 @@ const SignIn = () => {
                                         focused: styles.inputLabel,
                                     },
                                 }}
-                                sx={{ input: { color: 'white' } }}
+                                sx={{input: {color: 'white'}}}
                                 margin="normal"
                                 required
                                 fullWidth
@@ -156,7 +155,7 @@ const SignIn = () => {
                                 type="submit"
                                 fullWidth
                                 variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
+                                sx={{mt: 3, mb: 2}}
                             >
                                 Sign In
                             </Button>
@@ -167,7 +166,7 @@ const SignIn = () => {
                                     </Link>
                                 </Grid>
                             </Grid>
-                            <Copyright sx={{ mt: 5 }} />
+                            <Copyright sx={{mt: 5}}/>
                         </Box>
                     </Box>
                 </Grid>
