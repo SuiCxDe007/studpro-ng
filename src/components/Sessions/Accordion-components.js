@@ -41,7 +41,7 @@ const AccordionComponent = (props) => {
 
     return (
 
-        <div>
+        <div>&nbsp;
             {!sessionsAvailable && <center>No Sessions Available</center>}
             {videoData !== null && <MDBAccordion style={{marginTop: "20px"}} borderless initialActive={1}>
 

@@ -13,16 +13,18 @@ import {
 } from 'mdb-react-ui-kit';
 import AuthContext from "../../store/auth-context";
 import * as PropTypes from "prop-types";
+import {useSelector} from "react-redux";
 
 const Navbar = () => {
 
     const authContext = useContext(AuthContext);
+    const isAuth = useSelector(state => state.isAuthenticated)
 
     const [showNavNoTogglerSecond, setShowNavNoTogglerSecond] = useState(false);
 
     return (
         <>
-            <MDBNavbar expand='lg' light bgColor='light'>
+            <MDBNavbar className={'font'} expand='lg' light bgColor='light'>
                 <MDBContainer fluid>
                     <MDBNavbarBrand href='#'><img id='nav-logo' src={require('../../../media/img/studpro-logo.png')} alt={'StudPro Logo'}/></MDBNavbarBrand>
                     <MDBNavbarToggler
@@ -50,12 +52,12 @@ const Navbar = () => {
                                     Admin
                                 </MDBNavbarLink>
                             </MDBNavbarItem>
-                            {authContext.isLoggedIn &&  <MDBNavbarItem>
+                            {isAuth &&  <MDBNavbarItem>
                                 <MDBNavbarLink  href='/dashboard' tabIndex={-1} >
                                     Dashboard
                                 </MDBNavbarLink>
                             </MDBNavbarItem>}
-                            {authContext.isLoggedIn && <MDBNavbarItem>
+                            {isAuth && <MDBNavbarItem>
                                 <MDBDropdown>
                                     <MDBDropdownToggle tag='a' className='nav-link' role='button'>
                                         Settings
@@ -65,6 +67,11 @@ const Navbar = () => {
                                         <MDBDropdownItem link href={'/session-settings'}>Session Settings</MDBDropdownItem>
                                     </MDBDropdownMenu>
                                 </MDBDropdown>
+                            </MDBNavbarItem>}
+                            {isAuth &&  <MDBNavbarItem>
+                                <MDBNavbarLink onClick={authContext.onLogout}  href='/' tabIndex={-1} >
+                                    Logout
+                                </MDBNavbarLink>
                             </MDBNavbarItem>}
                         </MDBNavbarNav>
                     </MDBCollapse>

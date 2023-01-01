@@ -6,15 +6,31 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import {AuthContextProvider} from "./components/store/auth-context";
 import {BrowserRouter} from "react-router-dom";
+import {applyMiddleware, compose, createStore} from "redux";
+import rootReducer from "./components/Utils/rootReducer";
+import {Provider} from "react-redux";
+import thunk from "redux-thunk";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const store = createStore(
+    rootReducer, // your reducers
+    compose(
+        applyMiddleware(thunk)
+    )
+)
 root.render(
-  <React.StrictMode>
+
+    <React.StrictMode>
+
+      <Provider store={store}>
       <BrowserRouter>
-      <AuthContextProvider>
+
+
+      <AuthContextProvider >
 
     <App />
 
-      </AuthContextProvider> </BrowserRouter>
-  </React.StrictMode>
+      </AuthContextProvider> </BrowserRouter></Provider></React.StrictMode>
+
 );

@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useMemo, useState} from 'react';
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 import {toast} from "react-toastify";
 import { useNavigate } from 'react-router-dom';
+import {useDispatch} from "react-redux";
 
 const AuthContext = React.createContext({
     isLoggedIn: false,
@@ -13,6 +14,10 @@ const AuthContext = React.createContext({
 });
 
 export const AuthContextProvider = (props) => {
+
+    const dispatch = useDispatch();
+
+
     const navigate = useNavigate();
     const auth = getAuth();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -25,14 +30,16 @@ export const AuthContextProvider = (props) => {
 
         if (storedUserLoggedInInformation === '1' && storedUID) {
             setIsLoggedIn(true);
+            dispatch({type:'AUTH_USER'},[dispatch]);
         }
     }, []);
 
     const logoutHandler = () => {
         localStorage.removeItem('isLoggedIn');
-        navigate("/admin", { replace: true });
+        navigate("/", { replace: true });
         setIsLoggedIn(false);
         setUser(null)
+        dispatch({type:'CLEAR_USER'},[dispatch]);
     };
 
     const notify = (error) => {
@@ -59,6 +66,7 @@ export const AuthContextProvider = (props) => {
                 localStorage.setItem('isLoggedIn', '1');
                 localStorage.setItem('user', user.uid);
                 setIsLoggedIn(true);
+                dispatch({type:'AUTH_USER'},[dispatch]);
             })
             .catch((error) => {
                 notify(error.code)
