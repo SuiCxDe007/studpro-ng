@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useMemo, useState} from 'react';
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 import {toast} from "react-toastify";
 import { useNavigate } from 'react-router-dom';
@@ -13,7 +13,7 @@ const AuthContext = React.createContext({
 });
 
 export const AuthContextProvider = (props) => {
-
+    const navigate = useNavigate();
     const auth = getAuth();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [user, setUser] = useState(null);
@@ -22,7 +22,7 @@ export const AuthContextProvider = (props) => {
         const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
         const storedUID = localStorage.getItem('user');
         setUserUID(storedUID)
-        console.log(user,storedUserLoggedInInformation)
+
         if (storedUserLoggedInInformation === '1' && storedUID) {
             setIsLoggedIn(true);
         }
@@ -30,6 +30,7 @@ export const AuthContextProvider = (props) => {
 
     const logoutHandler = () => {
         localStorage.removeItem('isLoggedIn');
+        navigate("/admin", { replace: true });
         setIsLoggedIn(false);
         setUser(null)
     };
@@ -54,7 +55,7 @@ export const AuthContextProvider = (props) => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 setUser(user);
-                window.location.href='/dashboard'
+                navigate("dashboard");
                 localStorage.setItem('isLoggedIn', '1');
                 localStorage.setItem('user', user.uid);
                 setIsLoggedIn(true);
@@ -81,6 +82,10 @@ export const AuthContextProvider = (props) => {
             {props.children}
         </AuthContext.Provider>
     );
+};
+
+export const useAuth = () => {
+    return useContext(AuthContext);
 };
 
 export default AuthContext;

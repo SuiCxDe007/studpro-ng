@@ -10,19 +10,26 @@ import {BrowserRouter, NavLink, Routes, Route, useNavigate} from 'react-router-d
 import ErrorPage from "./pages/Error-page";
 import {Login} from "@mui/icons-material";
 import DashboardPage from "./components/Admin/Pages/Dashbpard-page";
+import {ProtectedRoute} from "./components/Utils/ProtectedRoute";
+import AuthContext from "./components/store/auth-context";
+import {useContext} from "react";
 function App() {
-  return (
-      <BrowserRouter>
+    //TODO Move to REDUX
+    const AuthCtx = useContext(AuthContext);
+
+    return (
       <div className="App">
-        <Routes>
-            <Route path="/" element={<LandingPage/>} />
-            <Route path="sessions" element={<SessionsPage/>} />
-            <Route path="admin" element={<SignIn/>} />
-            <Route path="dashboard" element={<DashboardPage/>} />
-            <Route path="*" element={<ErrorPage/>} />
-        </Routes>
+          <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/login" element={<SignIn/>} />
+              <Route path="/sessions" element={<SessionsPage />} />
+              <Route path={"*"} element={<ErrorPage/>}/>
+              <Route path={"/dashboard"} element={AuthCtx.isLoggedIn ? <DashboardPage/> : <SignIn/>}/>
+              <Route path={"/session-settings"} element={AuthCtx.isLoggedIn ? <SessionSettingsPage/> : <SignIn/>}/>
+              <Route path={"/sponsor-settings"} element={AuthCtx.isLoggedIn ? <SponsorSettingsPage/> : <SignIn/>}/>
+
+          </Routes>
     </div>
-      </BrowserRouter>
   );
 }
 
