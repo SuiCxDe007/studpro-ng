@@ -10,7 +10,7 @@ import {
 } from "mdb-react-ui-kit";
 import image from '../../media/img/studpro-programs.webp'
 import AccordionComponent from "./Accordion-components";
-const SessionsComponent  = () => {
+const SessionsComponent  = (props) => {
 
 
     return (
@@ -38,7 +38,7 @@ const SessionsComponent  = () => {
                 </MDBCardHeader>
                 <MDBCardBody>
                     <MDBTypography blockquote className='mb-0 ov-desc'>
-                        <AccordionComponent studPro={"studpro5"}/>
+                        <AccordionComponent admin={props.admin} studPro={"studpro5"}/>
                     </MDBTypography>
                 </MDBCardBody>
             </MDBCard>
@@ -56,7 +56,7 @@ const SessionsComponent  = () => {
                 </MDBCardHeader>
                 <MDBCardBody>
                     <MDBTypography blockquote className='mb-0 ov-desc'>
-                        <AccordionComponent studPro={"studpro4"}/>
+                        <AccordionComponent admin={props.admin} studPro={"studpro4"}/>
                     </MDBTypography>
                 </MDBCardBody>
             </MDBCard>

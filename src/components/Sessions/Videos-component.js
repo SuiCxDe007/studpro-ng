@@ -14,7 +14,7 @@ const VideosComponent = (props) => {
     for (const x in props.video){
 
         if (x!=='null'){
-            console.log(x+props.video[x])
+
             indents.push(                <MDBCol style={{overflowX:"auto"}} key={Math.random()} size='4'>
                 <YouTube
                     opts={opts}

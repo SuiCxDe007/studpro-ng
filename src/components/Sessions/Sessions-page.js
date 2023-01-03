@@ -7,7 +7,7 @@ const SessionsPage = () => {
     return (
         <>
             <Navbar/>
-            <SessionsComponent/>
+            <SessionsComponent admin={false}/>
     <FooterComponent/>
         </>
     );
