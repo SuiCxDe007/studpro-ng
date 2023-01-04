@@ -10,7 +10,7 @@ export default function LandingPage() {
         <Navbar/>
         <Header/>
         <WhatIs/>
-        {/*<SponsorshipComponent/>*/}
+        {/*<SponsorshipComponent admin={false}/>*/}
         <FooterComponent/>
     </>)
 }

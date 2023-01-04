@@ -15,7 +15,6 @@ const SponsorshipComponent = (props) => {
                 const newData = querySnapshot.docs
                     .map((doc) => ({...doc.data(), id: doc.id}));
                 setSponsorData(newData)
-                console.log(newData)
             })
     }
 
@@ -35,7 +34,7 @@ const SponsorshipComponent = (props) => {
                     </MDBTypography>
                     <MDBRow style={{marginTop: "0px"}} className='row-cols-1 row-cols-md-4 g-4'>
                         {sponsordataState && sponsordataState.sort((a, b) => a.oid > b.oid ? 1 : -1).map(sponsor => (
-                            <SponsorshipCardComponent key={sponsor.id} sponsor={sponsor}/>
+                            <SponsorshipCardComponent admin={props.admin} key={sponsor.id} sponsor={sponsor}/>
                         )).sort()}
                     </MDBRow>
                 </MDBCardBody>
