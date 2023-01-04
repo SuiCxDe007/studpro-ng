@@ -22,6 +22,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import { getStorage, ref, deleteObject } from "firebase/storage";
+import SponsorCardSettings from "../Admin/Sposor-settings-component/Sponsor-card-settings";
 
 const SponsorshipCardComponent = props => {
 
@@ -51,31 +52,12 @@ const SponsorshipCardComponent = props => {
     };
 
     const handleClose = () => {
-        onDeleteHandler(props.sponsor.id,props.sponsor.logo).then(r => setOpen(false));
+        onDeleteHandler(props.id,props.logo).then(r => setOpen(false));
     };
 
     return (
         <div>
-            <Dialog
-                open={open}
-                TransitionComponent={Slide}
-                keepMounted
-                onClose={handleClose}
-                aria-describedby="alert-dialog-slide-description"
-            >
-                <DialogTitle style={{color: "red"}}>{"Confirm Deletion"}</DialogTitle>
-                <DialogContent>
-                    <DialogContentText id="alert-dialog-slide-description">
-                        This action is irreversible!<br/> Are you sure you want to delete <b>{props.sponsor.name}?
-                    </b> </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                    <Button variant="outlined" color="warning" onClick={handleClickOpen}>Cancel</Button>
-                    <Button onClick={handleClose} variant="contained" color="error">
-                        Delete
-                    </Button>
-                </DialogActions>
-            </Dialog>
+
 
 
             <MDBCol>
@@ -102,9 +84,7 @@ const SponsorshipCardComponent = props => {
                                         className="btn btn-primary btn-rounded">Website
                                 </button>
                             </a> {props.admin &&
-                                <MDBBtn onClick={handleClickOpen} rounded className='mx-2' color='danger'>
-                                    Delete
-                                </MDBBtn>}
+                                <SponsorCardSettings sponsor={props.sponsor}/>}
                             </MDBListGroupItem> </MDBListGroup>
                     </MDBCardBody>
                 </MDBCard>
