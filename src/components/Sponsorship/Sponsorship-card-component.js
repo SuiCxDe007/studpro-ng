@@ -83,9 +83,9 @@ const SponsorshipCardComponent = props => {
                                 <button style={{position: "relative", bottom: "0"}} type="button"
                                         className="btn btn-primary btn-rounded">Website
                                 </button>
-                            </a> {props.admin &&
-                                <SponsorCardSettings sponsor={props.sponsor}/>}
-                            </MDBListGroupItem> </MDBListGroup>
+                            </a>  </MDBListGroupItem>{props.admin &&<MDBListGroupItem>
+                                <SponsorCardSettings sponsor={props.sponsor}/></MDBListGroupItem>}
+                            </MDBListGroup>
                     </MDBCardBody>
                 </MDBCard>
             </MDBCol></div>

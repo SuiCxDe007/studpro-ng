@@ -1,4 +1,3 @@
-
 import {deleteObject, getStorage, ref} from "firebase/storage";
 import {deleteDoc, doc} from "firebase/firestore";
 import {db} from "../../../firebase";
@@ -17,7 +16,7 @@ const SponsorCardSettings = (props) => {
 
     const storage = getStorage();
 
-    const onDeleteHandler = async (id,logo) => {
+    const onDeleteHandler = async (id, logo) => {
         console.log(props.sponsor.id)
         const gsReference = ref(storage, logo);
         await deleteDoc(doc(db, `Companies`, id)).then(() => {
@@ -35,20 +34,20 @@ const SponsorCardSettings = (props) => {
             console.error('Error deleting document: ', error);
         });
     }
-    const [open, setOpen] = useState(false);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
 
-    const handleClickOpen = () => {
-        setOpen(!open);
+    const handleDeleteModalOpen = () => {
+        setShowDeleteModal(!showDeleteModal);
     };
 
     const handleClose = () => {
-        onDeleteHandler(props.sponsor.id,props.sponsor.logo).then(r => setOpen(false));
+        onDeleteHandler(props.sponsor.id, props.sponsor.logo).then(r => setShowDeleteModal(false));
     };
 
     return (
         <>
             <Dialog
-                open={open}
+                open={showDeleteModal}
                 TransitionComponent={Slide}
                 keepMounted
                 onClose={handleClose}
@@ -61,13 +60,16 @@ const SponsorCardSettings = (props) => {
                     </b> </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button variant="outlined" color="warning" onClick={handleClickOpen}>Cancel</Button>
+                    <Button variant="outlined" color="warning" onClick={handleDeleteModalOpen}>Cancel</Button>
                     <Button onClick={handleClose} variant="contained" color="error">
                         Delete
                     </Button>
                 </DialogActions>
             </Dialog>
-            <MDBBtn onClick={handleClickOpen} rounded className='mx-2' color='danger'>
+            <MDBBtn onClick={handleDeleteModalOpen} rounded className='mx-2' color='danger'>
+                Delete
+            </MDBBtn>
+            <MDBBtn onClick={} rounded className='mx-2' color='warning'>
                 Delete
             </MDBBtn>
         </>
