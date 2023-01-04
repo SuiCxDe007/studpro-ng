@@ -10,6 +10,7 @@ import {
 import { collection, addDoc } from "firebase/firestore";
 import {db} from "../../../firebase";
 import {Alert, AlertTitle, FormControl, InputLabel, MenuItem, Select} from "@mui/material";
+import {ToastContainer} from "react-toastify";
 
 const SponsorSettingsComponent = () => {
     const [logoURL, setLogoURL] = useState('');
@@ -89,7 +90,18 @@ const SponsorSettingsComponent = () => {
 
 
     return (<div className='SponsorSettingsComp'>
-
+        <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+        />
         {showAlert &&  <center> <Alert variant="filled" className={"alert-fixed"} severity="success">
        <center><AlertTitle>Success</AlertTitle></center>
             Company Added Successfully!
