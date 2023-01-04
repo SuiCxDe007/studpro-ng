@@ -21,14 +21,23 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
+import { getStorage, ref, deleteObject } from "firebase/storage";
 
 const SponsorshipCardComponent = props => {
 
+    const storage = getStorage();
 
-    const onDeleteHandler = async (id) => {
+    const onDeleteHandler = async (id,logo) => {
+        const gsReference = ref(storage, logo);
         await deleteDoc(doc(db, `Companies`, id)).then(() => {
-            toast.success('Partner Deleted!')
-            toast.success('Reload the page!')
+
+            deleteObject(gsReference).then(() => {
+                toast.success('Partner Deleted!')
+                toast.success('Reload the page!')
+            }).catch((error) => {
+                console.error('Error deleting logo: ', error);
+            });
+
         }).catch((error) => {
             toast.error(`Error Deleting Partner.`)
             toast.error('Reload the page!')
@@ -42,7 +51,7 @@ const SponsorshipCardComponent = props => {
     };
 
     const handleClose = () => {
-        onDeleteHandler(props.sponsor.id).then(r => setOpen(false));
+        onDeleteHandler(props.sponsor.id,props.sponsor.logo).then(r => setOpen(false));
     };
 
     return (
