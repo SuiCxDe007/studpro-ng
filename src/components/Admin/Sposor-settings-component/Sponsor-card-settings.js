@@ -69,7 +69,7 @@ const SponsorCardSettings = (props) => {
             <MDBBtn onClick={handleDeleteModalOpen} rounded className='mx-2' color='danger'>
                 Delete
             </MDBBtn>
-            <MDBBtn onClick={} rounded className='mx-2' color='warning'>
+            <MDBBtn rounded className='mx-2' color='warning'>
                 Delete
             </MDBBtn>
         </>
