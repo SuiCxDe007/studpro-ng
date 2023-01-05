@@ -8,22 +8,20 @@ import {toast, ToastContainer} from "react-toastify";
 const AccordionComponent = (props) => {
 
     const [videoData, setVideoData] = useState(null);
-    const [sessionsAvailable, setsessionsAvailable] = useState(true);
+    const [sessionsAvailable, setSessionsAvailable] = useState(true);
 
     const fetchSessionVideos = async () => {
         await getDocs(collection(db, `Videos/sessions/${props.studPro}`))
             .then((querySnapshot) => {
                 const newData = querySnapshot.docs
                     .map((doc) => ({...doc.data(), id: doc.id}));
-                setVideoData(newData)
+                setVideoData(newData);
             })
     }
 
 
     useEffect(() => {
-        return () => {
-            fetchSessionVideos()
-        };
+        fetchSessionVideos()
     }, []);
 
     const handleDelete = async (id) => {
@@ -40,9 +38,9 @@ const AccordionComponent = (props) => {
 
     useEffect(() => {
         if (videoData && videoData.length === 0) {
-            setsessionsAvailable(false)
+            setSessionsAvailable(false)
         } else {
-            setsessionsAvailable(true)
+            setSessionsAvailable(true)
         }
     }, [videoData]);
 
