@@ -1,5 +1,5 @@
 import {deleteObject, getStorage, ref} from "firebase/storage";
-import {addDoc, collection,updateDoc  , deleteDoc, doc} from "firebase/firestore";
+import {deleteDoc, doc, updateDoc} from "firebase/firestore";
 import {db} from "../../../firebase";
 import {toast} from "react-toastify";
 import {React, useState} from "react";
@@ -14,52 +14,66 @@ import {MDBBtn} from "mdb-react-ui-kit";
 import {FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/material";
 import {useFormik} from "formik";
 
+/**
+ *
+ * Created by Kaveen Abeyrathne | ©SuiCxDe | https://github.com/SuiCxDe007/
+ * StudPro 5.0
+ *
+ */
+
+/**
+ *
+ * This Component is used to control settings of Sponsorship card. Per Iteration make the marked updates as required.
+ * Improvements : Add Logo update to modal dialog.
+ *
+ */
+
 const SponsorCardSettings = (props) => {
 
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [showUpdateModal, setShowUpdateModal] = useState(false);
     const storage = getStorage();
 
     const onDeleteHandler = async (id, logo) => {
-        console.log(props.sponsor.id)
+
         const gsReference = ref(storage, logo);
+
         await deleteDoc(doc(db, `Companies`, id)).then(() => {
 
             deleteObject(gsReference).then(() => {
                 toast.success('Partner Deleted!')
                 toast.info('Reload the page!')
             }).catch((error) => {
+                toast.error(`Error Deleting Logo.`)
                 console.error('Error deleting logo: ', error);
             });
-
         }).catch((error) => {
             toast.error(`Error Deleting Partner.`)
             toast.error('Reload the page!')
             console.error('Error deleting document: ', error);
         });
     }
-    const [showDeleteModal, setShowDeleteModal] = useState(false);
-    const [showUpdateMpdal, setShowUpdateMpdal] = useState(false);
 
     const handleDeleteModalOpen = () => {
         setShowDeleteModal(!showDeleteModal);
     };
 
     const handleUpdateModalOpen = () => {
-        setShowUpdateMpdal(!showUpdateMpdal);
+        setShowUpdateModal(!showUpdateModal);
     };
 
     const handleDeleteClose = () => {
         onDeleteHandler(props.sponsor.id, props.sponsor.logo).then(() => setShowDeleteModal(false));
     };
 
-
     const formik = useFormik({
-
 
         initialValues: {
             companyName: props.sponsor.name,
             yearsWithUs: props.sponsor.years,
             companyURL: props.sponsor.companyURL,
             oid: props.sponsor.oid,
+            // TODO Add iterations here
             sp1: props.sponsor.partnerships.spone,
             sp2: props.sponsor.partnerships.sptwo,
             sp3: props.sponsor.partnerships.spthree,
@@ -68,40 +82,28 @@ const SponsorCardSettings = (props) => {
 
         }, onSubmit: async values => {
 
-            console.log(values)
             const updateRef = doc(db, "Companies", props.sponsor.id);
             const docRef = await updateDoc(updateRef, {
 
                 name: values.companyName,
-                oid : values.oid,
+                oid: values.oid,
                 years: values.yearsWithUs,
-                companyURL : values.companyURL,
+                companyURL: values.companyURL,
                 partnerships: {
-                    spone: values.sp1,
-                    sptwo: values.sp2,
-                    spthree: values.sp3,
-                    spfour: values.sp4,
-                    spfive: values.sp5,
+                    spone: values.sp1, sptwo: values.sp2, spthree: values.sp3, spfour: values.sp4, spfive: values.sp5,
                 }
-            }).then(()=> {
+            }).then(() => {
                 toast.success('Partner Updated!')
                 toast.info('Reload the page!')
-                setShowUpdateMpdal(false)
-            }).catch(error=>{
+                setShowUpdateModal(false)
+            }).catch(error => {
                 toast.error(`Error Updating Partner.`)
                 toast.error('Reload the page!')
                 console.error('Error deleting document: ', error);
-                setShowUpdateMpdal(false);
+                setShowUpdateModal(false);
             })
-
-
         },
     });
-
-    const handleUpdateClose = () => {
-
-    }
-
 
     return (
         <>
@@ -126,162 +128,158 @@ const SponsorCardSettings = (props) => {
                 </DialogActions>
             </Dialog>
 
-            <Dialog open={showUpdateMpdal}                 TransitionComponent={Slide} onClose={handleUpdateClose}>
+            <Dialog open={showUpdateModal} TransitionComponent={Slide} >
                 <DialogTitle>Update Company Info</DialogTitle>
                 <DialogContent>
-
-
                     <div>
-                        <form  onSubmit={formik.handleSubmit} className={"form-font"}>
-                        <TextField
-                            name="companyName"
-                            autoFocus
-                            margin="dense"
-                            id="companyName"
-                            label="Company Name"
-                            type="text"
-                            fullWidth
-                            variant="standard"
-                            onChange={formik.handleChange}
-                            value={formik.values.companyName}
-                        />
-                        <TextField
-                            name="yearsWithUs"
-                            autoFocus
-                            margin="dense"
-                            id="yearsWithUs"
-                            label="Years with Us"
-                            type="number"
-                            fullWidth
-                            variant="standard"
-                            onChange={formik.handleChange}
-                            value={formik.values.yearsWithUs}
-                        />
-                        <TextField
-                            name="companyURL"
-                            autoFocus
-                            margin="dense"
-                            id="companyURL"
-                            label="Company URL"
-                            type="url"
-                            fullWidth
-                            onChange={formik.handleChange}
-                            variant="standard"
-                            value={formik.values.companyURL}
-                        />
-                        <TextField
-                            name="oid"
-                            autoFocus
-                            margin="dense"
-                            id="oid"
-                            onChange={formik.handleChange}
-                            style={{marginBottom:"15px"}}
-                            label="Order ID"
-                            type="number"
-                            fullWidth
-                            variant="standard"
-                            defaultValue={formik.values.oid}
-                            value={formik.values.oid}
-                        /><br/>
+                        <form onSubmit={formik.handleSubmit} className={"form-font"}>
+                            <TextField
+                                name="companyName"
+                                autoFocus
+                                margin="dense"
+                                id="companyName"
+                                label="Company Name"
+                                type="text"
+                                fullWidth
+                                variant="standard"
+                                onChange={formik.handleChange}
+                                value={formik.values.companyName}
+                            />
+                            <TextField
+                                name="yearsWithUs"
+                                autoFocus
+                                margin="dense"
+                                id="yearsWithUs"
+                                label="Years with Us"
+                                type="number"
+                                fullWidth
+                                variant="standard"
+                                onChange={formik.handleChange}
+                                value={formik.values.yearsWithUs}
+                            />
+                            <TextField
+                                name="companyURL"
+                                autoFocus
+                                margin="dense"
+                                id="companyURL"
+                                label="Company URL"
+                                type="url"
+                                fullWidth
+                                onChange={formik.handleChange}
+                                variant="standard"
+                                value={formik.values.companyURL}
+                            />
+                            <TextField
+                                name="oid"
+                                autoFocus
+                                margin="dense"
+                                id="oid"
+                                onChange={formik.handleChange}
+                                style={{marginBottom: "15px"}}
+                                label="Order ID"
+                                type="number"
+                                fullWidth
+                                variant="standard"
+                                defaultValue={formik.values.oid}
+                                value={formik.values.oid}
+                            /><br/>
                             {/*TODO add another form control for iteration*/}
-                        <FormControl  sx={{ m: 1, minWidth: 220 }} size="small">
-                            <InputLabel id="demo-select-small">StudPro 1.0 Partnership Type</InputLabel>
-                            <Select
-                                name={"sp1"} onChange={formik.handleChange}
-                                id={"sp1selector"} value={formik.values.sp1}
-                                defaultValue={ props.sponsor.partnerships.spone}
-                                labelId="demo-select-small"
-                                label="Select Partnership Type"
-                            >
-                                <MenuItem value="" > <em>None</em></MenuItem>
-                                <MenuItem value="Platinum Partner">Platinum Partner</MenuItem>
-                                <MenuItem value="Gold Partner">Gold Partner</MenuItem>
-                                <MenuItem value="Silver Partner">Silver Partner</MenuItem>
-                                <MenuItem value="Bronze Partner">Bronze Partner</MenuItem>
-                                <MenuItem value="Participant Company">Participant Company</MenuItem>
+                            <FormControl sx={{m: 1, minWidth: 220}} size="small">
+                                <InputLabel id="demo-select-small">StudPro 1.0 Partnership Type</InputLabel>
+                                <Select
+                                    name={"sp1"} onChange={formik.handleChange}
+                                    id={"sp1selector"} value={formik.values.sp1}
+                                    defaultValue={props.sponsor.partnerships.spone}
+                                    labelId="demo-select-small"
+                                    label="Select Partnership Type"
+                                >
+                                    <MenuItem value=""> <em>None</em></MenuItem>
+                                    <MenuItem value="Platinum Partner">Platinum Partner</MenuItem>
+                                    <MenuItem value="Gold Partner">Gold Partner</MenuItem>
+                                    <MenuItem value="Silver Partner">Silver Partner</MenuItem>
+                                    <MenuItem value="Bronze Partner">Bronze Partner</MenuItem>
+                                    <MenuItem value="Participant Company">Participant Company</MenuItem>
 
-                            </Select>
-                        </FormControl>
-                        <FormControl  sx={{ m: 1, minWidth: 220 }} size="small">
-                            <InputLabel id="demo-select-small">StudPro 2.0 Partnership Type</InputLabel>
-                            <Select
-                                name={"sp2"} onChange={formik.handleChange}
-                                id={"sp2selector"} value={formik.values.sp2}
-                                defaultValue={ props.sponsor.partnerships.sptwo}
-                                labelId="demo-select-small"
-                                label="Select Partnership Type"
-                            >
-                                <MenuItem value="" > <em>None</em></MenuItem>
-                                <MenuItem value="Platinum Partner">Platinum Partner</MenuItem>
-                                <MenuItem value="Gold Partner">Gold Partner</MenuItem>
-                                <MenuItem value="Silver Partner">Silver Partner</MenuItem>
-                                <MenuItem value="Bronze Partner">Bronze Partner</MenuItem>
-                                <MenuItem value="Participant Company">Participant Company</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <FormControl sx={{m: 1, minWidth: 220}} size="small">
+                                <InputLabel id="demo-select-small">StudPro 2.0 Partnership Type</InputLabel>
+                                <Select
+                                    name={"sp2"} onChange={formik.handleChange}
+                                    id={"sp2selector"} value={formik.values.sp2}
+                                    defaultValue={props.sponsor.partnerships.sptwo}
+                                    labelId="demo-select-small"
+                                    label="Select Partnership Type"
+                                >
+                                    <MenuItem value=""> <em>None</em></MenuItem>
+                                    <MenuItem value="Platinum Partner">Platinum Partner</MenuItem>
+                                    <MenuItem value="Gold Partner">Gold Partner</MenuItem>
+                                    <MenuItem value="Silver Partner">Silver Partner</MenuItem>
+                                    <MenuItem value="Bronze Partner">Bronze Partner</MenuItem>
+                                    <MenuItem value="Participant Company">Participant Company</MenuItem>
 
-                            </Select>
-                        </FormControl>
-                        <FormControl  sx={{ m: 1, minWidth: 220 }} size="small">
-                            <InputLabel id="demo-select-small">StudPro 3.0 Partnership Type</InputLabel>
-                            <Select
-                                name={"sp3"} onChange={formik.handleChange}
-                                id={"sp3selector"} value={formik.values.sp3}
-                                defaultValue={ props.sponsor.partnerships.spthree}
-                                labelId="demo-select-small"
-                                label="Select Partnership Type"
-                            >
-                                <MenuItem value="" > <em>None</em></MenuItem>
-                                <MenuItem value="Platinum Partner">Platinum Partner</MenuItem>
-                                <MenuItem value="Gold Partner">Gold Partner</MenuItem>
-                                <MenuItem value="Silver Partner">Silver Partner</MenuItem>
-                                <MenuItem value="Bronze Partner">Bronze Partner</MenuItem>
-                                <MenuItem value="Participant Company">Participant Company</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <FormControl sx={{m: 1, minWidth: 220}} size="small">
+                                <InputLabel id="demo-select-small">StudPro 3.0 Partnership Type</InputLabel>
+                                <Select
+                                    name={"sp3"} onChange={formik.handleChange}
+                                    id={"sp3selector"} value={formik.values.sp3}
+                                    defaultValue={props.sponsor.partnerships.spthree}
+                                    labelId="demo-select-small"
+                                    label="Select Partnership Type"
+                                >
+                                    <MenuItem value=""> <em>None</em></MenuItem>
+                                    <MenuItem value="Platinum Partner">Platinum Partner</MenuItem>
+                                    <MenuItem value="Gold Partner">Gold Partner</MenuItem>
+                                    <MenuItem value="Silver Partner">Silver Partner</MenuItem>
+                                    <MenuItem value="Bronze Partner">Bronze Partner</MenuItem>
+                                    <MenuItem value="Participant Company">Participant Company</MenuItem>
 
-                            </Select>
-                        </FormControl>
-                        <FormControl  sx={{ m: 1, minWidth: 220 }} size="small">
-                            <InputLabel id="demo-select-small">StudPro 4.0 Partnership Type</InputLabel>
-                            <Select
-                                name={"sp4"} onChange={formik.handleChange}
-                                id={"sp3selector"} value={formik.values.sp4}
-                                defaultValue={ props.sponsor.partnerships.spfour}
-                                labelId="demo-select-small"
-                                label="Select Partnership Type"
-                            >
-                                <MenuItem value="" > <em>None</em></MenuItem>
-                                <MenuItem value="Platinum Partner">Platinum Partner</MenuItem>
-                                <MenuItem value="Gold Partner">Gold Partner</MenuItem>
-                                <MenuItem value="Silver Partner">Silver Partner</MenuItem>
-                                <MenuItem value="Bronze Partner">Bronze Partner</MenuItem>
-                                <MenuItem value="Participant Company">Participant Company</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <FormControl sx={{m: 1, minWidth: 220}} size="small">
+                                <InputLabel id="demo-select-small">StudPro 4.0 Partnership Type</InputLabel>
+                                <Select
+                                    name={"sp4"} onChange={formik.handleChange}
+                                    id={"sp3selector"} value={formik.values.sp4}
+                                    defaultValue={props.sponsor.partnerships.spfour}
+                                    labelId="demo-select-small"
+                                    label="Select Partnership Type"
+                                >
+                                    <MenuItem value=""> <em>None</em></MenuItem>
+                                    <MenuItem value="Platinum Partner">Platinum Partner</MenuItem>
+                                    <MenuItem value="Gold Partner">Gold Partner</MenuItem>
+                                    <MenuItem value="Silver Partner">Silver Partner</MenuItem>
+                                    <MenuItem value="Bronze Partner">Bronze Partner</MenuItem>
+                                    <MenuItem value="Participant Company">Participant Company</MenuItem>
 
-                            </Select>
-                        </FormControl>
-                        <FormControl  sx={{ m: 1, minWidth: 220 }} size="small">
-                            <InputLabel id="demo-select-small">StudPro 5.0 Partnership Type</InputLabel>
-                            <Select
-                                name={"sp5"} onChange={formik.handleChange}
-                                id={"sp5selector"} value={formik.values.sp5}
-                                defaultValue={ props.sponsor.partnerships.spfive}
-                                labelId="demo-select-small"
-                                label="Select Partnership Type"
-                            >
-                                <MenuItem value="" > <em>None</em></MenuItem>
-                                <MenuItem value="Platinum Partner">Platinum Partner</MenuItem>
-                                <MenuItem value="Gold Partner">Gold Partner</MenuItem>
-                                <MenuItem value="Silver Partner">Silver Partner</MenuItem>
-                                <MenuItem value="Bronze Partner">Bronze Partner</MenuItem>
-                                <MenuItem value="Participant Company">Participant Company</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <FormControl sx={{m: 1, minWidth: 220}} size="small">
+                                <InputLabel id="demo-select-small">StudPro 5.0 Partnership Type</InputLabel>
+                                <Select
+                                    name={"sp5"} onChange={formik.handleChange}
+                                    id={"sp5selector"} value={formik.values.sp5}
+                                    defaultValue={props.sponsor.partnerships.spfive}
+                                    labelId="demo-select-small"
+                                    label="Select Partnership Type"
+                                >
+                                    <MenuItem value=""> <em>None</em></MenuItem>
+                                    <MenuItem value="Platinum Partner">Platinum Partner</MenuItem>
+                                    <MenuItem value="Gold Partner">Gold Partner</MenuItem>
+                                    <MenuItem value="Silver Partner">Silver Partner</MenuItem>
+                                    <MenuItem value="Bronze Partner">Bronze Partner</MenuItem>
+                                    <MenuItem value="Participant Company">Participant Company</MenuItem>
 
-                            </Select>
-                        </FormControl>
-
+                                </Select>
+                            </FormControl>
                         </form>
                     </div>
-
                 </DialogContent>
                 <DialogActions>
                     <Button variant="outlined" color="warning" onClick={handleUpdateModalOpen}>Cancel</Button>
-                    <Button  variant="contained" color="warning" onClick={formik.handleSubmit}>Subscribe</Button>
+                    <Button variant="contained" color="warning" onClick={formik.handleSubmit}>Update</Button>
                 </DialogActions>
             </Dialog>
 
