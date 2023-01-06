@@ -16,7 +16,7 @@ const DashboardContent = () => {
             <div
                 className='p-5 text-center bg-image'
                 style={{
-                    backgroundImage: `url(${require("../../../media/img/dashboard.jpg")})`,
+                    backgroundImage: `url(${require("../../../media/img/dashboard.webp")})`,
                     objectFit: "cover",
                     height: '400px',
                     backgroundPosition: "center"
