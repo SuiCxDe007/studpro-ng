@@ -1,11 +1,11 @@
 import React from 'react';
 import {
     MDBCard,
-    MDBCardBody, MDBCardFooter,
+    MDBCardBody,
+    MDBCardFooter,
     MDBCardHeader,
     MDBCardImage,
     MDBCardText,
-    MDBCardTitle,
     MDBCol,
     MDBRow
 } from "mdb-react-ui-kit";
@@ -37,34 +37,38 @@ const DashboardContent = () => {
                 </div>
             </div>
 
-            <div style={{marginLeft:"50px",marginRight:"50px" ,marginTop:"20px"}}> <MDBRow>
+            <div style={{marginLeft: "50px", marginRight: "50px", marginTop: "20px"}}><MDBRow>
                 <MDBCol sm='4'>
-            <a href={'/session-settings'}><MDBCard background="light" style={{ maxWidth: '540px' }}>
-                <MDBRow className='g-0'>
-                    <MDBCol md='4'>
-                        <MDBCardImage style={{objectFit:"cover"}} src= {require("../../../media/img/session-settings-card.png")} alt='...' fluid />
-                    </MDBCol>
-                    <MDBCol md='8'>
-                        <MDBCardBody>
-                            <MDBCardHeader background='transparent' border='success'>
-                                Session Settings
-                            </MDBCardHeader>
-                            <MDBCardText><br/>
-                               Update Session Details, add Sessions & remove session series.
-                            </MDBCardText>
-                            <MDBCardFooter>
-                                <small className='text-muted'>Last updated 3 mins ago</small>
-                            </MDBCardFooter>
-                        </MDBCardBody>
-                    </MDBCol>
-                </MDBRow>
-            </MDBCard></a>
-                </MDBCol>
-                <MDBCol sm='4'>
-                    <a href={'/sponsor-settings'}><MDBCard background="light" style={{ maxWidth: '540px' }}>
+                    <a href={'/session-settings'}><MDBCard background="light" style={{maxWidth: '540px'}}>
                         <MDBRow className='g-0'>
                             <MDBCol md='4'>
-                                <MDBCardImage style={{objectFit:"cover"}} src= {require("../../../media/img/sponsor-settings-card.png")} alt='...' fluid />
+                                <MDBCardImage style={{objectFit: "cover"}}
+                                              src={require("../../../media/img/session-settings-card.png")} alt='...'
+                                              fluid/>
+                            </MDBCol>
+                            <MDBCol md='8'>
+                                <MDBCardBody>
+                                    <MDBCardHeader background='transparent' border='success'>
+                                        Session Settings
+                                    </MDBCardHeader>
+                                    <MDBCardText><br/>
+                                        Update Session Details, add Sessions & remove session series.
+                                    </MDBCardText>
+                                    <MDBCardFooter>
+                                        <small className='text-muted'>Last updated 3 mins ago</small>
+                                    </MDBCardFooter>
+                                </MDBCardBody>
+                            </MDBCol>
+                        </MDBRow>
+                    </MDBCard></a>
+                </MDBCol>
+                <MDBCol sm='4'>
+                    <a href={'/sponsor-settings'}><MDBCard background="light" style={{maxWidth: '540px'}}>
+                        <MDBRow className='g-0'>
+                            <MDBCol md='4'>
+                                <MDBCardImage style={{objectFit: "cover"}}
+                                              src={require("../../../media/img/sponsor-settings-card.png")} alt='...'
+                                              fluid/>
                             </MDBCol>
                             <MDBCol md='8'>
                                 <MDBCardBody>
@@ -83,21 +87,23 @@ const DashboardContent = () => {
                     </MDBCard></a>
                 </MDBCol>
                 <MDBCol sm='4'>
-                    <a href={'/sponsor-settings'}><MDBCard background="light" style={{ maxWidth: '540px' }}>
+                    <a href={'/sponsor-settings'}><MDBCard background="light" style={{maxWidth: '540px'}}>
                         <MDBRow className='g-0'>
                             <MDBCol md='4'>
-                                <MDBCardImage style={{objectFit:"cover"}} src= {require("../../../media/img/session-settings-card.png")} alt='...' fluid />
+                                <MDBCardImage style={{objectFit: "cover"}}
+                                              src={require("../../../media/img/session-settings-card.png")} alt='...'
+                                              fluid/>
                             </MDBCol>
                             <MDBCol md='8'>
                                 <MDBCardBody>
                                     <MDBCardHeader background='transparent' border='success'>
-                                        PLACEHOLDER
+                                        Carousel Settings
                                     </MDBCardHeader>
                                     <MDBCardText><br/>
-                                        PLACEHOLDER
+                                        Change, Remove & Add Images to Carousel
                                     </MDBCardText>
                                     <MDBCardFooter>
-                                        <small className='text-muted'>PLACEHOLDER</small>
+                                        <small className='text-muted'>Admin</small>
                                     </MDBCardFooter>
                                 </MDBCardBody>
                             </MDBCol>

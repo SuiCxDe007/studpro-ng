@@ -14,6 +14,7 @@ import {ProtectedRoute} from "./components/Utils/ProtectedRoute";
 import AuthContext from "./components/store/auth-context";
 import {useContext} from "react";
 import {useSelector} from "react-redux";
+import CarouselSettingsPage from "./components/Admin/Pages/CarouselSettings-page";
 function App() {
     //TODO Move to REDUX
     const AuthCtx = useContext(AuthContext);
@@ -33,6 +34,7 @@ function App() {
               <Route path={"/dashboard"} element={isAuth ? <DashboardPage/> : <SignIn/>}/>
               <Route path={"/session-settings"} element={isAuth ? <SessionSettingsPage/> : <SignIn/>}/>
               <Route path={"/sponsor-settings"} element={isAuth ? <SponsorSettingsPage/> : <SignIn/>}/>
+              <Route path={"/carousel-settings"} element={isAuth ? <CarouselSettingsPage/> : <SignIn/>}/>
 
               <Route path="/login" element={<SignIn/>} />
               <Route path={"*"} element={<ErrorPage/>}/>

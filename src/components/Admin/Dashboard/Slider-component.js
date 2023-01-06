@@ -70,6 +70,7 @@ const SliderComponent = () => {
                     </div>
                 </div></SwiperSlide>
                 {URLData.map(img => {
+                    console.log(img)
                     return <SwiperSlide>
                         <div
                             className='p-5 text-center bg-image'
