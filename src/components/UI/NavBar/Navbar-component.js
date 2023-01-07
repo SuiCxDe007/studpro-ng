@@ -68,6 +68,7 @@ const Navbar = () => {
                                         <MDBDropdownItem link href={'/sponsor-settings'}>Sponsor Settings</MDBDropdownItem>
                                         <MDBDropdownItem link href={'/session-settings'}>Session Settings</MDBDropdownItem>
                                         <MDBDropdownItem link href={'/carousel-settings'}>Carousel Settings</MDBDropdownItem>
+                                        <MDBDropdownItem link href={'/gallery-settings'}>Gallery Settings</MDBDropdownItem>
                                     </MDBDropdownMenu>
                                 </MDBDropdown>
                             </MDBNavbarItem>}

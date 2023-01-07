@@ -12,6 +12,7 @@ import {useContext} from "react";
 import {useSelector} from "react-redux";
 import CarouselSettingsPage from "./components/Admin/Pages/CarouselSettings-page";
 import GalleryPage from "./pages/Gallery-Page";
+import GallerySettingsPage from "./components/Admin/Pages/GallerySettings-page";
 
 function App() {
     //TODO Move to REDUX
@@ -34,6 +35,7 @@ function App() {
                 <Route path={"/session-settings"} element={isAuth ? <SessionSettingsPage/> : <SignIn/>}/>
                 <Route path={"/sponsor-settings"} element={isAuth ? <SponsorSettingsPage/> : <SignIn/>}/>
                 <Route path={"/carousel-settings"} element={isAuth ? <CarouselSettingsPage/> : <SignIn/>}/>
+                <Route path={"/gallery-settings"} element={isAuth ? <GallerySettingsPage/> : <SignIn/>}/>
 
                 <Route path="/login" element={<SignIn/>}/>
                 <Route path={"*"} element={<ErrorPage/>}/>

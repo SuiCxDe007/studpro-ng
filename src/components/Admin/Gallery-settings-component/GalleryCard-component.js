@@ -3,18 +3,18 @@ import {collection, getDocs} from "firebase/firestore";
 import {db} from "../../../firebase";
 import {MDBRow} from "mdb-react-ui-kit";
 import UISkeleton from "../../Utils/Skeleton";
-import CarouselCardWrapper from "./Carousel-card-wrapper";
+import GalleryCardWrapperComponent from "./Gallery-card-wrapper-component";
 
-const CarouselCard = () => {
+const GalleryCard = () => {
 
-    const [carouselImageData, setCarouselImageData] = useState(null);
+    const [sponsordataState, setSponsorData] = useState(null);
 
     const fetchPost = async () => {
-        await getDocs(collection(db, "CarouselData"))
+        await getDocs(collection(db, "PhotoGallery/StudProIteration/studpro5"))
             .then((querySnapshot) => {
                 const newData = querySnapshot.docs
                     .map((doc) => ({...doc.data(), id: doc.id}));
-                setCarouselImageData(newData)
+                setSponsorData(newData)
             })
     }
 
@@ -22,20 +22,20 @@ const CarouselCard = () => {
         fetchPost()
     }, [])
 
+
     return (
         <div style={{marginTop: "20px"}}>
 
             <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
-                {carouselImageData ? carouselImageData.map(carouselImage => {
-                    return (
-                        <CarouselCardWrapper data={carouselImage}/>
-                    )
+                {sponsordataState ? sponsordataState.map(x => {
+                    return <GalleryCardWrapperComponent data={x}/>
                 }) : (
                     <UISkeleton/>
                 )}
+
             </MDBRow>
         </div>
     );
 };
 
-export default CarouselCard;
+export default GalleryCard;

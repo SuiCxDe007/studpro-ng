@@ -27,8 +27,13 @@ const GalleryComponent = () => {
 
     const storage = getStorage();
 
+    /**
+     *
+     * DB Path is set with a new collection per iteration under PhotoGallery collection. If required add a new collection
+     * under the same path with a new collection name under "StudProIteration" collection.
+     */
     const fetchPost = async () => {
-        await getDocs(collection(db, "PhotoGallery"))
+        await getDocs(collection(db, "PhotoGallery/StudProIteration/studpro5"))
             .then((querySnapshot) => {
                 const newData = querySnapshot.docs
                     .map((doc) => ({...doc.data(), id: doc.id}));
@@ -40,36 +45,20 @@ const GalleryComponent = () => {
         fetchPost()
     }, []);
 
-    useEffect(() => {
-    if (sponsordataState!==null){
-
-       // setSponsorData([...sponsordataState,photos])
-    }
-    }, [sponsordataState]);
-
-
-
-
-    return (
-        sponsordataState && <div>
+    return (sponsordataState && <div style={{marginTop: "20px", marginRight: "50px", marginLeft: "50px"}}>
             <Gallery photos={sponsordataState} onClick={openLightbox}/>
             <ModalGateway>
-                {viewerIsOpen ? (
-                    <Modal onClose={closeLightbox}>
+                {viewerIsOpen ? (<Modal onClose={closeLightbox}>
                         <Carousel
                             key={Math.random()}
                             currentIndex={currentImage}
                             views={sponsordataState.map(x => ({
-                                ...x,
-                                srcset: x.srcSet,
-                                caption: x.title
+                                ...x, srcset: x.srcSet, caption: x.title
                             }))}
                         />
-                    </Modal>
-                ) : null}
+                    </Modal>) : null}
             </ModalGateway>
-        </div>
-    );
+        </div>);
 };
 
 export default GalleryComponent;
