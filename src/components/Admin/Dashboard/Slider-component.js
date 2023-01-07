@@ -10,6 +10,7 @@ import {collection, getDocs} from "firebase/firestore";
 import {db} from "../../../firebase";
 import {Skeleton} from "@mui/material";
 import React from "react";
+import "../../UI/Header/header-styles.css"
 
 const SliderComponent = () => {
 
