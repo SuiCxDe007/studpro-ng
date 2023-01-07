@@ -1,7 +1,7 @@
-import React, {useContext, useEffect, useMemo, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 import {toast} from "react-toastify";
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {useDispatch} from "react-redux";
 
 const AuthContext = React.createContext({
@@ -70,8 +70,6 @@ export const AuthContextProvider = (props) => {
             })
             .catch((error) => {
                 notify(error.code)
-                const errorCode = error.code;
-                const errorMessage = error.message;
                 console.log(error)
             });
 

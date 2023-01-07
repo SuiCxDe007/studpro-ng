@@ -12,7 +12,6 @@ import {
     MDBNavbarNav, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
 } from 'mdb-react-ui-kit';
 import AuthContext from "../../store/auth-context";
-import * as PropTypes from "prop-types";
 import {useSelector} from "react-redux";
 
 const Navbar = () => {
@@ -46,6 +45,9 @@ const Navbar = () => {
                             </MDBNavbarItem>
                             <MDBNavbarItem>
                                 <MDBNavbarLink href='/sessions'>Sessions</MDBNavbarLink>
+                            </MDBNavbarItem>
+                            <MDBNavbarItem>
+                                <MDBNavbarLink href='/gallery'>Gallery</MDBNavbarLink>
                             </MDBNavbarItem>
                             <MDBNavbarItem>
                                 <MDBNavbarLink  href='/login' tabIndex={-1} >

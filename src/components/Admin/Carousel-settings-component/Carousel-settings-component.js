@@ -89,9 +89,7 @@ const CarouselSettings = () => {
                                 />
                             </MDBCol>
                         </MDBRow>
-
                         <br/>
-
                         <MDBBtn disabled={logoURL.length===0} className='mb-4' type='submit' block>
                             {logoURL.length===0?  <MDBSpinner grow color='light'>
                                 <span className='visually-hidden'>Loading...</span>

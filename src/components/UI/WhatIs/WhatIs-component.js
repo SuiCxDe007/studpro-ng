@@ -16,7 +16,6 @@ import {
     MDBTypography
 } from 'mdb-react-ui-kit';
 import studProProgramImg from '../../../media/img/studpro-programs.webp';
-import YouTube from "react-youtube";
 import {useNavigate} from "react-router-dom";
 
 export default function WhatIs() {
@@ -223,8 +222,9 @@ export default function WhatIs() {
                             <b> 20+
                                 Professional speakers!</b>
                             <br/>
-                            <MDBBtn onClick={()=>navigate("sessions")} className={'bg-danger bg-gradient'} size='lg' style={{margin: "20px"}}><MDBIcon fas
-                                                                                                                    icon="video"/> &nbsp;
+                            <MDBBtn onClick={() => navigate("sessions")} className={'bg-danger bg-gradient'} size='lg'
+                                    style={{margin: "20px"}}><MDBIcon fas
+                                                                      icon="video"/> &nbsp;
                                 <b>Watch Our Sessions</b></MDBBtn><br/>
                         </p>
                         <MDBCardImage position='top' src={studProProgramImg} alt='...'/>

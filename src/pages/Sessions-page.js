@@ -1,7 +1,7 @@
 import React from 'react';
-import SessionsComponent from "./Sessions-component";
-import Navbar from "../UI/NavBar/Navbar-component";
-import FooterComponent from "../UI/Footer/footer-component";
+import SessionsComponent from "../components/Sessions/Sessions-component";
+import Navbar from "../components/UI/NavBar/Navbar-component";
+import FooterComponent from "../components/UI/Footer/footer-component";
 
 const SessionsPage = () => {
     return (

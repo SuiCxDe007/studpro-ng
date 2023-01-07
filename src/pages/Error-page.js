@@ -1,7 +1,5 @@
 import React, {useEffect} from 'react';
 import './ErrorPage-styles.css'
-import Button from "@mui/material/Button";
-import { useRouteError } from "react-router-dom";
 
 const ErrorPage = () => {
 
@@ -15,22 +13,22 @@ const ErrorPage = () => {
     }, [])
 
     return (
-     <div style={{overflowX:"hidden"}} className="space">
-         <div className="texts font">
-             <div>ERROR</div>
-             <h1 className="h11">404</h1>
-             <hr/>
-                 <div>How did you get lost in <br/>IEEE Volunteering Space?</div>
-             <br/>
+        <div style={{overflowX: "hidden"}} className="space">
+            <div className="texts font">
+                <div>ERROR</div>
+                <h1 className="h11">404</h1>
+                <hr/>
+                <div>How did you get lost in <br/>IEEE Volunteering Space?</div>
+                <br/>
 
-         </div>
+            </div>
 
-         <div className="astronaut">
-             <img
-                 src="https://images.vexels.com/media/users/3/152639/isolated/preview/506b575739e90613428cdb399175e2c8-space-astronaut-cartoon-by-vexels.png"
-                 alt="" className="src"/>
-         </div>
-     </div>
+            <div className="astronaut">
+                <img
+                    src="https://images.vexels.com/media/users/3/152639/isolated/preview/506b575739e90613428cdb399175e2c8-space-astronaut-cartoon-by-vexels.png"
+                    alt="" className="src"/>
+            </div>
+        </div>
     );
 };
 
