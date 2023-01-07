@@ -1,4 +1,18 @@
-// Import the functions you need from the SDKs you need
+/*
+ *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *  Created by Kaveen Abeyrathne for StudPro 5.0 as a place for students to look
+ *  into What they can learn,companies to understand what to expect. This website
+ *  was developed as a first step to taking StudPro to a higher elevation. You are
+ *  free to update,share & modify the work for IEEE purposes ONLY.
+ *
+ *  Content of the source code is not authorized to use for any commercial purpose.
+ *
+ *  SuiCxDe007 | https://github.com/SuiCxDe007 | kaveenmadawa@gmail.com
+ *
+ *  ~ Copyright © 2023 SuiCxDe
+ *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
@@ -15,7 +29,6 @@ const firebaseConfig = {
     measurementId: "G-HDRL0HLG6X"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
