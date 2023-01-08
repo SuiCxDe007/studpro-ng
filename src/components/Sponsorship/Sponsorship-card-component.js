@@ -92,7 +92,7 @@ const SponsorshipCardComponent = props => {
                                 <MDBBadge
                                     className='ms-2'>{props.sponsor.years}</MDBBadge>&nbsp;&nbsp;Year(s) With
                                 Us</MDBListGroupItem>
-                            <MDBListGroupItem> <SponsorshipPills partnerships={props.sponsor.partnerships}/>
+                            <MDBListGroupItem> <SponsorshipPills id={props.sponsor.id} partnerships={props.sponsor.partnerships}/>
                             </MDBListGroupItem>
                             <MDBListGroupItem> <a href={props.sponsor.companyURL} target={"_blank"}>
                                 <button style={{position: "relative", bottom: "0"}} type="button"

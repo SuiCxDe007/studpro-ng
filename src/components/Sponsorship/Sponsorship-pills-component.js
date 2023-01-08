@@ -14,11 +14,9 @@
  */
 
 import {React, useEffect, useState} from "react";
-import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/scale-extreme.css';
-import 'tippy.js/themes/light.css';
-
+import {Tooltip} from 'react-tooltip'
+import 'react-tooltip/dist/react-tooltip.css'
+import './sponsorship-pills.styles.css'
 
 const SponsorshipPills = (props) => {
 
@@ -46,22 +44,22 @@ const SponsorshipPills = (props) => {
 
     function checker(studpro, callback) {
         if (props.partnerships[studpro].includes("Platinum")) {
-            callback(<i className="fas fa-star" style={{color:"#8c14fc"}}></i>)
+            callback(<i className="fas fa-star" style={{color: "#8c14fc"}}></i>)
         }
         if (props.partnerships[studpro].includes("Gold")) {
-            callback(<i className="fas fa-star" style={{color:"#FFDF00"}}></i>)
+            callback(<i className="fas fa-star" style={{color: "#FFDF00"}}></i>)
 
         }
         if (props.partnerships[studpro].includes("Silver")) {
-            callback(<i className="fas fa-star" style={{color:"#C0C0C0"}}></i>)
+            callback(<i className="fas fa-star" style={{color: "#C0C0C0"}}></i>)
 
         }
         if (props.partnerships[studpro].includes("Bronze")) {
-            callback( <i className="fas fa-star" style={{color:"#CD7F32"}}></i>)
+            callback(<i className="fas fa-star" style={{color: "#CD7F32"}}></i>)
 
         }
         if (props.partnerships[studpro].includes("Participant")) {
-            callback( <i className="far fa-star" style={{color:"#ADD8E6"}}></i>)
+            callback(<i className="far fa-star" style={{color: "#ADD8E6"}}></i>)
 
         }
     }
@@ -71,11 +69,28 @@ const SponsorshipPills = (props) => {
             {  //TODO : Add new MDBBadge Per new additional year
 
                 props.partnerships && <div>
-                    {props.partnerships.spfive.length > 0 &&  <Tippy theme={"light"} animation={"scale-extreme"} placement={"bottom"} content={`StudPro 5.0 ${props.partnerships.spfive}`}>{spFiveColor}</Tippy>}
-                    {props.partnerships.spfour.length > 0 &&  <Tippy theme={"light"}  animation={"scale-extreme"} placement={"bottom"} content={`StudPro 4.0 ${props.partnerships.spfour}`}>{spFourColor}</Tippy>}
-                    {props.partnerships.spthree.length > 0 && <Tippy theme={"light"}  animation={"scale-extreme"} placement={"bottom"} content={`StudPro 3.0 ${props.partnerships.spthree}`}>{spThreeColor}</Tippy>}
-                    {props.partnerships.sptwo.length > 0 &&   <Tippy theme={"light"}  animation={"scale-extreme"} placement={"bottom"} content={`StudPro 2.0 ${props.partnerships.sptwo}`}>{spTwoColor}</Tippy>}
-                    {props.partnerships.spone.length > 0 &&   <Tippy theme={"light"} animation={"scale-extreme"} placement={"bottom"} content={`StudPro 1.0 ${props.partnerships.spone}`}>{spOneColor}</Tippy>}
+
+                    {props.partnerships.spfive.length > 0 && <span id={props.id}
+                                                                   data-tooltip-content={`StudPro 5.0 ${props.partnerships.spfive}`}>{spFiveColor}</span>}
+                    {props.partnerships.spfour.length > 0 && <span id={props.id + "4"}
+                                                                   data-tooltip-content={`StudPro 4.0 ${props.partnerships.spfour}`}>{spFourColor}</span>}
+                    {props.partnerships.spthree.length > 0 && <span id={props.id + "3"}
+                                                                    data-tooltip-content={`StudPro 3.0 ${props.partnerships.spthree}`}>{spThreeColor}</span>}
+                    {props.partnerships.sptwo.length > 0 && <span id={props.id + "2"}
+                                                                  data-tooltip-content={`StudPro 2.0 ${props.partnerships.sptwo}`}>{spTwoColor}</span>}
+                    {props.partnerships.spone.length > 0 && <span id={props.id + "1"}
+                                                                  data-tooltip-content={`StudPro 1.0 ${props.partnerships.spone}`}>{spOneColor}</span>}
+
+                    <Tooltip className="studpro-5-diff-arrow" classNameArrow="arrow" style={{zIndex: 100}}
+                             anchorId={props.id} place="bottom"/>
+                    <Tooltip className="studpro-4-diff-arrow" classNameArrow="arrow" style={{zIndex: 100}}
+                             anchorId={props.id + "4"} place="bottom"/>
+                    <Tooltip className="studpro-3-diff-arrow" classNameArrow="arrow" style={{zIndex: 100}}
+                             anchorId={props.id + "3"} place="bottom"/>
+                    <Tooltip className="studpro-2-diff-arrow" classNameArrow="arrow" style={{zIndex: 100}}
+                             anchorId={props.id + "2"} place="bottom"/>
+                    <Tooltip className="studpro-1-diff-arrow" classNameArrow="arrow" style={{zIndex: 100}}
+                             anchorId={props.id + "1"} place="bottom"/>
                 </div>}
         </>
 

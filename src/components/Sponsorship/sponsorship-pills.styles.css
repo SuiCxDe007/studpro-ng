@@ -1,0 +1,47 @@
+
+ .studpro-5-diff-arrow {
+    color: #ffffff;
+    background-color: rgb(255, 145, 0);
+     border-radius: 10px;
+}
+
+ .studpro-4-diff-arrow {
+    color: #fff;
+    background-color: rgb(250, 101, 47);
+     border-radius: 10px;
+}
+ .studpro-3-diff-arrow {
+    color: #fff;
+    background-color: rgb(255, 83, 60);
+     border-radius: 10px;
+ }
+
+ .studpro-3-diff-arrow .arrow {
+     background-color: rgb(222, 34, 72);
+ }
+
+ .studpro-2-diff-arrow {
+    color: #fff;
+    background-color: rgb(53, 118, 253);
+     border-radius: 10px;
+ }
+
+ .studpro-2-diff-arrow .arrow {
+     background-color: rgb(222, 34, 72);
+ }
+ .studpro-1-diff-arrow {
+    color: #fff;
+    background-color: rgb(0, 204, 82);
+     border-radius: 10px;
+ }
+
+ .studpro-1-diff-arrow .arrow {
+     background-color: rgb(222, 34, 72);
+ }
+ .studpro-4-diff-arrow .arrow {
+     background-color: rgb(222, 34, 72);
+ }
+
+ .studpro-5-diff-arrow .arrow {
+    background-color: rgb(222, 34, 72);
+}
