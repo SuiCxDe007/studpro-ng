@@ -42,4 +42,17 @@ const UISkeleton = () => {
     );
 };
 
+export const AccordionSkeleton = () => {
+    return (
+        <>
+            <Box>
+                <Skeleton animation="pulse" height={35}/>
+                <Skeleton animation="pulse" height={35}/>
+                <Skeleton animation="pulse" height={35}/>
+                <Skeleton animation="pulse" height={1}/>
+            </Box>
+        </>
+    );
+};
+
 export default UISkeleton;

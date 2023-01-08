@@ -18,25 +18,25 @@ import {Tooltip} from 'react-tooltip'
 import 'react-tooltip/dist/react-tooltip.css'
 import './sponsorship-pills.styles.css'
 
-const SponsorshipPills = (props) => {
+const SponsorshipYearsWrapper = (props) => {
 
     //TODO : Add State per new additional year below
 
-    const [spFiveColor, setSpFiveColor] = useState('');
-    const [spFourColor, setSpFourColor] = useState('');
-    const [spThreeColor, setSpThreeColor] = useState('');
-    const [spTwoColor, setSpTwoColor] = useState('');
-    const [spOneColor, setSpOneColor] = useState('');
+    const [spFiveStatus, setSpFiveStatus] = useState('');
+    const [spFourStatus, setSpFourStatus] = useState('');
+    const [spThreeStatus, setSpThreeStatus] = useState('');
+    const [spTwoStatus, setSpTwoStatus] = useState('');
+    const [spOneStatus, setSpOneStatus] = useState('');
 
     useEffect(() => {
         //TODO : Add function checker per new year
         if (props.partnerships) {
 
-            checker("spfive", setSpFiveColor);
-            checker("sptwo", setSpTwoColor);
-            checker("spthree", setSpThreeColor);
-            checker("spfour", setSpFourColor);
-            checker("spone", setSpOneColor);
+            checker("spfive", setSpFiveStatus);
+            checker("sptwo", setSpTwoStatus);
+            checker("spthree", setSpThreeStatus);
+            checker("spfour", setSpFourStatus);
+            checker("spone", setSpOneStatus);
         }
 
     }, []);
@@ -71,15 +71,15 @@ const SponsorshipPills = (props) => {
                 props.partnerships && <div>
 
                     {props.partnerships.spfive.length > 0 && <span id={props.id}
-                                                                   data-tooltip-content={`StudPro 5.0 ${props.partnerships.spfive}`}>{spFiveColor}</span>}
+                                                                   data-tooltip-content={`StudPro 5.0 ${props.partnerships.spfive}`}>{spFiveStatus}</span>}
                     {props.partnerships.spfour.length > 0 && <span id={props.id + "4"}
-                                                                   data-tooltip-content={`StudPro 4.0 ${props.partnerships.spfour}`}>{spFourColor}</span>}
+                                                                   data-tooltip-content={`StudPro 4.0 ${props.partnerships.spfour}`}>{spFourStatus}</span>}
                     {props.partnerships.spthree.length > 0 && <span id={props.id + "3"}
-                                                                    data-tooltip-content={`StudPro 3.0 ${props.partnerships.spthree}`}>{spThreeColor}</span>}
+                                                                    data-tooltip-content={`StudPro 3.0 ${props.partnerships.spthree}`}>{spThreeStatus}</span>}
                     {props.partnerships.sptwo.length > 0 && <span id={props.id + "2"}
-                                                                  data-tooltip-content={`StudPro 2.0 ${props.partnerships.sptwo}`}>{spTwoColor}</span>}
+                                                                  data-tooltip-content={`StudPro 2.0 ${props.partnerships.sptwo}`}>{spTwoStatus}</span>}
                     {props.partnerships.spone.length > 0 && <span id={props.id + "1"}
-                                                                  data-tooltip-content={`StudPro 1.0 ${props.partnerships.spone}`}>{spOneColor}</span>}
+                                                                  data-tooltip-content={`StudPro 1.0 ${props.partnerships.spone}`}>{spOneStatus}</span>}
 
                     <Tooltip className="studpro-5-diff-arrow" classNameArrow="arrow" style={{zIndex: 100}}
                              anchorId={props.id} place="bottom"/>
@@ -98,4 +98,4 @@ const SponsorshipPills = (props) => {
 
 }
 
-export default SponsorshipPills;
+export default SponsorshipYearsWrapper;

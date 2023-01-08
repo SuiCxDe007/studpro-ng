@@ -19,6 +19,7 @@ import {collection, deleteDoc, doc, getDocs} from "firebase/firestore";
 import {db} from "../../firebase";
 import VideosComponent from "./Videos-component";
 import {toast, ToastContainer} from "react-toastify";
+import UISkeleton, {AccordionSkeleton} from "../Utils/Skeleton";
 
 const AccordionComponent = (props) => {
 
@@ -75,24 +76,24 @@ const AccordionComponent = (props) => {
                 pauseOnHover
                 theme="light"
             />
-            {!sessionsAvailable && <center>No Sessions Available</center>}
-            {videoData !== null && <MDBAccordion style={{marginTop: "20px"}} borderless initialActive={1}>
+            {!sessionsAvailable && <center style={{fontFamily:"sans-serif"}}>No Sessions Available</center>}
+            {videoData !== null ? <MDBAccordion style={{marginTop: "20px"}} borderless initialActive={1}>
 
-                {videoData.map(xxx => {
+                {videoData.map(session => {
 
                     return (
-                        <MDBAccordionItem key={Math.random()} collapseId={Math.random()}
-                                          headerTitle={xxx.session_series_name}>
-                            <center>{xxx.session_description}</center>
+                        <MDBAccordionItem style={{fontFamily:"sans-serif"}} key={Math.random()} collapseId={Math.random()}
+                                          headerTitle={session.session_series_name}>
+                            <center className={"font"}>{session.session_description}</center>
                             <br/>
                             {props.admin &&
-                                <div><MDBBtn color={"danger"} onClick={() => handleDelete(xxx.id)}>Delete Session
+                                <div><MDBBtn color={"danger"} onClick={() => handleDelete(session.id)}>Delete Session
                                     Series</MDBBtn><br/><br/></div>}
-                            <VideosComponent video={xxx.sessions}/>
+                            <VideosComponent video={session.sessions}/>
                         </MDBAccordionItem>)
                 })}
             </MDBAccordion>
-            }
+            :<AccordionSkeleton/>}
         </div>
     );
 };

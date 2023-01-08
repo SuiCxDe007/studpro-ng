@@ -38,7 +38,7 @@ const Navbar = () => {
 
     return (
         <>
-            <MDBNavbar className={'font'} expand='lg' light bgColor='light'>
+            <MDBNavbar style={{paddingBottom:20}} className={'font'} expand='lg' light bgColor='light'>
                 <MDBContainer fluid>
                     <MDBNavbarBrand href='#'><img id='nav-logo' src={require('../../../media/img/studpro-logo.png')} alt={'StudPro Logo'}/></MDBNavbarBrand>
                     <MDBNavbarToggler
