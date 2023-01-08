@@ -103,7 +103,8 @@ const SponsorshipCardComponent = props => {
                             </MDBListGroup>
                     </MDBCardBody>
                 </MDBCard>
-            </MDBCol></div>
+            </MDBCol>
+        </div>
     )
 }
 

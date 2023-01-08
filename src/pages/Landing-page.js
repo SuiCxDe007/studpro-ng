@@ -25,7 +25,7 @@ export default function LandingPage() {
         <Navbar/>
         <SliderComponent/>
         <WhatIs/>
-        {/*<SponsorshipComponent admin={false}/>*/}
+        <SponsorshipComponent admin={false}/>
         <FooterComponent/>
     </>)
 }

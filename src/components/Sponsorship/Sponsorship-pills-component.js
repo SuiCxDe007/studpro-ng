@@ -14,7 +14,10 @@
  */
 
 import {React, useEffect, useState} from "react";
-import {MDBBadge} from 'mdb-react-ui-kit';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/animations/scale-extreme.css';
+import 'tippy.js/themes/light.css';
 
 
 const SponsorshipPills = (props) => {
@@ -43,19 +46,23 @@ const SponsorshipPills = (props) => {
 
     function checker(studpro, callback) {
         if (props.partnerships[studpro].includes("Platinum")) {
-            callback("success")
+            callback(<i className="fas fa-star" style={{color:"#8c14fc"}}></i>)
         }
         if (props.partnerships[studpro].includes("Gold")) {
-            callback("warning")
+            callback(<i className="fas fa-star" style={{color:"#FFDF00"}}></i>)
+
         }
         if (props.partnerships[studpro].includes("Silver")) {
-            callback("secondary")
+            callback(<i className="fas fa-star" style={{color:"#C0C0C0"}}></i>)
+
         }
         if (props.partnerships[studpro].includes("Bronze")) {
-            callback("primary")
+            callback( <i className="fas fa-star" style={{color:"#CD7F32"}}></i>)
+
         }
         if (props.partnerships[studpro].includes("Participant")) {
-            callback("info")
+            callback( <i className="far fa-star" style={{color:"#ADD8E6"}}></i>)
+
         }
     }
 
@@ -64,25 +71,16 @@ const SponsorshipPills = (props) => {
             {  //TODO : Add new MDBBadge Per new additional year
 
                 props.partnerships && <div>
-                    {props.partnerships.spfive.length > 0 && <MDBBadge pill className='mx-2' color={spFiveColor}>
-                        StudPro 5.0 {props.partnerships.spfive}
-                    </MDBBadge>}
-                    {props.partnerships.spfour.length > 0 && <MDBBadge pill className='mx-2' color={spFourColor}>
-                        StudPro 4.0 {props.partnerships.spfour}
-                    </MDBBadge>}
-                    {props.partnerships.spthree.length > 0 && <MDBBadge pill className='mx-2' color={spThreeColor}>
-                        StudPro 3.0 {props.partnerships.spthree}
-                    </MDBBadge>}
-                    {props.partnerships.sptwo.length > 0 && <MDBBadge pill className='mx-2' color={spTwoColor}>
-                        StudPro 2.0 {props.partnerships.sptwo}
-                    </MDBBadge>}
-                    {props.partnerships.spone.length > 0 && <MDBBadge pill className='mx-2' color={spOneColor}>
-                        StudPro 1.0 {props.partnerships.spone}
-                    </MDBBadge>}
+                    {props.partnerships.spfive.length > 0 &&  <Tippy theme={"light"} animation={"scale-extreme"} placement={"bottom"} content={`StudPro 5.0 ${props.partnerships.spfive}`}>{spFiveColor}</Tippy>}
+                    {props.partnerships.spfour.length > 0 &&  <Tippy theme={"light"}  animation={"scale-extreme"} placement={"bottom"} content={`StudPro 4.0 ${props.partnerships.spfour}`}>{spFourColor}</Tippy>}
+                    {props.partnerships.spthree.length > 0 && <Tippy theme={"light"}  animation={"scale-extreme"} placement={"bottom"} content={`StudPro 3.0 ${props.partnerships.spthree}`}>{spThreeColor}</Tippy>}
+                    {props.partnerships.sptwo.length > 0 &&   <Tippy theme={"light"}  animation={"scale-extreme"} placement={"bottom"} content={`StudPro 2.0 ${props.partnerships.sptwo}`}>{spTwoColor}</Tippy>}
+                    {props.partnerships.spone.length > 0 &&   <Tippy theme={"light"} animation={"scale-extreme"} placement={"bottom"} content={`StudPro 1.0 ${props.partnerships.spone}`}>{spOneColor}</Tippy>}
                 </div>}
         </>
 
     )
+
 }
 
 export default SponsorshipPills;
