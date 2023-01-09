@@ -32,11 +32,16 @@
     font-family: 'Encode Sans Condensed', sans-serif;
     font-family: 'Ubuntu', sans-serif;
     font-weight: bolder;
+    color: black;
 }
 
 
 .cards:hover{
-    box-shadow: 5px 5px 5px 5px #ffe6b5;
+    box-shadow: 0 18px 26px -6px #ffe6b5;
+}
+
+.chips{
+    margin-top: 5px;
 }
 
 .cards:hover .chips {

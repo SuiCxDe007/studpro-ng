@@ -29,7 +29,7 @@ import {
     MDBTypography
 } from "mdb-react-ui-kit";
 import {Alert, Chip} from "@mui/material";
-import {Face, LinkedIn} from "@mui/icons-material";
+import {Computer, ElectricBolt, Face, LinkedIn, Man} from "@mui/icons-material";
 import {RxResume} from "react-icons/rx";
 import {useStore} from "react-redux";
 
@@ -40,8 +40,6 @@ const TimelineComponent = () => {
 
     return (
         <div style={{marginLeft: "50px", marginRight: "50px", marginTop: "20px"}}>
-
-
             <MDBCard style={{backgroundColor: "#dfe5fd"}}>
                 <MDBCardHeader className="card-title-text">StudPro 5.0 Timeline</MDBCardHeader>
                 <MDBCardBody>
@@ -55,7 +53,7 @@ const TimelineComponent = () => {
                     <VerticalTimeline layout="1-column-left">
                         <VerticalTimelineElement
                             className="vertical-timeline-element--work"
-                            date="May 2022"
+                            date="May-June 2022"
                             iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
                             icon={<FcAbout/>}
                             dateClassName="date"
@@ -63,21 +61,25 @@ const TimelineComponent = () => {
                             <h3 className="vertical-timeline-element-title font-header">Mastering the art of CV &
                                 LinkedIn</h3>
                             <p className="font-content">
-                                Session series on creating a CV that stands out from the competition & upgrading your
-                                linkedIn profile to next level.<br/>
+                               <b> Session series on creating a CV that stands out from the competition & upgrading your
+                                   linkedIn profile to next level.</b><br/>
                             </p>
                             <MDBRow className='row-cols-1 row-cols-md-3 g-3' style={{paddingLeft:"40px",paddingRight:"40px",marginTop:"10px"}}>
                                 <MDBCol>
-                                    <MDBCard>
+                                    <MDBCard className="cards">
                                         <MDBCardImage
-                                            src='https://media-exp1.licdn.com/dms/image/C5603AQFH6FF429jRqg/profile-displayphoto-shrink_400_400/0/1593673119990?e=1675296000&v=beta&t=t0m-EBFqv-zoV1tuKjXVhw7O9lzbqZVcZyGC75-3Sh4'
+                                            src={require("../../../media/img/WhatsApp Image 2023-01-10 at 12.31.06 AM (1).jpeg")}
                                             alt='...'
                                             position='top'
-                                            height="300px"
+
                                         />
                                         <MDBCardBody>
-                                          <Chip style={{margin:"10px"}}  onMouseOver={()=>setChipColor("warning")} onMouseLeave={()=>setChipColor("info")} color={chipColor} icon={<LinkedIn />} label="Upgrading your LinkedIn to Next Level" />
 
+                                            <MDBCardTitle style={{fontSize:"16px"}}>        Upgrading your LinkedIn to Next Level
+
+                                                <Chip className="chips" color="info" icon={<Man />} label="All Streams" />
+                                            </MDBCardTitle>
+                                            <hr/>
                                             <MDBCardText>
                                                 Amithe Gamage<br/> Co-Founder - Quantum Leap (Pvt)Ltd
                                             </MDBCardText>
@@ -85,35 +87,37 @@ const TimelineComponent = () => {
                                     </MDBCard>
                                 </MDBCol>
                                 <MDBCol>
-                                    <MDBCard>
+                                    <MDBCard className="cards">
                                         <MDBCardImage
                                             src={require("../../../media/img/WhatsApp Image 2023-01-10 at 12.31.05 AM.jpeg")}
                                             alt='...'
                                             position='top'
-                                            height="300px"
                                         />
                                         <MDBCardBody>
-                                          <Chip style={{margin:"10px"}}  onMouseOver={()=>setChipColor("warning")} onMouseLeave={()=>setChipColor("info")} color={chipColor} icon={<Face />} label="Create your Job winning resume :  Computing Stream" />
+                                            <MDBCardTitle style={{fontSize:"18px"}}>Create your Job winning resume
 
-                                            <MDBCardText>
+                                          <Chip className="chips" color="info" icon={<ElectricBolt />} label="Electrical Stream" />
+                                            </MDBCardTitle>
+                                            <MDBCardText><hr/>
                                                 Zahra Marzook<br/> Electrical Engineer - Ceylon Electricity Board
                                             </MDBCardText>
                                         </MDBCardBody>
                                     </MDBCard>
                                 </MDBCol>
                                 <MDBCol>
-                                    <MDBCard className="cards">
+                                    <MDBCard  className="cards">
                                         <MDBCardImage
                                             src={require("../../../media/img/WhatsApp Image 2023-01-10 at 12.31.06 AM.jpeg")}
                                             alt='...'
                                             position='top'
-                                            height="300px"
                                         />
                                         <MDBCardBody>
-                                          <MDBBadge  className="chips" style={{margin:"10px"}}  color="info" icon={<Face />} label="Create your Job winning resume :  Electrical Stream" />
+                                           <MDBCardTitle style={{fontSize:"18px"}}>Create your Job winning resume
+                                               <Chip className="chips" color="info" icon={<Computer />} label="Computing Stream" />
 
-                                            <MDBCardText>
-                                                Maas savanghan<br/> Global COE Leader - attune
+                                           </MDBCardTitle>
+                                            <MDBCardText><hr/>
+                                                Maas Savanghan<br/> Global COE Leader - attune
                                             </MDBCardText>
                                         </MDBCardBody>
                                     </MDBCard>
