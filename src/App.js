@@ -27,6 +27,8 @@ import CarouselSettingsPage from "./components/Admin/Pages/CarouselSettings-page
 import GalleryPage from "./pages/Gallery-Page";
 import GallerySettingsPage from "./components/Admin/Pages/GallerySettings-page";
 import ScrollToTop from "react-scroll-to-top";
+import {Timeline} from "@mui/icons-material";
+import TimelinePage from "./pages/Timeline-Page";
 
 function App() {
 
@@ -40,6 +42,7 @@ function App() {
                 <Route path="/" element={<LandingPage/>}/>
                 <Route path="/sessions" element={<SessionsPage/>}/>
                 <Route path="/gallery" element={<GalleryPage/>}/>
+                <Route path="/timeline" element={<TimelinePage/>}/>
                 <Route path={"*"} element={<ErrorPage/>}/>
 
                 <Route path={"/dashboard"} element={isAuth ? <DashboardPage/> : <SignIn/>}/>

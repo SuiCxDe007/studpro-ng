@@ -1,0 +1,44 @@
+/*
+ *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *  Created by Kaveen Abeyrathne for StudPro 5.0 as a place for students to look
+ *  into What they can learn,companies to understand what to expect. This website
+ *  was developed as a first step to taking StudPro to a higher elevation. You are
+ *  free to update,share & modify the work for IEEE purposes ONLY.
+ *
+ *  Content of the source code is not authorized to use for any commercial purpose.
+ *
+ *  SuiCxDe007 | https://github.com/SuiCxDe007 | kaveenmadawa@gmail.com
+ *
+ *  ~ Copyright © 2023 SuiCxDe
+ *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+
+.font-header{
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+}
+
+.font-content{
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+}
+
+
+.date {
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bolder;
+}
+
+
+.cards:hover{
+    box-shadow: 5px 5px 5px 5px #ffe6b5;
+}
+
+.cards:hover .chips {
+    background-color: #ed6c02;
+}

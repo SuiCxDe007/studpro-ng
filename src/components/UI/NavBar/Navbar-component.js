@@ -65,6 +65,9 @@ const Navbar = () => {
                                 <MDBNavbarLink href='/gallery'>Gallery</MDBNavbarLink>
                             </MDBNavbarItem>
                             <MDBNavbarItem>
+                                <MDBNavbarLink href='/timeline'>Timeline</MDBNavbarLink>
+                            </MDBNavbarItem>
+                            <MDBNavbarItem>
                                 <MDBNavbarLink  href='/login' tabIndex={-1} >
                                     Admin
                                 </MDBNavbarLink>
