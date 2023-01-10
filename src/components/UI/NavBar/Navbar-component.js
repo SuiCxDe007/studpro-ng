@@ -64,9 +64,14 @@ const Navbar = () => {
                             <MDBNavbarItem>
                                 <MDBNavbarLink href='/gallery'>Gallery</MDBNavbarLink>
                             </MDBNavbarItem>
-                            <MDBNavbarItem>
-                                <MDBNavbarLink href='/timeline'>Timeline</MDBNavbarLink>
-                            </MDBNavbarItem>
+                            <MDBDropdown>
+                                <MDBDropdownToggle tag='a' className='nav-link' role='button'>
+                                    Timelines
+                                </MDBDropdownToggle>
+                                <MDBDropdownMenu>
+                                    <MDBDropdownItem link href={'/timeline'}>StudPro 5.0 Timeline</MDBDropdownItem>
+                                </MDBDropdownMenu>
+                            </MDBDropdown>
                             <MDBNavbarItem>
                                 <MDBNavbarLink  href='/login' tabIndex={-1} >
                                     Admin
