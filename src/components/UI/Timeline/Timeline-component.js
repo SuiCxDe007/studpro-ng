@@ -114,7 +114,7 @@ const TimelineComponent = () => {
                                                     Level
 
 
-                                                    <Button onClick={() => togr(['https://www.youtube.com/embed/rT7DgCr-3pg','https://www.youtube.com/watch?v=KuIBew4xoBc','https://www.youtube.com/watch?v=rg-WyfhEyPo'])} variant="contained" style={{backgroundColor: "red"}}
+                                                    <Button onClick={() => togr(['https://www.youtube.com/watch?v=9A3IprEj5kQ','https://www.youtube.com/watch?v=KuIBew4xoBc','https://www.youtube.com/watch?v=rg-WyfhEyPo'])} variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
@@ -140,7 +140,7 @@ const TimelineComponent = () => {
                                             <MDBCardBody>
                                                 <MDBCardTitle style={{fontSize: "15px"}}>Create your Job winning resume
 
-                                                    <Button variant="contained" style={{backgroundColor: "red"}}
+                                                    <Button  onClick={() => togr(['https://www.youtube.com/watch?v=KuIBew4xoBc' ,'https://www.youtube.com/watch?v=rg-WyfhEyPo', 'https://www.youtube.com/watch?v=9A3IprEj5kQ',])}  variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
@@ -166,7 +166,7 @@ const TimelineComponent = () => {
                                             <MDBCardBody>
                                                 <MDBCardTitle style={{fontSize: "15px"}}>Create your Job winning resume
 
-                                                    <Button variant="contained" style={{backgroundColor: "red"}}
+                                                    <Button  onClick={() => togr(['https://www.youtube.com/watch?v=rg-WyfhEyPo', 'https://www.youtube.com/watch?v=9A3IprEj5kQ','https://www.youtube.com/watch?v=KuIBew4xoBc' ])}  variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
