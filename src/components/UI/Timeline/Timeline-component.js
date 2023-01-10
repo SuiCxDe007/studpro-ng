@@ -13,7 +13,7 @@
  *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {VerticalTimeline, VerticalTimelineElement} from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import "./Timelines-styles.css"
@@ -49,12 +49,30 @@ import {
 import {BiMicrochip} from "react-icons/bi";
 import {GiComb, GiIdea} from "react-icons/gi";
 import Button from "@mui/material/Button";
-
+import FsLightbox from "fslightbox-react";
 
 const TimelineComponent = () => {
+    const [toggler, setToggler] = useState(false);
+
+    const [arr, setArr] = useState([])
+
+    const togr = (urls)=>{
+        setArr(urls);
+        setToggler(!toggler)
+    }
 
     return (
         <div style={{marginLeft: "50px", marginRight: "50px", marginTop: "20px"}}>
+            <FsLightbox
+                toggler={toggler}
+                sources={arr}
+                // sources={[
+                //     "/Images/Example.jpg",
+                //     "https://i.imgur.com/fsyrScY.jpg",
+                //     "https://www.youtube.com/watch?v=3nQNiWdeH2Q",
+                //     "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                // ]}
+            />
             <MDBCard style={{backgroundColor: "#dfe5fd"}}>
                 <MDBCardHeader className="card-title-text">StudPro 5.0 Timeline</MDBCardHeader>
                 <MDBCardBody>
@@ -94,12 +112,9 @@ const TimelineComponent = () => {
                                                 <MDBCardTitle style={{fontSize: "15px"}}> Upgrading your LinkedIn to
                                                     Next
                                                     Level
-                                                    <Button variant="contained" style={{backgroundColor: "red"}}
-                                                            startIcon={<YouTube/>}>
-                                                        Watch
-                                                    </Button>
-                                                  
-                                                    <Button variant="contained" style={{backgroundColor: "red"}}
+
+
+                                                    <Button onClick={() => togr(['https://www.youtube.com/embed/rT7DgCr-3pg','https://www.youtube.com/watch?v=KuIBew4xoBc','https://www.youtube.com/watch?v=rg-WyfhEyPo'])} variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
@@ -115,56 +130,56 @@ const TimelineComponent = () => {
                                     </div>
                                 </MDBCol>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/zahar.webp")}
-                                            alt='...'
-                                            position='top'
-                                        />
-                                        <MDBCardBody>
-                                            <MDBCardTitle style={{fontSize: "15px"}}>Create your Job winning resume
-                                              
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/zahar.webp")}
+                                                alt='...'
+                                                position='top'
+                                            />
+                                            <MDBCardBody>
+                                                <MDBCardTitle style={{fontSize: "15px"}}>Create your Job winning resume
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}}  color="info" icon={<ElectricBolt/>}
-                                                      label="Electrical Stream"/>
-                                            </MDBCardTitle>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                <hr/>
-                                                Zahra Marzook<br/> Electrical Engineer - Ceylon Electricity Board
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                          label="Electrical Stream"/>
+                                                </MDBCardTitle>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    <hr/>
+                                                    Zahra Marzook<br/> Electrical Engineer - Ceylon Electricity Board
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/maas.webp")}
-                                            alt='...'
-                                            position='top'
-                                        />
-                                        <MDBCardBody>
-                                            <MDBCardTitle style={{fontSize: "15px"}}>Create your Job winning resume
-                                              
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/maas.webp")}
+                                                alt='...'
+                                                position='top'
+                                            />
+                                            <MDBCardBody>
+                                                <MDBCardTitle style={{fontSize: "15px"}}>Create your Job winning resume
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}} color="info" icon={<Computer/>}
-                                                      label="Computing Stream"/>
-                                            </MDBCardTitle>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                <hr/>
-                                                Maas Savanghan<br/> Global COE Leader - attune
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                          label="Computing Stream"/>
+                                                </MDBCardTitle>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    <hr/>
+                                                    Maas Savanghan<br/> Global COE Leader - attune
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                             </MDBRow>
                         </VerticalTimelineElement>
@@ -184,113 +199,113 @@ const TimelineComponent = () => {
                             <MDBRow className='row-cols-1 row-cols-md-4 g-3'
                                     style={{paddingLeft: "40px", paddingRight: "40px", marginTop: "10px"}}>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/anuradha.webp")}
-                                            alt='...'
-                                            position='top'
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/anuradha.webp")}
+                                                alt='...'
+                                                position='top'
 
-                                        />
-                                        <MDBCardBody>
-                                            <MDBCardTitle style={{fontSize: "16px"}}> Session 01
-                                              
+                                            />
+                                            <MDBCardBody>
+                                                <MDBCardTitle style={{fontSize: "16px"}}> Session 01
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}} color="info" icon={<CellTower/>}
-                                                      label="Telecom Stream"/>
-                                            </MDBCardTitle>
-                                            <hr/>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                Anuradha Udunuwara<br/> Senior Enterprise Solutions Architect - Sri
-                                                Lanka Telecom
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                          label="Telecom Stream"/>
+                                                </MDBCardTitle>
+                                                <hr/>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    Anuradha Udunuwara<br/> Senior Enterprise Solutions Architect - Sri
+                                                    Lanka Telecom
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/ruschira.webp")}
-                                            alt='...'
-                                            position='top'
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/ruschira.webp")}
+                                                alt='...'
+                                                position='top'
 
-                                        />
-                                        <MDBCardBody>
+                                            />
+                                            <MDBCardBody>
 
-                                            <MDBCardTitle style={{fontSize: "16px"}}> Session 02
-                                              
+                                                <MDBCardTitle style={{fontSize: "16px"}}> Session 02
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}} color="info" icon={<BiMicrochip/>}
-                                                      label="Electronic Stream"/>
-                                            </MDBCardTitle>
-                                            <hr/>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                Ruchira Lakshan<br/> Application Engineer - Synopsys (Pvt)Ltd
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                          label="Electronic Stream"/>
+                                                </MDBCardTitle>
+                                                <hr/>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    Ruchira Lakshan<br/> Application Engineer - Synopsys (Pvt)Ltd
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/pasan.webp")}
-                                            alt='...'
-                                            position='top'
-                                        />
-                                        <MDBCardBody>
-                                            <MDBCardTitle style={{fontSize: "16px"}}>Session 03
-                                              
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/pasan.webp")}
+                                                alt='...'
+                                                position='top'
+                                            />
+                                            <MDBCardBody>
+                                                <MDBCardTitle style={{fontSize: "16px"}}>Session 03
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}} color="info" icon={<ElectricBolt/>}
-                                                      label="Electrical Stream"/>
-                                            </MDBCardTitle>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                <hr/>
-                                                Pasan Pethiyagode<br/> Electrical Design Engineer - Duo Operations Ltd
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                          label="Electrical Stream"/>
+                                                </MDBCardTitle>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    <hr/>
+                                                    Pasan Pethiyagode<br/> Electrical Design Engineer - Duo Operations Ltd
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/yohan.webp")}
-                                            alt='...'
-                                            position='top'
-                                        />
-                                        <MDBCardBody>
-                                            <MDBCardTitle style={{fontSize: "16 px"}}>Session 04
-                                              
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/yohan.webp")}
+                                                alt='...'
+                                                position='top'
+                                            />
+                                            <MDBCardBody>
+                                                <MDBCardTitle style={{fontSize: "16 px"}}>Session 04
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}} color="info" icon={<Computer/>}
-                                                      label="Computing Stream"/>
+                                                          label="Computing Stream"/>
 
-                                            </MDBCardTitle>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                <hr/>
-                                                Senior Tech Lead -<br/> 99x
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                </MDBCardTitle>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    <hr/>
+                                                    Senior Tech Lead -<br/> 99x
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                             </MDBRow>
                         </VerticalTimelineElement>
@@ -309,86 +324,86 @@ const TimelineComponent = () => {
                             <MDBRow className='row-cols-1 row-cols-md-3 g-3'
                                     style={{paddingLeft: "40px", paddingRight: "40px", marginTop: "10px"}}>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/jehan.webp")}
-                                            alt='...'
-                                            position='top'
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/jehan.webp")}
+                                                alt='...'
+                                                position='top'
 
-                                        />
-                                        <MDBCardBody>
+                                            />
+                                            <MDBCardBody>
 
-                                            <MDBCardTitle style={{fontSize: "16px"}}> Session 01<br/>
-                                              
+                                                <MDBCardTitle style={{fontSize: "16px"}}> Session 01<br/>
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}} color="info" icon={<Computer/>}
-                                                      label="Computing Stream"/>
-                                            </MDBCardTitle>
-                                            <hr/>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                Jehan Wijesinghe<br/> Head of product - Surge Global
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                          label="Computing Stream"/>
+                                                </MDBCardTitle>
+                                                <hr/>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    Jehan Wijesinghe<br/> Head of product - Surge Global
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/indranatha.webp")}
-                                            alt='...'
-                                            position='top'
-                                        />
-                                        <MDBCardBody>
-                                            <MDBCardTitle style={{fontSize: "15px"}}>Session 02<br/>
-                                              
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/indranatha.webp")}
+                                                alt='...'
+                                                position='top'
+                                            />
+                                            <MDBCardBody>
+                                                <MDBCardTitle style={{fontSize: "15px"}}>Session 02<br/>
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}} color="info" icon={<ElectricBolt/>}
-                                                      label="Electrical Stream"/>
-                                            </MDBCardTitle>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                <hr/>
-                                                E.K. Indranatha<br/> Chief Electrical Engineer - Ceylon Electricity
-                                                Board
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                          label="Electrical Stream"/>
+                                                </MDBCardTitle>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    <hr/>
+                                                    E.K. Indranatha<br/> Chief Electrical Engineer - Ceylon Electricity
+                                                    Board
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/thilin.jpeg")}
-                                            alt='...'
-                                            position='top'
-                                        />
-                                        <MDBCardBody>
-                                            <MDBCardTitle style={{fontSize: "15px"}}>Session 03<br/>
-                                              
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/thilin.jpeg")}
+                                                alt='...'
+                                                position='top'
+                                            />
+                                            <MDBCardBody>
+                                                <MDBCardTitle style={{fontSize: "15px"}}>Session 03<br/>
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}} color="info" icon={<BiMicrochip/>}
-                                                      label="Electronic Stream"/>
+                                                          label="Electronic Stream"/>
 
-                                            </MDBCardTitle>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                <hr/>
-                                                Thilina Bandara<br/> Senior Consultant - Zone24x7
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                </MDBCardTitle>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    <hr/>
+                                                    Thilina Bandara<br/> Senior Consultant - Zone24x7
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                             </MDBRow>
                         </VerticalTimelineElement>
@@ -408,59 +423,59 @@ const TimelineComponent = () => {
                             <MDBRow className='row-cols-1 row-cols-md-3 g-3 d-flex justify-content-center text-center'
                                     style={{paddingLeft: "40px", paddingRight: "40px", marginTop: "10px"}}>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/rasini.webp")}
-                                            alt='...'
-                                            position='top'
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/rasini.webp")}
+                                                alt='...'
+                                                position='top'
 
-                                        />
-                                        <MDBCardBody>
+                                            />
+                                            <MDBCardBody>
 
-                                            <MDBCardTitle style={{fontSize: "16px"}}> Groom Your Mentality<br/>
-                                              
+                                                <MDBCardTitle style={{fontSize: "16px"}}> Groom Your Mentality<br/>
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}} color="info" icon={<People/>}
-                                                      label="All Streams"/>
-                                            </MDBCardTitle>
-                                            <hr/>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                Rasini Bandara<br/> Mental Health Care Professional - Mind Heals PVT
-                                                (Ltd)
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                          label="All Streams"/>
+                                                </MDBCardTitle>
+                                                <hr/>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    Rasini Bandara<br/> Mental Health Care Professional - Mind Heals PVT
+                                                    (Ltd)
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/sampath.webp")}
-                                            alt='...'
-                                            position='top'
-                                        />
-                                        <MDBCardBody>
-                                            <MDBCardTitle style={{fontSize: "15px"}}>Session 02<br/>
-                                              
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/sampath.webp")}
+                                                alt='...'
+                                                position='top'
+                                            />
+                                            <MDBCardBody>
+                                                <MDBCardTitle style={{fontSize: "15px"}}>Session 02<br/>
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}} color="info" icon={<People/>}
-                                                      label="All Streams"/>
-                                            </MDBCardTitle>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                <hr/>
-                                                Sampath Soysa<br/> Senior Executive - University of Bolton
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                          label="All Streams"/>
+                                                </MDBCardTitle>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    <hr/>
+                                                    Sampath Soysa<br/> Senior Executive - University of Bolton
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                             </MDBRow>
                         </VerticalTimelineElement>
@@ -480,85 +495,85 @@ const TimelineComponent = () => {
                             <MDBRow className='row-cols-1 row-cols-md-3 g-3 text-center'
                                     style={{paddingLeft: "40px", paddingRight: "40px", marginTop: "10px"}}>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/sachin.webp")}
-                                            alt='...'
-                                            position='top'
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/sachin.webp")}
+                                                alt='...'
+                                                position='top'
 
-                                        />
-                                        <MDBCardBody>
+                                            />
+                                            <MDBCardBody>
 
-                                            <MDBCardTitle style={{fontSize: "16px"}}> General Interviews<br/>
-                                              
+                                                <MDBCardTitle style={{fontSize: "16px"}}> General Interviews<br/>
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}} color="info" icon={<People/>}
-                                                      label="All Streams"/>
-                                            </MDBCardTitle>
-                                            <hr/>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                Sachin Duneeka<br/> Partner Support & customer Success - hSenid Business
-                                                Solutions
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                          label="All Streams"/>
+                                                </MDBCardTitle>
+                                                <hr/>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    Sachin Duneeka<br/> Partner Support & customer Success - hSenid Business
+                                                    Solutions
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/THARAKA.webp")}
-                                            alt='...'
-                                            position='top'
-                                        />
-                                        <MDBCardBody>
-                                            <MDBCardTitle style={{fontSize: "15px"}}>Technical Interviews<br/>
-                                              
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/THARAKA.webp")}
+                                                alt='...'
+                                                position='top'
+                                            />
+                                            <MDBCardBody>
+                                                <MDBCardTitle style={{fontSize: "15px"}}>Technical Interviews<br/>
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}} color="info" icon={<Computer/>}
-                                                      label="Computing Stream"/>
-                                            </MDBCardTitle>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                <hr/>
-                                                Tharaka Madhushanka<br/> Associate Technical Lead - 99x
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                          label="Computing Stream"/>
+                                                </MDBCardTitle>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    <hr/>
+                                                    Tharaka Madhushanka<br/> Associate Technical Lead - 99x
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/indika.webp")}
-                                            alt='...'
-                                            position='top'
-                                        />
-                                        <MDBCardBody>
-                                            <MDBCardTitle style={{fontSize: "15px"}}>Technical Interviews<br/>
-                                              
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/indika.webp")}
+                                                alt='...'
+                                                position='top'
+                                            />
+                                            <MDBCardBody>
+                                                <MDBCardTitle style={{fontSize: "15px"}}>Technical Interviews<br/>
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}} color="info" icon={<ElectricBolt/>}
-                                                      label="Electrical & Telco Stream"/>
-                                            </MDBCardTitle>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                <hr/>
-                                                Indike Gunathilake<br/> Senior Vice President - Arimac Lanka
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                          label="Electrical & Telco Stream"/>
+                                                </MDBCardTitle>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    <hr/>
+                                                    Indike Gunathilake<br/> Senior Vice President - Arimac Lanka
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                             </MDBRow>
                         </VerticalTimelineElement>
@@ -578,28 +593,28 @@ const TimelineComponent = () => {
                             <MDBRow className='row-cols-1 row-cols-md-3 g-3 d-flex justify-content-center text-center'
                                     style={{paddingLeft: "40px", paddingRight: "40px", marginTop: "10px"}}>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/youngprotege.webp")}
-                                            alt='...'
-                                            position='top'
-                                        />
-                                        <MDBCardBody>
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/youngprotege.webp")}
+                                                alt='...'
+                                                position='top'
+                                            />
+                                            <MDBCardBody>
 
-                                            <MDBCardTitle style={{fontSize: "16px"}}>Session Series<br/>
-                                              
+                                                <MDBCardTitle style={{fontSize: "16px"}}>Session Series<br/>
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}} color="info" icon={<People/>}
-                                                      label="All Streams"/>
-                                            </MDBCardTitle>
-                                            <hr/>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                          label="All Streams"/>
+                                                </MDBCardTitle>
+                                                <hr/>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                             </MDBRow>
                         </VerticalTimelineElement>
@@ -619,33 +634,33 @@ const TimelineComponent = () => {
                             <MDBRow className='row-cols-1 row-cols-md-3 g-3 d-flex justify-content-center text-center'
                                     style={{paddingLeft: "40px", paddingRight: "40px", marginTop: "10px"}}>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/zamreen.webp")}
-                                            alt='...'
-                                            position='top'
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/zamreen.webp")}
+                                                alt='...'
+                                                position='top'
 
-                                        />
-                                        <MDBCardBody>
+                                            />
+                                            <MDBCardBody>
 
-                                            <MDBCardTitle style={{fontSize: "16px"}}>Session Series<br/>
-                                              
+                                                <MDBCardTitle style={{fontSize: "16px"}}>Session Series<br/>
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}} color="info" icon={<People/>}
-                                                      label="All Streams"/>
-                                            </MDBCardTitle>
+                                                          label="All Streams"/>
+                                                </MDBCardTitle>
 
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                <hr/>
-                                                Zamreen Zarook<br/> Director - Glinmax Holdings
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    <hr/>
+                                                    Zamreen Zarook<br/> Director - Glinmax Holdings
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                             </MDBRow>
                         </VerticalTimelineElement>
@@ -665,174 +680,174 @@ const TimelineComponent = () => {
                             <MDBRow className='row-cols-1 row-cols-md-6 g-3'
                                     style={{paddingLeft: "40px", paddingRight: "40px", marginTop: "10px"}}>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/fortude.webp")}
-                                            alt='...'
-                                            position='top'
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/fortude.webp")}
+                                                alt='...'
+                                                position='top'
 
-                                        />
-                                        <MDBCardBody>
+                                            />
+                                            <MDBCardBody>
 
-                                            <MDBCardTitle style={{fontSize: "16px"}}> Session 01
+                                                <MDBCardTitle style={{fontSize: "16px"}}> Session 01
 
-                                              
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}}  color="info"
-                                                      icon={<People/>}
-                                                      label="All Streams"/>
-                                            </MDBCardTitle>
-                                            <hr/>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                Fortude
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
-                                </MDBCol>
-                                <MDBCol>
-                                      <div className="youtube-watch">
-                                        <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/rizen.webp")}
-                                            alt='...'
-                                            position='top'
-
-                                        />
-                                        <MDBCardBody>
-
-                                            <MDBCardTitle style={{fontSize: "16px"}}> Session 02
-                                              
-                                                    <Button variant="contained" style={{backgroundColor: "red"}}
-                                                            startIcon={<YouTube/>}>
-                                                        Watch
-                                                    </Button>
-                                                    <Chip className="chips"   style={{fontSize:"12px"}}  color="info"
-                                                      icon={<People/>}
-                                                      label="All Streams"/>
-                                            </MDBCardTitle>
-                                            <hr/>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                Rizing attune
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
-                                </MDBCol>
-                                <MDBCol>
-                                      <div className="youtube-watch">
-                                        <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/azebd.webp")}
-                                            alt='...'
-                                            position='top'
-                                        />
-                                        <MDBCardBody>
-                                            <MDBCardTitle style={{fontSize: "15px"}}>Session 03
-                                              
-                                                    <Button variant="contained" style={{backgroundColor: "red"}}
-                                                            startIcon={<YouTube/>}>
-                                                        Watch
-                                                    </Button>
-                                                    <Chip className="chips"   style={{fontSize:"12px"}}  color="info"
-                                                      icon={<People/>}
-                                                      label="All Streams"/>
-                                            </MDBCardTitle>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                          icon={<People/>}
+                                                          label="All Streams"/>
+                                                </MDBCardTitle>
                                                 <hr/>
-                                                Azend Technologies
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    Fortude
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/directfn.webp")}
-                                            alt='...'
-                                            position='top'
-                                        />
-                                        <MDBCardBody>
-                                            <MDBCardTitle style={{fontSize: "15px"}}>Session 04
-                                              
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/rizen.webp")}
+                                                alt='...'
+                                                position='top'
+
+                                            />
+                                            <MDBCardBody>
+
+                                                <MDBCardTitle style={{fontSize: "16px"}}> Session 02
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}}  color="info"
-                                                      icon={<People/>}
-                                                      label="All Streams"/>
-
-                                            </MDBCardTitle>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                          icon={<People/>}
+                                                          label="All Streams"/>
+                                                </MDBCardTitle>
                                                 <hr/>
-                                                DirecFN
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    Rizing attune
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/different.webp")}
-                                            alt='...'
-                                            position='top'
-                                        />
-                                        <MDBCardBody>
-                                            <MDBCardTitle style={{fontSize: "15px"}}>Session 05
-                                              
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/azebd.webp")}
+                                                alt='...'
+                                                position='top'
+                                            />
+                                            <MDBCardBody>
+                                                <MDBCardTitle style={{fontSize: "15px"}}>Session 03
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}}  color="info"
-                                                      icon={<People/>}
-                                                      label="All Streams"/>
-
-                                            </MDBCardTitle>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                <hr/>
-                                                :Different
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                          icon={<People/>}
+                                                          label="All Streams"/>
+                                                </MDBCardTitle>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    <hr/>
+                                                    Azend Technologies
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/dialog.webp")}
-                                            alt='...'
-                                            position='top'
-                                        />
-                                        <MDBCardBody>
-                                            <MDBCardTitle style={{fontSize: "15px"}}>Session 06
-                                              
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/directfn.webp")}
+                                                alt='...'
+                                                position='top'
+                                            />
+                                            <MDBCardBody>
+                                                <MDBCardTitle style={{fontSize: "15px"}}>Session 04
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}}  color="info"
-                                                      icon={<People/>}
-                                                      label="All Streams"/>
+                                                          icon={<People/>}
+                                                          label="All Streams"/>
 
-                                            </MDBCardTitle>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                <hr/>
-                                                Dialog
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                </MDBCardTitle>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    <hr/>
+                                                    DirecFN
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
+                                </MDBCol>
+                                <MDBCol>
+                                    <div className="youtube-watch">
+                                        <MDBCard className="cards card-overlay">
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/different.webp")}
+                                                alt='...'
+                                                position='top'
+                                            />
+                                            <MDBCardBody>
+                                                <MDBCardTitle style={{fontSize: "15px"}}>Session 05
+
+                                                    <Button variant="contained" style={{backgroundColor: "red"}}
+                                                            startIcon={<YouTube/>}>
+                                                        Watch
+                                                    </Button>
+                                                    <Chip className="chips"   style={{fontSize:"12px"}}  color="info"
+                                                          icon={<People/>}
+                                                          label="All Streams"/>
+
+                                                </MDBCardTitle>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    <hr/>
+                                                    :Different
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
+                                </MDBCol>
+                                <MDBCol>
+                                    <div className="youtube-watch">
+                                        <MDBCard className="cards card-overlay">
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/dialog.webp")}
+                                                alt='...'
+                                                position='top'
+                                            />
+                                            <MDBCardBody>
+                                                <MDBCardTitle style={{fontSize: "15px"}}>Session 06
+
+                                                    <Button variant="contained" style={{backgroundColor: "red"}}
+                                                            startIcon={<YouTube/>}>
+                                                        Watch
+                                                    </Button>
+                                                    <Chip className="chips"   style={{fontSize:"12px"}}  color="info"
+                                                          icon={<People/>}
+                                                          label="All Streams"/>
+
+                                                </MDBCardTitle>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    <hr/>
+                                                    Dialog
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                             </MDBRow>
                         </VerticalTimelineElement>
@@ -852,58 +867,58 @@ const TimelineComponent = () => {
                             <MDBRow className='row-cols-1 row-cols-md-3 g-3 d-flex justify-content-center text-center'
                                     style={{paddingLeft: "40px", paddingRight: "40px", marginTop: "10px"}}>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/vipula.webp")}
-                                            alt='...'
-                                            position='top'
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/vipula.webp")}
+                                                alt='...'
+                                                position='top'
 
-                                        />
-                                        <MDBCardBody>
+                                            />
+                                            <MDBCardBody>
 
-                                            <MDBCardTitle style={{fontSize: "16px"}}>Session 01<br/>
-                                              
+                                                <MDBCardTitle style={{fontSize: "16px"}}>Session 01<br/>
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}} color="info" icon={<People/>}
-                                                      label="All Streams"/>
-                                            </MDBCardTitle>
-                                            <hr/>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                Vipula Liyanaarachchi<br/> General Manager - Zone24x7
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                          label="All Streams"/>
+                                                </MDBCardTitle>
+                                                <hr/>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    Vipula Liyanaarachchi<br/> General Manager - Zone24x7
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                                 <MDBCol>
-                                      <div className="youtube-watch">
+                                    <div className="youtube-watch">
                                         <MDBCard className="cards card-overlay">
-                                        <MDBCardImage
-                                            src={require("../../../media/img/Timeline/dammika.webp")}
-                                            alt='...'
-                                            position='top'
-                                        />
-                                        <MDBCardBody>
-                                            <MDBCardTitle style={{fontSize: "15px"}}>Session 02<br/>
-                                              
+                                            <MDBCardImage
+                                                src={require("../../../media/img/Timeline/dammika.webp")}
+                                                alt='...'
+                                                position='top'
+                                            />
+                                            <MDBCardBody>
+                                                <MDBCardTitle style={{fontSize: "15px"}}>Session 02<br/>
+
                                                     <Button variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
                                                     <Chip className="chips"   style={{fontSize:"12px"}} color="info" icon={<People/>}
-                                                      label="All Streams"/>
-                                            </MDBCardTitle>
-                                            <MDBCardText style={{fontSize: "0.8rem"}}>
-                                                <hr/>
-                                                Dr. Dhammika Elkaduwe<br/> Lecturer - University of Peradeniya
-                                            </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCard>
-                                      </div>
+                                                          label="All Streams"/>
+                                                </MDBCardTitle>
+                                                <MDBCardText style={{fontSize: "0.8rem"}}>
+                                                    <hr/>
+                                                    Dr. Dhammika Elkaduwe<br/> Lecturer - University of Peradeniya
+                                                </MDBCardText>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </div>
                                 </MDBCol>
                             </MDBRow>
                         </VerticalTimelineElement>
