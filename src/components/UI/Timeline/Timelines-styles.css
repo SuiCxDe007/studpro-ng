@@ -47,3 +47,33 @@
 .cards:hover .chips {
     background-color: #ed6c02;
 }
+
+.youtube-watch button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+
+.youtube-watch:hover button {
+    visibility: visible;
+}
+
+
+.card-overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    transition: visibility 0.1s;
+}
+
+.card-overlay:hover::before {
+    visibility: visible;
+}
