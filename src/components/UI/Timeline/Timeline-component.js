@@ -53,11 +53,10 @@ import FsLightbox from "fslightbox-react";
 
 const TimelineComponent = () => {
     const [toggler, setToggler] = useState(false);
+    const [URLList, setURLList] = useState([])
 
-    const [arr, setArr] = useState([])
-
-    const togr = (urls)=>{
-        setArr(urls);
+    const openLightBox = (urls)=>{
+        setURLList(urls);
         setToggler(!toggler)
     }
 
@@ -65,13 +64,7 @@ const TimelineComponent = () => {
         <div style={{marginLeft: "50px", marginRight: "50px", marginTop: "20px"}}>
             <FsLightbox
                 toggler={toggler}
-                sources={arr}
-                // sources={[
-                //     "/Images/Example.jpg",
-                //     "https://i.imgur.com/fsyrScY.jpg",
-                //     "https://www.youtube.com/watch?v=3nQNiWdeH2Q",
-                //     "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                // ]}
+                sources={URLList}
             />
             <MDBCard style={{backgroundColor: "#dfe5fd"}}>
                 <MDBCardHeader className="card-title-text">StudPro 5.0 Timeline</MDBCardHeader>
@@ -114,7 +107,7 @@ const TimelineComponent = () => {
                                                     Level
 
 
-                                                    <Button onClick={() => togr(['https://www.youtube.com/watch?v=9A3IprEj5kQ','https://www.youtube.com/watch?v=KuIBew4xoBc','https://www.youtube.com/watch?v=rg-WyfhEyPo'])} variant="contained" style={{backgroundColor: "red"}}
+                                                    <Button onClick={() => openLightBox(['https://www.youtube.com/watch?v=9A3IprEj5kQ','https://www.youtube.com/watch?v=KuIBew4xoBc','https://www.youtube.com/watch?v=rg-WyfhEyPo'])} variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
@@ -140,7 +133,7 @@ const TimelineComponent = () => {
                                             <MDBCardBody>
                                                 <MDBCardTitle style={{fontSize: "15px"}}>Create your Job winning resume
 
-                                                    <Button  onClick={() => togr(['https://www.youtube.com/watch?v=KuIBew4xoBc' ,'https://www.youtube.com/watch?v=rg-WyfhEyPo', 'https://www.youtube.com/watch?v=9A3IprEj5kQ',])}  variant="contained" style={{backgroundColor: "red"}}
+                                                    <Button  onClick={() => openLightBox(['https://www.youtube.com/watch?v=KuIBew4xoBc' ,'https://www.youtube.com/watch?v=rg-WyfhEyPo', 'https://www.youtube.com/watch?v=9A3IprEj5kQ',])}  variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
@@ -166,7 +159,7 @@ const TimelineComponent = () => {
                                             <MDBCardBody>
                                                 <MDBCardTitle style={{fontSize: "15px"}}>Create your Job winning resume
 
-                                                    <Button  onClick={() => togr(['https://www.youtube.com/watch?v=rg-WyfhEyPo', 'https://www.youtube.com/watch?v=9A3IprEj5kQ','https://www.youtube.com/watch?v=KuIBew4xoBc' ])}  variant="contained" style={{backgroundColor: "red"}}
+                                                    <Button  onClick={() => openLightBox(['https://www.youtube.com/watch?v=rg-WyfhEyPo', 'https://www.youtube.com/watch?v=9A3IprEj5kQ','https://www.youtube.com/watch?v=KuIBew4xoBc' ])}  variant="contained" style={{backgroundColor: "red"}}
                                                             startIcon={<YouTube/>}>
                                                         Watch
                                                     </Button>
