@@ -57,14 +57,12 @@ const SponsorCardSettings = (props) => {
 
             deleteObject(gsReference).then(() => {
                 toast.success('Partner Deleted!')
-                toast.info('Reload the page!')
             }).catch((error) => {
                 toast.error(`Error Deleting Logo.`)
                 console.error('Error deleting logo: ', error);
             });
         }).catch((error) => {
             toast.error(`Error Deleting Partner.`)
-            toast.error('Reload the page!')
             console.error('Error deleting document: ', error);
         });
     }
@@ -110,14 +108,13 @@ const SponsorCardSettings = (props) => {
                 oid: values.oid,
                 years: values.yearsWithUs,
                 companyURL: values.companyURL,
-                jobs: values.jobs===undefined ? null : values.jobs.split(','),
-                jobURL: values.jobs===undefined ? null : values.jobURL,
+                jobs: values.jobs===undefined || values.jobs.length === 0 ? null : values.jobs.split(','),
+                jobURL: values.jobURL===undefined  || values.jobURL.length === 0 ? null : values.jobURL,
                 partnerships: {
                     spone: values.sp1, sptwo: values.sp2, spthree: values.sp3, spfour: values.sp4, spfive: values.sp5,
                 }
             }).then(() => {
                 toast.success('Partner Updated!')
-                toast.info('Reload the page!')
                 setShowUpdateModal(false)
             }).catch(error => {
                 toast.error(`Error Updating Partner.`)

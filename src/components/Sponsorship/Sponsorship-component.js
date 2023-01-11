@@ -14,7 +14,7 @@
  */
 
 import {React, useEffect, useState} from "react";
-import {collection, getDocs} from "firebase/firestore";
+import {collection, getDocs,onSnapshot ,doc} from "firebase/firestore";
 import {db} from "../../firebase";
 import SponsorshipCardComponent from "./Sponsorship-card-component";
 import './sponsorship-component-styles.css'
@@ -26,12 +26,9 @@ const SponsorshipComponent = (props) => {
     const [sponsordataState, setSponsorData] = useState('');
 
     const fetchPost = async () => {
-        await getDocs(collection(db, "Companies"))
-            .then((querySnapshot) => {
-                const newData = querySnapshot.docs
-                    .map((doc) => ({...doc.data(), id: doc.id}));
-                setSponsorData(newData)
-            })
+       await onSnapshot(collection(db, "Companies"), (snapshot) => {
+            setSponsorData(snapshot.docs.map((doc)=>({...doc.data(), id: doc.id})))
+        })
     }
 
     useEffect(() => {
