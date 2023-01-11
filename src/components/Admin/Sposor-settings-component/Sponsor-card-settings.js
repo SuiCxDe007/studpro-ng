@@ -110,8 +110,8 @@ const SponsorCardSettings = (props) => {
                 oid: values.oid,
                 years: values.yearsWithUs,
                 companyURL: values.companyURL,
-                jobs: values.jobs.length === 0 ? null : values.jobs.split(','),
-                jobURL: values.jobURL.length === 0 ? null : values.jobURL,
+                jobs: values.jobs===undefined ? null : values.jobs.split(','),
+                jobURL: values.jobs===undefined ? null : values.jobURL,
                 partnerships: {
                     spone: values.sp1, sptwo: values.sp2, spthree: values.sp3, spfour: values.sp4, spfive: values.sp5,
                 }
