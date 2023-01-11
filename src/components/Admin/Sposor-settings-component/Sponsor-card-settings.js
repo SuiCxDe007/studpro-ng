@@ -88,6 +88,8 @@ const SponsorCardSettings = (props) => {
             yearsWithUs: props.sponsor.years,
             companyURL: props.sponsor.companyURL,
             oid: props.sponsor.oid,
+            jobs: props.sponsor.jobs,
+            jobURL: props.sponsor.jobURL,
             // TODO Add iterations here
             sp1: props.sponsor.partnerships.spone,
             sp2: props.sponsor.partnerships.sptwo,
@@ -97,13 +99,19 @@ const SponsorCardSettings = (props) => {
 
         }, onSubmit: async values => {
 
+            if (typeof values.jobs === "object") {
+                values.jobs = values.jobs.join(",")
+            }
+
             const updateRef = doc(db, "Companies", props.sponsor.id);
-            const docRef = await updateDoc(updateRef, {
+            await updateDoc(updateRef, {
 
                 name: values.companyName,
                 oid: values.oid,
                 years: values.yearsWithUs,
                 companyURL: values.companyURL,
+                jobs: values.jobs.length === 0 ? null : values.jobs.split(','),
+                jobURL: values.jobURL.length === 0 ? null : values.jobURL,
                 partnerships: {
                     spone: values.sp1, sptwo: values.sp2, spthree: values.sp3, spfour: values.sp4, spfive: values.sp5,
                 }
@@ -143,7 +151,7 @@ const SponsorCardSettings = (props) => {
                 </DialogActions>
             </Dialog>
 
-            <Dialog open={showUpdateModal} TransitionComponent={Slide} >
+            <Dialog open={showUpdateModal} TransitionComponent={Slide}>
                 <DialogTitle>Update Company Info</DialogTitle>
                 <DialogContent>
                     <div>
@@ -198,6 +206,32 @@ const SponsorCardSettings = (props) => {
                                 defaultValue={formik.values.oid}
                                 value={formik.values.oid}
                             /><br/>
+                            <TextField
+                                name="jobs"
+                                autoFocus
+                                margin="dense"
+                                id="jobs"
+                                label="Available Job Opportunities (Separate by comma)"
+                                type="text"
+                                fullWidth
+                                variant="standard"
+                                defaultValue={formik.values.jobs}
+                                onChange={formik.handleChange}
+                                value={formik.values.jobs}
+                            /><br/>
+                            <TextField
+                                name="jobURL"
+                                autoFocus
+                                margin="dense"
+                                id="jobURL"
+                                label="Job Application URL"
+                                type="url"
+                                fullWidth
+                                variant="standard"
+                                defaultValue={formik.values.jobURL}
+                                onChange={formik.handleChange}
+                                value={formik.values.jobURL}
+                            /><br/><br/>
                             {/*TODO add another form control for iteration*/}
                             <FormControl sx={{m: 1, minWidth: 220}} size="small">
                                 <InputLabel id="demo-select-small">StudPro 1.0 Partnership Type</InputLabel>

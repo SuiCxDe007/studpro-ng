@@ -49,6 +49,8 @@ const SponsorSettingsComponent = () => {
             yearsWithUs: '',
             companyURL: '',
             companyLogo: '',
+            jobURL:'',
+            jobs: '',
             oid:'',
             sp1: '',
             sp2: '',
@@ -64,6 +66,8 @@ const SponsorSettingsComponent = () => {
                 oid : values.oid,
                 years: values.yearsWithUs,
                 companyURL : values.companyURL,
+                jobURL: values.jobURL.length === 0 ? null : values.jobURL,
+                jobs: values.jobs.length===0 ? null : values.jobs.split(','),
                 partnerships: {
                     spone: values.sp1,
                     sptwo: values.sp2,
@@ -80,6 +84,8 @@ const SponsorSettingsComponent = () => {
                 values.yearsWithUs= ''
                 values.companyURL= ''
                 values.companyLogo= ''
+                values.jobURL= ''
+                values.jobs=''
                 values.oid=''
                 values.sp1= ''
                 values.sp2= ''
@@ -175,6 +181,21 @@ const SponsorSettingsComponent = () => {
                         value={formik.values.yearsWithUs}
                         required
                         label='Years With Us'
+                    />
+                    <br/>
+                    <MDBInput className='mb-3'
+                              id='jobs'
+                              onChange={formik.handleChange}
+                              value={formik.values.jobs}
+                              label='Available Job Opportunities (Seperate by Comma)'
+                    />
+                    <br/>
+                    <MDBInput className='mb-3'
+                              id='jobURL'
+                              type='url'
+                              onChange={formik.handleChange}
+                              value={formik.values.jobURL}
+                              label='Job Application URL'
                     />
                     <br/>
                     <MDBRow className='mb-4'>
