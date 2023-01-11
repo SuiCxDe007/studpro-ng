@@ -13,24 +13,92 @@
  *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
-import {React} from "react";
+import {React, useState} from "react";
 import {
     MDBBadge,
+    MDBBtn,
     MDBCard,
     MDBCardBody,
     MDBCardImage,
     MDBCardTitle,
     MDBCol,
     MDBListGroup,
-    MDBListGroupItem
+    MDBListGroupItem,
+    MDBModal,
+    MDBModalBody,
+    MDBModalContent,
+    MDBModalDialog,
+    MDBModalFooter,
+    MDBModalHeader,
+    MDBModalTitle
 } from 'mdb-react-ui-kit';
 import SponsorshipYearsWrapper from "./Sponsorship-pills-component";
 import SponsorCardSettings from "../Admin/Sposor-settings-component/Sponsor-card-settings";
+import Slide from "@mui/material/Slide";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogActions from "@mui/material/DialogActions";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import {BiBriefcase} from "react-icons/bi";
+import {Chip} from "@mui/material";
+import './sponsorship-card-component-styles.css';
 
 const SponsorshipCardComponent = props => {
 
+    const [showCareersModal, setShowCareersModal] = useState(false);
+
+    const handleCareersModal =()=>{
+        setShowCareersModal(!showCareersModal)
+    }
+    console.log(props)
+
     return (
         <div>
+            {/*<Dialog*/}
+            {/*    open={showCareersModal}*/}
+            {/*    TransitionComponent={Slide}*/}
+            {/*    keepMounted*/}
+            {/*   // onClose={handleDeleteClose}*/}
+            {/*    aria-describedby="alert-dialog-slide-description"*/}
+            {/*>*/}
+            {/*    <DialogTitle style={{color: "green"}}>{"Available Opportunities"}<hr/></DialogTitle>*/}
+            {/*    <DialogContent>*/}
+            {/*        <DialogContentText id="alert-dialog-slide-description">*/}
+            {/*            This action is irreversible!<br/> Are you sure you want to delete <b>?*/}
+            {/*            <ul>{props.sponsor.jobs && props.sponsor.jobs.map(x=>{*/}
+            {/*                return <li>{x}</li>*/}
+            {/*            })}</ul>*/}
+            {/*        </b> </DialogContentText>*/}
+            {/*    </DialogContent>*/}
+            {/*    <DialogActions>*/}
+            {/*        <Button variant="outlined" color="warning" onClick={handleCareersModal}>Cancel</Button>*/}
+            {/*        <Button onClick={handleCareersModal} variant="contained" color="error">*/}
+            {/*            Delete*/}
+            {/*        </Button>*/}
+            {/*    </DialogActions>*/}
+            {/*</Dialog>*/}
+            <MDBModal show={showCareersModal} setShow={setShowCareersModal} tabIndex='-1'>
+                <MDBModalDialog>
+                    <MDBModalContent>
+                        <MDBModalHeader>
+                            <MDBModalTitle>Available Opportunities</MDBModalTitle>
+                            <MDBBtn className='btn-close' color='none' onClick={handleCareersModal}></MDBBtn>
+                        </MDBModalHeader>
+                        <MDBModalBody>{props.sponsor.jobs && props.sponsor.jobs.map(job=>{
+                           return <Chip className="chips" style={{marginRight:"10px",marginTop:"10px"}} color="primary" label={job} icon={<BiBriefcase />} />
+                        })}</MDBModalBody>
+
+                        <MDBModalFooter>
+                            <MDBBtn color='secondary' onClick={handleCareersModal}>
+                                Close
+                            </MDBBtn><a href={props.sponsor.jobURL ? props.sponsor.jobURL : '#'} target="_blank">
+                            <MDBBtn>Apply</MDBBtn></a>
+                        </MDBModalFooter>
+                    </MDBModalContent>
+                </MDBModalDialog>
+            </MDBModal>
             <MDBCol>
                 <MDBCard className={'h-100'}>
                     <MDBCardImage
@@ -54,7 +122,14 @@ const SponsorshipCardComponent = props => {
                                 <button style={{position: "relative", bottom: "0"}} type="button"
                                         className="btn btn-primary btn-rounded">Website
                                 </button>
-                            </a> </MDBListGroupItem>{props.admin && <MDBListGroupItem>
+                            </a>
+                                <button onClick={handleCareersModal} style={{position: "relative", marginLeft:"5px", bottom: "0"}} type="button"
+                                       disabled={!props.sponsor.jobs} className="btn btn-success btn-rounded">Careers<MDBBadge className='ms-2' color='warning'>
+                                    {props.sponsor.jobs ? props.sponsor.jobs.length : 0}
+                                </MDBBadge>
+                                    <span className='visually-hidden'>unread messages</span>
+                                </button>
+                         </MDBListGroupItem>{props.admin && <MDBListGroupItem>
                             <SponsorCardSettings sponsor={props.sponsor}/></MDBListGroupItem>}
                         </MDBListGroup>
                     </MDBCardBody>
