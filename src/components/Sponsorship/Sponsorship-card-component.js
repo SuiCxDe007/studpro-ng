@@ -22,6 +22,7 @@ import {
     MDBCardImage,
     MDBCardTitle,
     MDBCol,
+    MDBIcon,
     MDBListGroup,
     MDBListGroupItem,
     MDBModal,
@@ -34,51 +35,23 @@ import {
 } from 'mdb-react-ui-kit';
 import SponsorshipYearsWrapper from "./Sponsorship-pills-component";
 import SponsorCardSettings from "../Admin/Sposor-settings-component/Sponsor-card-settings";
-import Slide from "@mui/material/Slide";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogActions from "@mui/material/DialogActions";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
 import {BiBriefcase} from "react-icons/bi";
 import {Chip} from "@mui/material";
 import './sponsorship-card-component-styles.css';
+import {Tooltip} from "react-tooltip";
+import 'react-tooltip/dist/react-tooltip.css';
 
 const SponsorshipCardComponent = props => {
 
     const [showCareersModal, setShowCareersModal] = useState(false);
 
-    const handleCareersModal =()=>{
+    const handleCareersModal = () => {
         setShowCareersModal(!showCareersModal)
     }
     console.log(props)
 
     return (
         <div>
-            {/*<Dialog*/}
-            {/*    open={showCareersModal}*/}
-            {/*    TransitionComponent={Slide}*/}
-            {/*    keepMounted*/}
-            {/*   // onClose={handleDeleteClose}*/}
-            {/*    aria-describedby="alert-dialog-slide-description"*/}
-            {/*>*/}
-            {/*    <DialogTitle style={{color: "green"}}>{"Available Opportunities"}<hr/></DialogTitle>*/}
-            {/*    <DialogContent>*/}
-            {/*        <DialogContentText id="alert-dialog-slide-description">*/}
-            {/*            This action is irreversible!<br/> Are you sure you want to delete <b>?*/}
-            {/*            <ul>{props.sponsor.jobs && props.sponsor.jobs.map(x=>{*/}
-            {/*                return <li>{x}</li>*/}
-            {/*            })}</ul>*/}
-            {/*        </b> </DialogContentText>*/}
-            {/*    </DialogContent>*/}
-            {/*    <DialogActions>*/}
-            {/*        <Button variant="outlined" color="warning" onClick={handleCareersModal}>Cancel</Button>*/}
-            {/*        <Button onClick={handleCareersModal} variant="contained" color="error">*/}
-            {/*            Delete*/}
-            {/*        </Button>*/}
-            {/*    </DialogActions>*/}
-            {/*</Dialog>*/}
             <MDBModal show={showCareersModal} setShow={setShowCareersModal} tabIndex='-1'>
                 <MDBModalDialog>
                     <MDBModalContent>
@@ -86,8 +59,9 @@ const SponsorshipCardComponent = props => {
                             <MDBModalTitle>Available Opportunities</MDBModalTitle>
                             <MDBBtn className='btn-close' color='none' onClick={handleCareersModal}></MDBBtn>
                         </MDBModalHeader>
-                        <MDBModalBody>{props.sponsor.jobs && props.sponsor.jobs.map(job=>{
-                           return <Chip className="chips" style={{marginRight:"10px",marginTop:"10px"}} color="primary" label={job} icon={<BiBriefcase />} />
+                        <MDBModalBody>{props.sponsor.jobs && props.sponsor.jobs.map(job => {
+                            return <Chip className="chips" style={{marginRight: "10px", marginTop: "10px"}}
+                                         color="primary" label={job} icon={<BiBriefcase/>}/>
                         })}</MDBModalBody>
 
                         <MDBModalFooter>
@@ -118,23 +92,34 @@ const SponsorshipCardComponent = props => {
                             <MDBListGroupItem> <SponsorshipYearsWrapper id={props.sponsor.id}
                                                                         partnerships={props.sponsor.partnerships}/>
                             </MDBListGroupItem>
-                            <MDBListGroupItem> <a href={props.sponsor.companyURL} target={"_blank"}>
-                                <button style={{position: "relative", bottom: "0"}} type="button"
-                                        className="btn btn-primary btn-rounded">Website
-                                </button>
-                            </a>
-                                <button onClick={handleCareersModal} style={{position: "relative", marginLeft:"5px", bottom: "0"}} type="button"
-                                       disabled={!props.sponsor.jobs} className="btn btn-success btn-rounded">Careers<MDBBadge className='ms-2' color='warning'>
+                            <MDBListGroupItem>
+                                <a href={props.sponsor.companyURL} target={"_blank"}>
+                       <span id={`${props.sponsor.name}`} data-tooltip-content={`Visit ${props.sponsor.name} Website`} >
+                           <MDBBtn floating tag='a'>
+                                    <MDBIcon fas icon="globe"/>
+                                </MDBBtn>
+                       </span>
+                                </a>
+                                <span id={`${props.sponsor.id}`+`${props.sponsor.name}`} data-tooltip-content={props.sponsor.jobs ? `${props.sponsor.jobs.length} Job Roles Available`  :  'Vacancies Unavailable'}  >
+                                <button onClick={handleCareersModal} style={{marginLeft: "5px"}} type="button"
+                                        disabled={!props.sponsor.jobs}
+                                        className="btn btn-success btn-rounded">Careers
+                                    <MDBBadge className='ms-1' color='warning'>
                                     {props.sponsor.jobs ? props.sponsor.jobs.length : 0}
-                                </MDBBadge>
+                                    </MDBBadge>
                                     <span className='visually-hidden'>unread messages</span>
-                                </button>
-                         </MDBListGroupItem>{props.admin && <MDBListGroupItem>
+                                </button></span>
+                            </MDBListGroupItem>{props.admin && <MDBListGroupItem>
                             <SponsorCardSettings sponsor={props.sponsor}/></MDBListGroupItem>}
                         </MDBListGroup>
                     </MDBCardBody>
                 </MDBCard>
-            </MDBCol>
+            </MDBCol> <Tooltip className="website-icon-tooltip" classNameArrow="arrow" id={props.sponsor.id}
+                               style={{zIndex: 1000}}
+                               anchorId={`${props.sponsor.name}`} place="bottom"/>
+            <Tooltip className="careers-tooltip" classNameArrow="arrow" id={props.sponsor.name}
+                     style={{zIndex: 1000}}
+                     anchorId={`${props.sponsor.id}`+`${props.sponsor.name}`} place="bottom"/>
         </div>
     )
 }

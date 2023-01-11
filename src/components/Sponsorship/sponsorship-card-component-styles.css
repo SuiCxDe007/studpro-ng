@@ -3,3 +3,24 @@
  .chips:hover {
      background-color: orange;
  }
+
+
+ .website-icon-tooltip {
+     color: #fff;
+     background-color: rgb(0, 128, 255);
+     border-radius: 10px;
+ }
+
+ .website-icon-tooltip .arrow {
+     background-color: rgb(0, 34, 255);
+ }
+
+ .careers-tooltip {
+     color: #fff;
+     background-color: rgb(66, 190, 28);
+     border-radius: 10px;
+ }
+
+ .careers-tooltip .arrow {
+     background-color: rgb(230, 255, 0);
+ }
