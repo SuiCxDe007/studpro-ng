@@ -43,7 +43,6 @@ const GallerySettingsComponent = () => {
 
             }).then(() => {
                 toast.success('Carousel Image Updated!')
-                toast.info('Reload the page!')
             }).catch(e => {
                 toast.error(`Carousel Image update failure.`)
                 toast.error('Reload the page!')

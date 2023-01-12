@@ -38,7 +38,6 @@ const GalleryCardWrapper = (props) => {
 
             deleteObject(gsReference).then(() => {
                 toast.success('Image Deleted!')
-                toast.info('Reload the page!')
             }).catch((error) => {
                 toast.error(`Error Deleting Image from Object Storage.`)
                 console.error('Error deleting Image: ', error);

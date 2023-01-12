@@ -14,7 +14,7 @@
  */
 
 import React, {useEffect, useState} from 'react';
-import {collection, getDocs} from "firebase/firestore";
+import {collection, getDocs, onSnapshot,doc} from "firebase/firestore";
 import {db} from "../../../firebase";
 import {MDBRow} from "mdb-react-ui-kit";
 import UISkeleton from "../../Utils/Skeleton";
@@ -25,12 +25,10 @@ const GalleryCard = () => {
     const [sponsordataState, setSponsorData] = useState(null);
 
     const fetchPost = async () => {
-        await getDocs(collection(db, "PhotoGallery/StudProIteration/studpro5"))
-            .then((querySnapshot) => {
-                const newData = querySnapshot.docs
-                    .map((doc) => ({...doc.data(), id: doc.id}));
-                setSponsorData(newData)
-            })
+
+        await onSnapshot(collection(db, "PhotoGallery/StudProIteration/studpro5"), (snapshot) => {
+            setSponsorData(snapshot.docs.map((doc)=>({...doc.data(), id: doc.id})))
+        })
     }
 
     useEffect(() => {
