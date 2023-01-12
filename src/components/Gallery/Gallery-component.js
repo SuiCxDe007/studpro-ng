@@ -19,6 +19,7 @@ import Carousel, {Modal, ModalGateway} from "react-images";
 import {getStorage} from "firebase/storage";
 import {collection, getDocs} from "firebase/firestore";
 import {db} from "../../firebase";
+import UISkeleton from "../Utils/Skeleton";
 
 const GalleryComponent = () => {
     const [currentImage, setCurrentImage] = useState(0);
@@ -56,7 +57,7 @@ const GalleryComponent = () => {
         fetchPost()
     }, []);
 
-    return (sponsordataState && <div style={{marginTop: "20px", marginRight: "50px", marginLeft: "50px"}}>
+    return (sponsordataState ? <div style={{marginTop: "20px", marginRight: "50px", marginLeft: "50px"}}>
             <Gallery photos={sponsordataState} onClick={openLightbox}/>
             <ModalGateway>
                 {viewerIsOpen ? (<Modal onClose={closeLightbox}>
@@ -69,7 +70,7 @@ const GalleryComponent = () => {
                         />
                     </Modal>) : null}
             </ModalGateway>
-        </div>);
+        </div>:<UISkeleton/>);
 };
 
 export default GalleryComponent;
