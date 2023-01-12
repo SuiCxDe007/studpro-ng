@@ -240,9 +240,57 @@ export default function WhatIs() {
                             <MDBBtn onClick={() => navigate("sessions")} className={'bg-danger bg-gradient'} size='lg'
                                     style={{margin: "20px"}}><MDBIcon fas
                                                                       icon="video"/> &nbsp;
-                                <b>Watch Our Sessions</b></MDBBtn><br/>
+                                <b>Watch Our Sessions</b></MDBBtn>
+                            <MDBBtn onClick={() => navigate("timeline")} className={'bg-success bg-gradient'} size='lg'
+                                    style={{margin: "20px"}}><i className="fas fa-calendar-alt"/> &nbsp;
+                                <b>Check Our Timeline</b></MDBBtn>
+                            <br/>
+                            <div className="main-part">
+                                <div className="cpanel">
+                                    <div className="icon-part">
+                                        <i className="fa fa-graduation-cap" aria-hidden="true"></i><br/>
+                                        <h3>21+</h3>
+                                        <p>Universities</p>
+                                    </div>
+                                </div>
+                                <div className="cpanel cpanel-green">
+                                    <div className="icon-part">
+                                        <i className="fa fa-user-plus" aria-hidden="true"></i><br/>
+                                        <h3>3000+</h3>
+                                        <p>Registrations</p>
+                                    </div>
+                                </div>
+                                <div className="cpanel cpanel-orange">
+                                    <div className="icon-part">
+                                        <i className="fa fa-users" aria-hidden="true"></i><br/>
+                                        <h3>2500+</h3>
+                                        <p>Participants</p>
+                                    </div>
+                                </div>
+                                <div className="cpanel cpanel-blue">
+                                    <div className="icon-part">
+                                        <i className="fa fa-sitemap" aria-hidden="true"></i><br/>
+                                        <h3>4</h3>
+                                        <p>Major Streams</p>
+                                    </div>
+                                </div>
+                                <div className="cpanel cpanel-red">
+                                    <div className="icon-part">
+                                        <i className="fa fa-laptop" aria-hidden="true"></i><br/>
+                                        <h3>12</h3>
+                                        <p>Major Streams</p>
+                                    </div>
+                                </div>
+                                <div className="cpanel cpanel-skyblue">
+                                    <div className="icon-part">
+                                        <i className="fa fa-user" aria-hidden="true"></i><br/>
+                                        <h3>16</h3>
+                                        <p>Speakers</p>
+                                    </div>
+                                </div>
+                            </div>
                         </p>
-                        <MDBCardImage position='top' src={studProProgramImg} alt='...'/>
+                        <MDBCardImage style={{marginTop:"20px"}} position='top' src={studProProgramImg} alt='...'/>
                     </MDBCard>
                 </div>
             </div>
