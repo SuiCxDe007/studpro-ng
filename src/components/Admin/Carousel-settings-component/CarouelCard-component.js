@@ -20,6 +20,12 @@ import {MDBRow} from "mdb-react-ui-kit";
 import UISkeleton from "../../Utils/Skeleton";
 import CarouselCardWrapper from "./Carousel-card-wrapper";
 
+/**
+ *
+ * @returns Carousal Cards for Admin View
+ *
+ */
+
 const CarouselCard = () => {
 
     const [carouselImageData, setCarouselImageData] = useState(null);

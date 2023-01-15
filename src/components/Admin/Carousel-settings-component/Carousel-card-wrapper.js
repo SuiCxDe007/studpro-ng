@@ -28,6 +28,12 @@ import {db} from "../../../firebase";
 import {toast} from "react-toastify";
 import {useState} from "react";
 
+/**
+ *
+ * @returns card Wrapper for Carousal Card (Images)
+ * @function handles all firebase delete logic
+ */
+
 const CarouelCardWrapper = (props) => {
 
     const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -58,7 +64,6 @@ const CarouelCardWrapper = (props) => {
     const handleDeleteModalOpen = () => {
         setShowDeleteModal(!showDeleteModal);
     };
-
 
     return (
         <div>

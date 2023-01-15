@@ -25,6 +25,12 @@ import {
     MDBRow
 } from "mdb-react-ui-kit";
 
+/**
+ *
+ * @returns ADMIN Dashboard content
+ *
+ */
+
 const DashboardContent = () => {
     return (
         <div>

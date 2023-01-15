@@ -27,6 +27,13 @@ import {deleteDoc, doc} from "firebase/firestore";
 import {db} from "../../../firebase";
 import {toast} from "react-toastify";
 
+/**
+ *
+ *
+ * @returns Gallery Card Wrapper for ADMIN settings
+ *
+ */
+
 const GalleryCardWrapper = (props) => {
 
     const [showDeleteModal, setShowDeleteModal] = useState(false);

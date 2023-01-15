@@ -20,6 +20,12 @@ import {MDBRow} from "mdb-react-ui-kit";
 import UISkeleton from "../../Utils/Skeleton";
 import GalleryCardWrapperComponent from "./Gallery-card-wrapper-component";
 
+/**
+ *
+ * @returns Parent component for ADMIN Gallery Settings
+ *
+ */
+
 const GalleryCard = () => {
 
     const [sponsordataState, setSponsorData] = useState(null);

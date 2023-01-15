@@ -22,6 +22,12 @@ import {toast, ToastContainer} from "react-toastify";
 import {MDBBtn, MDBCard, MDBCardBody, MDBCol, MDBFile, MDBInput, MDBRow, MDBSpinner} from "mdb-react-ui-kit";
 import GalleryCard from "./GalleryCard-component";
 
+/**
+ *
+ * @returns Gallery Settings component in ADMIN
+ *
+ */
+
 const GallerySettingsComponent = () => {
 
     const [imageURL, setImageURL] = useState('');

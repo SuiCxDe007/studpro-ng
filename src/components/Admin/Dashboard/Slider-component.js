@@ -27,6 +27,12 @@ import {Skeleton} from "@mui/material";
 import React from "react";
 import "../../UI/Header/header-styles.css"
 
+/**
+ *
+ * @returns Carousal slider & firebase logic
+ *
+ */
+
 const SliderComponent = () => {
 
     const [URLData, setURLData] = useState(null);

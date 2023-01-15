@@ -22,6 +22,12 @@ import {getDownloadURL, getStorage, ref, uploadBytes} from "firebase/storage";
 import {toast, ToastContainer} from "react-toastify";
 import CarouselCard from "./CarouelCard-component";
 
+/**
+ *
+ * @returns Parent Component of ADMIN Carousel Cards
+ *
+ */
+
 const CarouselSettings = () => {
 
     const [logoURL, setLogoURL] = useState('');
