@@ -19,11 +19,13 @@ jobs:
           CI: false
       - name: Generate build
         run: npm run build
+        env:
+          CI: false
       - uses: actions/checkout@v2
 
       # ( Build to ./dist or other directory... )
 
-      - name: Deploy to Netlify
+      - name: Deploy to Netlify [SuiCxDe]
         uses: nwtgck/actions-netlify@v1.2
         with:
           publish-dir: './build'
