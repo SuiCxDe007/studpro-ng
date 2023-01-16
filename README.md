@@ -45,7 +45,7 @@ You may also see any lint errors in the console.
         
 ```
 
-### CI/CD
+## CI/CD
 
 Application can be deployed to netlify via github actions & direct builds on netlify. If required to deploy to netlify push changes into `master` branch. 
 For firebase hosting deployments, push to `prod` branch. 
@@ -53,7 +53,7 @@ For firebase hosting deployments, push to `prod` branch.
 
 ### 
 
-Improvements
+## Improvements
 
 Required TODOs & improvements are noted under TODOs in Code. 
 
