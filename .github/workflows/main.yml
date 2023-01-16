@@ -19,6 +19,8 @@ jobs:
           CI: false
       - name: Generate build
         run: npm run build
+      - name: files
+        run: ls -a
         env:
           CI: false
       - uses: actions/checkout@v2
