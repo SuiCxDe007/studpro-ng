@@ -11,6 +11,7 @@ import rootReducer from "./components/Utils/rootReducer";
 import {Provider} from "react-redux";
 import thunk from "redux-thunk";
 
+//TODO If required remove strict mode
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const store = createStore(
@@ -20,17 +21,13 @@ const store = createStore(
     )
 )
 root.render(
-
     <React.StrictMode>
-
-      <Provider store={store}>
-      <BrowserRouter>
-
-
-      <AuthContextProvider >
-
-    <App />
-
-      </AuthContextProvider> </BrowserRouter></Provider></React.StrictMode>
-
+        <Provider store={store}>
+            <BrowserRouter>
+                <AuthContextProvider>
+                    <App/>
+                </AuthContextProvider>
+            </BrowserRouter>
+        </Provider>
+    </React.StrictMode>
 );

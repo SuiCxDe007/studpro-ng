@@ -27,8 +27,15 @@ import CarouselSettingsPage from "./components/Admin/Pages/CarouselSettings-page
 import GalleryPage from "./pages/Gallery-Page";
 import GallerySettingsPage from "./components/Admin/Pages/GallerySettings-page";
 import ScrollToTop from "react-scroll-to-top";
-import {Timeline} from "@mui/icons-material";
 import TimelinePage from "./pages/Timeline-Page";
+
+/**
+ *
+ * @returns main App Component
+ *
+ */
+
+//TODO Move Routes to seperate comp.
 
 function App() {
 

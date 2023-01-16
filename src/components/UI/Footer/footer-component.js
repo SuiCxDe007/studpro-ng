@@ -20,6 +20,11 @@ import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon,
 
 import './footer-component-styles.css'
 
+/**
+ *
+ * @returns footer component
+ */
+
 export default function FooterComponent() {
     return (
         <MDBFooter style={{marginTop:"20px", paddingTop:"15px"}} bgColor='light' className='text-center text-lg-start text-muted noselect'>

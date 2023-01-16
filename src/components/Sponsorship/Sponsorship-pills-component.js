@@ -18,6 +18,11 @@ import {Tooltip} from 'react-tooltip'
 import 'react-tooltip/dist/react-tooltip.css'
 import './sponsorship-pills.styles.css'
 
+/**
+ *
+ * @returns handles everything related to stars (sponsor years & sponsor type)
+ */
+
 const SponsorshipYearsWrapper = (props) => {
 
     //TODO : Add State per new additional year below

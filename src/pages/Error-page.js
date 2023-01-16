@@ -16,6 +16,11 @@
 import React, {useEffect} from 'react';
 import './ErrorPage-styles.css'
 
+/**
+ *
+ * @returns error page (404)
+ */
+
 const ErrorPage = () => {
 
     useEffect(() => {

@@ -25,6 +25,12 @@ import {
 } from "mdb-react-ui-kit";
 import image from '../../media/img/studpro-programs.webp'
 import AccordionComponent from "./Accordion-components";
+
+/**
+ *
+ * @returns parent sessions component
+ */
+
 const SessionsComponent  = (props) => {
 
 

@@ -16,6 +16,10 @@
 import { Navigate } from "react-router-dom";
 import {useAuth} from "../store/auth-context";
 
+/**
+ *
+ * @returns handle the protected routes
+ */
 
 export const ProtectedRoute = ({ children }) => {
     const { user } = useAuth();

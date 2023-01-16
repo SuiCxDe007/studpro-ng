@@ -21,6 +21,12 @@ import VideosComponent from "./Videos-component";
 import {toast, ToastContainer} from "react-toastify";
 import UISkeleton, {AccordionSkeleton} from "../Utils/Skeleton";
 
+/**
+ *
+ * @returns wrapper component for accordion with youtube videos
+ *
+ */
+
 const AccordionComponent = (props) => {
 
     const [videoData, setVideoData] = useState(null);

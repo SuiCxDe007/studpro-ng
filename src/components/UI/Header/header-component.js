@@ -16,6 +16,11 @@
 import React from 'react';
 import './header-styles.css'
 
+/**
+ *
+ * @returns placeholder header. NOT IN USE
+ *
+ */
 
 export default function Header() {
     return (
@@ -24,7 +29,6 @@ export default function Header() {
                 className='p-5 text-center bg-image'
                 style={{backgroundImage: `url(${require("../../../media/img/landing-img.webp")})`, height: '400px'}}
             >
-
                 <div className='mask' style={{backgroundColor: 'rgba(0,0,0,0.3)'}}>
                     <div className='d-flex justify-content-center align-items-center h-100'>
                         <div className='text-white'>

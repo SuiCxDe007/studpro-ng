@@ -19,6 +19,11 @@ import {toast} from "react-toastify";
 import {useNavigate} from 'react-router-dom';
 import {useDispatch} from "react-redux";
 
+/**
+ * Handles firebase auth
+ * @type {React.Context<{onLogin: onLogin, onLogout: onLogout, isLoggedIn: boolean, user: null}>}
+ */
+
 const AuthContext = React.createContext({
     isLoggedIn: false,
     user: null,
@@ -37,11 +42,10 @@ export const AuthContextProvider = (props) => {
     const auth = getAuth();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [user, setUser] = useState(null);
-    const [userUID, setUserUID] = useState('');
+
     useEffect(() => {
         const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
         const storedUID = localStorage.getItem('user');
-        setUserUID(storedUID)
 
         if (storedUserLoggedInInformation === '1' && storedUID) {
             setIsLoggedIn(true);

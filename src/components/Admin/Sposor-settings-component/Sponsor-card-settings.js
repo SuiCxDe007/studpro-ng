@@ -31,15 +31,7 @@ import {useFormik} from "formik";
 
 /**
  *
- * Created by Kaveen Abeyrathne | ©SuiCxDe | https://github.com/SuiCxDe007/
- * StudPro 5.0
- *
- */
-
-/**
- *
- * This Component is used to control settings of Sponsorship card. Per Iteration make the marked updates as required.
- * Improvements : Add Logo update to modal dialog.
+ * @returns handles all settings related to ADMIN sponsor cards
  *
  */
 

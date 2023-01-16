@@ -29,6 +29,12 @@ import {
 import AuthContext from "../../store/auth-context";
 import {useSelector} from "react-redux";
 
+/**
+ *
+ * @returns Nav for Website
+ *
+ */
+
 const Navbar = () => {
 
     const authContext = useContext(AuthContext);

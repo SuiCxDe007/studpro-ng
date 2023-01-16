@@ -41,6 +41,11 @@ import './sponsorship-card-component-styles.css';
 import {Tooltip} from "react-tooltip";
 import 'react-tooltip/dist/react-tooltip.css';
 
+/**
+ *
+ * @returns handles main sponsor card component
+ */
+
 const SponsorshipCardComponent = props => {
 
     const [showCareersModal, setShowCareersModal] = useState(false);

@@ -27,6 +27,7 @@ import GalleryCard from "./GalleryCard-component";
  * @returns Gallery Settings component in ADMIN
  *
  */
+//TODO update Image Add with multiple image upload.
 
 const GallerySettingsComponent = () => {
 

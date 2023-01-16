@@ -17,6 +17,12 @@ import React from 'react';
 import Box from "@mui/material/Box";
 import {Skeleton} from "@mui/material";
 
+/**
+ *
+ * @returns Skeleton to display while loading
+ *
+ */
+
 const UISkeleton = () => {
     return (
         <>

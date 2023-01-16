@@ -21,6 +21,12 @@ import {collection, getDocs} from "firebase/firestore";
 import {db} from "../../firebase";
 import UISkeleton from "../Utils/Skeleton";
 
+/**
+ *
+ * @returns handles gallery component related stuff
+ *
+ */
+
 const GalleryComponent = () => {
     const [currentImage, setCurrentImage] = useState(0);
     const [viewerIsOpen, setViewerIsOpen] = useState(false);

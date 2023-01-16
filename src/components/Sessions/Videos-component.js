@@ -17,6 +17,11 @@ import React from 'react';
 import YouTube from "react-youtube";
 import {MDBCol, MDBRow} from "mdb-react-ui-kit";
 
+/**
+ *
+ * @returns handles individual YT Videos
+ */
+
 const VideosComponent = (props) => {
 
     var indents = [];

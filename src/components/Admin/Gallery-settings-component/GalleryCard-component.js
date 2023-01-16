@@ -28,12 +28,12 @@ import GalleryCardWrapperComponent from "./Gallery-card-wrapper-component";
 
 const GalleryCard = () => {
 
-    const [sponsordataState, setSponsorData] = useState(null);
+    const [GalleryData, setGalleryData] = useState(null);
 
     const fetchPost = async () => {
 
         await onSnapshot(collection(db, "PhotoGallery/StudProIteration/studpro5"), (snapshot) => {
-            setSponsorData(snapshot.docs.map((doc)=>({...doc.data(), id: doc.id})))
+            setGalleryData(snapshot.docs.map((doc)=>({...doc.data(), id: doc.id})))
         })
     }
 
@@ -46,8 +46,8 @@ const GalleryCard = () => {
         <div style={{marginTop: "20px"}}>
 
             <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
-                {sponsordataState ? sponsordataState.map(x => {
-                    return <GalleryCardWrapperComponent data={x}/>
+                {GalleryData ? GalleryData.map(image => {
+                    return <GalleryCardWrapperComponent data={image}/>
                 }) : (
                     <UISkeleton/>
                 )}

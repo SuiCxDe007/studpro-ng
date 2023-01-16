@@ -13,6 +13,11 @@
  *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
+/**
+ * 
+ * @type {{isAuthenticated: boolean}}
+ */
+
 const initialState={
     isAuthenticated:false,
 }

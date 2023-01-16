@@ -51,6 +51,15 @@ import {GiComb, GiIdea} from "react-icons/gi";
 import Button from "@mui/material/Button";
 import FsLightbox from "fslightbox-react";
 
+/**
+ *
+ * @returns Timeline Component for StudPro 5.0
+ *
+ */
+
+//TODO Going forward use the same library & add a page with iteration under Timelines.
+//TODO Check the possibility of making this Dynamic via Firebase
+
 const TimelineComponent = () => {
     const [toggler, setToggler] = useState(false);
     const [URLList, setURLList] = useState([])

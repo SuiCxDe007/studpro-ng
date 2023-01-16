@@ -33,6 +33,12 @@ import {
 import studProProgramImg from '../../../media/img/studpro-programs.webp';
 import {useNavigate} from "react-router-dom";
 
+/**
+ *
+ * @returns Landing page static content
+ *
+ */
+
 export default function WhatIs() {
     const navigate = useNavigate();
 
@@ -43,7 +49,7 @@ export default function WhatIs() {
                 <MDBRow style={{marginTop: "0px"}} className='row-cols-1 row-cols-md-2 g-2'>
                     <MDBCol>
                         <MDBCard>
-                            <MDBCardImage height="330px" overlay src={require('../../../media/img/overview-img.png')}
+                            <MDBCardImage overlay src={require('../../../media/img/overview-img.png')}
                                           alt='...'/>
                             <MDBCardOverlay>
                             </MDBCardOverlay>

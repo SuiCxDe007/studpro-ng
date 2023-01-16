@@ -21,6 +21,10 @@ import './sponsorship-component-styles.css'
 import {MDBCard, MDBCardBody, MDBCardHeader, MDBRow, MDBTypography} from 'mdb-react-ui-kit';
 import UISkeleton from "../Utils/Skeleton";
 
+/**
+ *
+ * @returns parent component for sponsorship cards
+ */
 
 const SponsorshipComponent = (props) => {
     const [sponsordataState, setSponsorData] = useState('');

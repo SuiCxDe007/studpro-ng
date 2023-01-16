@@ -27,6 +27,12 @@ import {db} from "../../../firebase";
 import {Alert, AlertTitle, FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import {ToastContainer} from "react-toastify";
 
+/**
+ *
+ * @returns handles all Form in ADMIN sponsor settings component
+ *
+ */
+
 const SponsorSettingsComponent = () => {
     const [logoURL, setLogoURL] = useState('');
     const [showAlert, setShowAlert] = useState(false);

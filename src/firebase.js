@@ -18,6 +18,8 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 
+//TODO Move firebase data to a secure key store
+
 const firebaseConfig = {
     apiKey: "AIzaSyDoHkGDYam56m5AogIxbmzpHCtNr57TzaI",
     authDomain: "website-3feaf.firebaseapp.com",
