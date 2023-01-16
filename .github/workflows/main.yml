@@ -20,7 +20,7 @@ jobs:
       - name: Generate build
         run: npm run build
       - name: files
-        run: ls -a
+        run: ls -a && cd build && ls -a
         env:
           CI: false
       - uses: actions/checkout@v2
@@ -30,7 +30,7 @@ jobs:
       - name: Deploy to Netlify [SuiCxDe]
         uses: nwtgck/actions-netlify@v1.2
         with:
-          publish-dir: '.build'
+          publish-dir: 'build'
           production-branch: master
           github-token: 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
           deploy-message: "Deploy from GitHub Actions"
