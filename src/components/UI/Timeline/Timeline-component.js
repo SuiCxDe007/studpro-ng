@@ -937,7 +937,7 @@ const TimelineComponent = () => {
                                 <b>All our sessions & workshops have been preparing our candidates to face nail their
                                     dream job with a industry giant. We are here to provide you with a chance to get you
                                     interviews by leading companies in sri lanka!</b><br/>
-                                <Button style={{marginTop:"10px", backgroundColor:"#F38021FF"}} variant="contained" startIcon={<Photo />}>
+                                <Button onClick={() => navigate("gallery")} style={{marginTop:"10px", backgroundColor:"#F38021FF"}} variant="contained" startIcon={<Photo />}>
                                     Gallery
                                 </Button>
                             </p>
