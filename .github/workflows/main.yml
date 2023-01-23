@@ -31,12 +31,12 @@ jobs:
         with:
           publish-dir: 'build'
           production-branch: master
-          github-token: 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
+          github-token: ${{ secrets.TOKEN_GITHUB }}
           deploy-message: "Deploy from GitHub Actions"
           enable-pull-request-comment: false
           enable-commit-comment: true
           overwrites-pull-request-comment: true
         env:
-          NETLIFY_AUTH_TOKEN: QIxDjRWnlt92nVpe3NE-NXC7H5ysaQQXsWU1yKrgxQY
-          NETLIFY_SITE_ID: 802eff60-9471-4025-a1a6-e74c173e81e2
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 1
