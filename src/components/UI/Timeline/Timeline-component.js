@@ -18,6 +18,7 @@ import {VerticalTimeline, VerticalTimelineElement} from 'react-vertical-timeline
 import 'react-vertical-timeline-component/style.min.css';
 import "./Timelines-styles.css"
 import {
+    MDBBtn,
     MDBCard,
     MDBCardBody,
     MDBCardHeader,
@@ -50,6 +51,8 @@ import {BiMicrochip} from "react-icons/bi";
 import {GiComb, GiIdea} from "react-icons/gi";
 import Button from "@mui/material/Button";
 import FsLightbox from "fslightbox-react";
+import {useNavigate} from "react-router-dom";
+import GalleryPage from "../../../pages/Gallery-Page";
 
 /**
  *
@@ -63,7 +66,7 @@ import FsLightbox from "fslightbox-react";
 const TimelineComponent = () => {
     const [toggler, setToggler] = useState(false);
     const [URLList, setURLList] = useState([])
-
+    const navigate = useNavigate();
     const openLightBox = (urls)=>{
         setURLList(urls);
         setToggler(!toggler)
@@ -937,9 +940,10 @@ const TimelineComponent = () => {
                                 <b>All our sessions & workshops have been preparing our candidates to face nail their
                                     dream job with a industry giant. We are here to provide you with a chance to get you
                                     interviews by leading companies in sri lanka!</b><br/>
-                                <Button style={{marginTop:"10px", backgroundColor:"#F38021FF"}} variant="contained" startIcon={<Photo />}>
+                                <Button onClick={() => {navigate('/gallery')}} style={{marginTop:"10px", backgroundColor:"#F38021FF"}} variant="contained" startIcon={<Photo />}>
                                     Gallery
                                 </Button>
+
                             </p>
                             <MDBRow className='row-cols-1 row-cols-md-3 g-3 d-flex justify-content-center text-center'
                                     style={{paddingLeft: "40px", paddingRight: "40px", marginTop: "10px"}}>
