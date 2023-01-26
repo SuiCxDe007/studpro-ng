@@ -45,6 +45,10 @@ You may also see any lint errors in the console.
         
 ```
 
+## Development Stratergy
+
+Get a Fork from this repository and continue development in a new branch under `feature/featureName` . Then raise a PR to either `master` or `PROD` branch. 
+
 ## CI/CD
 
 Application can be deployed to netlify via github actions & direct builds on netlify. If required to deploy to netlify push changes into `master` branch. 
