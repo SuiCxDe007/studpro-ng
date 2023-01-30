@@ -1,42 +1,41 @@
-# .github/workflows/netlify.yml
-name: Netlify Build
+name: Firebase
 on:
   push:
-  pull_request:
+    branches:
+      - master
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    name: Build
+    runs-on: ubuntu-latest
     steps:
-      - name: Clone repository
-        uses: actions/checkout@v2
-      - name: Use Node.js 16.14.0
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16.14.0
-      - name: Install dependencies
+      - name: Checkout Repo
+        uses: actions/checkout@v2.3.2
+      - name: Install Dependencies
         run: npm install
+      - name: Build
         env:
           CI: false
-      - name: Generate build
         run: npm run build
-      - name: files
-        run: ls -a && cd build && ls -a
-        env:
-          CI: false
-
-      # ( Build to ./dist or other directory... )
-
-      - name: Deploy to Netlify [SuiCxDe]
-        uses: nwtgck/actions-netlify@v1.2
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@v2
         with:
-          publish-dir: 'build'
-          production-branch: master
-          github-token: ${{ secrets.TOKEN_GITHUB }}
-          deploy-message: "Deploy from GitHub Actions"
-          enable-pull-request-comment: false
-          enable-commit-comment: true
-          overwrites-pull-request-comment: true
+          name: build
+          path: build
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2.3.2
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
         env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        timeout-minutes: 1
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
