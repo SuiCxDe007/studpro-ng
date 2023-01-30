@@ -42,7 +42,11 @@ You may also see any lint errors in the console.
         
 ```
 
-### CI/CD
+## Development Stratergy
+
+Get a Fork from this repository and continue development in a new branch under `feature/featureName` . Then raise a PR to either `master` or `PROD` branch. 
+
+## CI/CD
 
 Application can be deployed to firebase via github actions. For `PROD` deployments push changes into `master` branch. 
 Application is hosted via Firebase Hosting.
@@ -50,6 +54,7 @@ Application is hosted via Firebase Hosting.
 
 
 ###Improvements
+
 
 Required TODOs & improvements are noted under TODOs in Code. 
 
