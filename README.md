@@ -1,7 +1,4 @@
-#  StudPro-NG
-[![Netlify Github Action Build](https://github.com/SuiCxDe007/studpro-ng/actions/workflows/main.yml/badge.svg)](https://github.com/SuiCxDe007/studpro-ng/actions/workflows/main.yml)
- [![Netlify Status](https://api.netlify.com/api/v1/badges/802eff60-9471-4025-a1a6-e74c173e81e2/deploy-status)](https://app.netlify.com/sites/stirring-clafoutis-fbd81d/deploys)
-[![Firebase](https://github.com/SuiCxDe007/studpro-ng/actions/workflows/firebase.workflow.yml/badge.svg?branch=prod)](https://github.com/SuiCxDe007/studpro-ng/actions/workflows/firebase.workflow.yml)
+#  StudPro-NG  [![Firebase](https://github.com/SuiCxDe007/studpro-ng/actions/workflows/firebase.workflow.yml/badge.svg?branch=prod)](https://github.com/SuiCxDe007/studpro-ng/actions/workflows/firebase.workflow.yml)
 ###
 Install libraries with `npm install`
 ## Available Scripts
@@ -51,13 +48,13 @@ Get a Fork from this repository and continue development in a new branch under `
 
 ## CI/CD
 
-Application can be deployed to netlify via github actions & direct builds on netlify. If required to deploy to netlify push changes into `master` branch. 
-For firebase hosting deployments, push to `prod` branch. 
+Application can be deployed to firebase via github actions. For `PROD` deployments push changes into `master` branch. 
+Application is hosted via Firebase Hosting.
 
 
-### 
 
-## Improvements
+###Improvements
+
 
 Required TODOs & improvements are noted under TODOs in Code. 
 
