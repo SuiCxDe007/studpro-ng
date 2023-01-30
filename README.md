@@ -1,4 +1,4 @@
-#  StudPro-NG  [![Firebase](https://github.com/SuiCxDe007/studpro-ng/actions/workflows/firebase.workflow.yml/badge.svg?branch=prod)](https://github.com/SuiCxDe007/studpro-ng/actions/workflows/firebase.workflow.yml)
+#  StudPro-NG  [![Firebase](https://github.com/SuiCxDe007/studpro-ng/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/SuiCxDe007/studpro-ng/actions/workflows/main.yml)
 ###
 Install libraries with `npm install`
 ## Available Scripts
