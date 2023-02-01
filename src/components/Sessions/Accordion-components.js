@@ -19,7 +19,7 @@ import {collection, deleteDoc, doc, getDocs} from "firebase/firestore";
 import {db} from "../../firebase";
 import VideosComponent from "./Videos-component";
 import {toast, ToastContainer} from "react-toastify";
-import UISkeleton, {AccordionSkeleton} from "../Utils/Skeleton";
+import {AccordionSkeleton} from "../Utils/Skeleton";
 
 /**
  *

@@ -19,7 +19,7 @@ import {useFormik} from "formik";
 import {addDoc, collection} from "firebase/firestore";
 import {db} from "../../../firebase";
 import {toast, ToastContainer} from "react-toastify";
-import {MDBBtn, MDBCard, MDBCardBody, MDBCol, MDBFile, MDBInput, MDBRow, MDBSpinner} from "mdb-react-ui-kit";
+import {MDBBtn, MDBCard, MDBCardBody, MDBCol, MDBFile, MDBRow, MDBSpinner} from "mdb-react-ui-kit";
 import GalleryCard from "./GalleryCard-component";
 
 /**

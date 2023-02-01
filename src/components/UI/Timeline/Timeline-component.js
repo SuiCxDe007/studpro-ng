@@ -18,7 +18,6 @@ import {VerticalTimeline, VerticalTimelineElement} from 'react-vertical-timeline
 import 'react-vertical-timeline-component/style.min.css';
 import "./Timelines-styles.css"
 import {
-    MDBBtn,
     MDBCard,
     MDBCardBody,
     MDBCardHeader,
@@ -41,7 +40,7 @@ import {
     People,
     PeopleAltTwoTone,
     PeopleTwoTone,
-    Person4, Photo, PhotoAlbum,
+    Person4, Photo,
     QuestionAnswer,
     Scale,
     Star,
@@ -52,7 +51,6 @@ import {GiComb, GiIdea} from "react-icons/gi";
 import Button from "@mui/material/Button";
 import FsLightbox from "fslightbox-react";
 import {useNavigate} from "react-router-dom";
-import GalleryPage from "../../../pages/Gallery-Page";
 
 /**
  *

@@ -15,12 +15,9 @@
 
 import React from 'react';
 import {
-    MDBAccordion,
-    MDBAccordionItem,
     MDBCard,
     MDBCardBody,
     MDBCardHeader,
-    MDBIcon,
     MDBTypography
 } from "mdb-react-ui-kit";
 import image from '../../media/img/studpro-programs.webp'
@@ -38,7 +35,7 @@ const SessionsComponent  = (props) => {
         <div style={{marginLeft:"50px",marginTop:"20px", marginRight:"50px"}} className='Sessions'>
 
             <MDBCard style={{backgroundColor: "#dfe5fd"}}>
-                <img src={image}/>
+                <img alt="session_img" src={image}/>
                 <MDBCardHeader className="card-title-text">Session Gallery</MDBCardHeader>
                 <MDBCardBody>
                     <MDBTypography blockquote className='mb-0 ov-desc'>

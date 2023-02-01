@@ -19,9 +19,16 @@ import WhatIs from "../components/UI/WhatIs/WhatIs-component";
 import SponsorshipComponent from "../components/Sponsorship/Sponsorship-component";
 import FooterComponent from "../components/UI/Footer/footer-component";
 import SliderComponent from "../components/Admin/Dashboard/Slider-component";
+import {Helmet} from "react-helmet";
 
 export default function LandingPage() {
     return (<>
+        <Helmet>
+            <title>IEEE StudPro - Step into your Career</title>‍
+            <meta name="description" content="Career portal of IEEE StudPro by IEEE YPSL" />
+            <meta property="og:site_name" content="IEEE StudPro" />
+            <meta property="og:locale" content="en_US" />
+        </Helmet>
         <Navbar/>
         <SliderComponent/>
         <WhatIs/>

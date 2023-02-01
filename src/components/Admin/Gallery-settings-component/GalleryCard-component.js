@@ -14,7 +14,7 @@
  */
 
 import React, {useEffect, useState} from 'react';
-import {collection, getDocs, onSnapshot,doc} from "firebase/firestore";
+import {collection, onSnapshot} from "firebase/firestore";
 import {db} from "../../../firebase";
 import {MDBRow} from "mdb-react-ui-kit";
 import UISkeleton from "../../Utils/Skeleton";
